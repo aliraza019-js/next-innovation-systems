@@ -1,0 +1,11 @@
+<svg width="180" height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Current icon: circle + rotated rect -->
+  <g transform="translate(2, 2) scale(0.0933)">
+    <circle cx="70" cy="70" r="45" fill="#0A5F44" />
+    <rect x="150" y="40" width="70" height="190" rx="35" ry="35" fill="#0A5F44" transform="rotate(25 185 135)" />
+  </g>
+  <!-- Next Innovation text -->
+  <text x="34" y="16" font-family="Arial, sans-serif" font-size="14" fill="#064e3b" font-weight="400">Next Innovation</text>
+  <!-- SYSTEMS text -->
+  <text x="34" y="24" font-family="Arial, sans-serif" font-size="8" fill="#64748b" letter-spacing="1">SYSTEMS</text>
+</svg>
