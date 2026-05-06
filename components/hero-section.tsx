@@ -1,5 +1,23 @@
-import { Button } from "@/components/ui/button"
-import RotatingText from "./RotatingText"
+import { Button } from "@/components/ui/button";
+import RotatingText from "./RotatingText";
+import {
+  Building2,
+  Landmark,
+  ShoppingBag,
+  Factory,
+  ShieldCheck,
+  Zap,
+} from "lucide-react"; // Placeholder icons
+import "./hero-section.css";
+
+const companies = [
+  { name: "Swagify", icon: <Zap size={20} /> },
+  { name: "CardEye", icon: <ShieldCheck size={20} /> },
+  { name: "EolasBio", icon: <Zap size={20} /> },
+  { name: "Regional Bank", icon: <Landmark size={20} /> },
+  { name: "Retail Chain", icon: <ShoppingBag size={20} /> },
+  { name: "Manufacturing Leader", icon: <Factory size={20} /> },
+];
 
 const ArrowRight = () => (
   <svg
@@ -8,9 +26,14 @@ const ArrowRight = () => (
     stroke="currentColor"
     viewBox="0 0 24 24"
   >
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M9 5l7 7-7 7"
+    />
   </svg>
-)
+);
 
 const Play = () => (
   <svg
@@ -26,121 +49,130 @@ const Play = () => (
       d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h1m4 0h1m-6-8h8a2 2 0 012 2v8a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2z"
     />
   </svg>
-)
+);
 
 export function HeroSection() {
+  // Helper component for the scrolling list to avoid repetition
+  const CompanyList = () => (
+    <div className="flex items-center gap-12 whitespace-nowrap">
+      {companies.map((company, index) => (
+        <div
+          key={index}
+          className="flex items-center gap-2 text-white/60 hover:text-emerald-400 transition-all duration-50 cursor-default group/logo"
+        >
+          <div className="grayscale group-hover/logo:grayscale-0 transition-all duration-50">
+            {company.icon}
+          </div>
+          <span className="text-base sm:text-lg font-semibold tracking-tight">
+            {company.name}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-20 relative">
       <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-hero">
         {/* Badge */}
-        <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8 mt-12 animate-fade-in-badge">
-          <span className="w-2 h-2 bg-white/60 rounded-full mr-2 animate-pulse"></span>
-          Transforming Businesses Since 2020
+        <div className="inline-block mb-8 mt-12 animate-fade-in-badge">
+          <div className="badge-wrapper">
+          
+            <div className="snake-border-layer"></div>
+
+           
+            <div className="badge-content-glass px-4 py-2 flex items-center shadow-[0_0_20px_rgba(0,0,0,0.2)]">
+              <span className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse shrink-0"></span>
+              <span className="text-white text-sm font-medium tracking-wide">
+                Transforming Businesses Since 2020
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-balance mb-6 animate-fade-in-heading">
-          <span className="text-foreground">Elevate your</span>
-          <br />
-          <span className="inline-flex items-center justify-center flex-wrap gap-2 mt-4 sm:mt-6 md:mt-8">
-            <span className="text-foreground">business</span>
-            <RotatingText
-              texts={["Business Growth", "Digital Transformation", "Cloud Scale", "AI Innovation", "Operational Excellence"]}
-              mainClassName="px-2 sm:px-2 md:px-3 bg-white text-black overflow-hidden py-1 sm:py-1 md:py-2 justify-center rounded-lg shadow-lg"
-              staggerFrom={"last"}
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "-120%" }}
-              staggerDuration={0.025}
-              splitLevelClassName="overflow-hidden pb-1 sm:pb-1 md:pb-1"
-              transition={{ type: "spring", damping: 30, stiffness: 400 }}
-              rotationInterval={2000}
-            />
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-8 flex flex-col items-center gap-4 w-full">
+          <span className="text-white drop-shadow-md tracking-tight">
+            Elevate your business
           </span>
+          <div className="relative w-full max-w-[320px] sm:max-w-md md:max-w-xl mx-auto group mt-2">
+            <div className="absolute inset-0 bg-[#00ff88]/20 blur-xl rounded-2xl group-hover:bg-[#00ff88]/40 transition-all duration-700"></div>
+            <div className="relative z-10 bg-white rounded-2xl shadow-2xl border border-white overflow-hidden backdrop-blur-sm">
+              <RotatingText
+                texts={[
+                  "Business Growth",
+                  "Digital Transformation",
+                  "Cloud Scale",
+                  "AI Innovation",
+                  "Operational Excellence",
+                ]}
+                mainClassName="w-full flex items-center justify-center text-black py-4 sm:py-6 text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight"
+                staggerFrom={"last"}
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                exit={{ y: "-120%" }}
+                staggerDuration={0.025}
+                rotationInterval={2500}
+              />
+            </div>
+          </div>
         </h1>
 
-        {/* Subheading */}
-        <p className="text-base sm:text-xl md:text-2xl text-white text-balance max-w-sm sm:max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0 animate-fade-in-subheading font-light">
-          We deliver cutting-edge technology solutions that drive innovation, enhance efficiency, and accelerate your
-          digital transformation journey.
+        <p className="text-base sm:text-xl md:text-2xl text-white max-w-3xl mx-auto mb-12 font-light">
+          We deliver cutting-edge technology solutions that drive innovation and
+          accelerate your digital journey.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 sm:mb-16 animate-fade-in-buttons">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-buttons">
           <Button
             size="lg"
-            className="bg-white text-black rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden"
+            className="bg-white text-black rounded-full px-8 py-4 text-lg font-medium hover:bg-white transition-all group"
           >
-            Start Your Project
-            <ArrowRight />
-          </Button>
+            <div className="flex justify-center align-items-center items-center"
+            >
 
+                 Start Your Project <ArrowRight />
+            </div>
+
+         
+          </Button>
           <Button
-            variant="outline"
             size="lg"
-            className="rounded-full px-8 py-4 text-lg font-medium border-border hover:bg-accent transition-all duration-200 hover:scale-105 group bg-transparent cursor-pointer"
+            className="rounded-full px-8 py-4 text-lg font-medium border border-white/20 text-white bg-transparent hover:bg-emerald-600 hover:border-emerald-600 transition-all hover:scale-105 group"
           >
-            <Play />
-            View Our Work
+           <div className="flex justify-center align-items-center items-center">
+             <Play /> View Our Work
+           </div>
           </Button>
         </div>
 
-        {/* Trust Indicators */}
-        <div className="text-center px-4 hidden sm:block overflow-hidden animate-fade-in-trust">
-          <p className="text-sm text-white mb-6">Trusted by innovative companies worldwide</p>
-          <div className="relative overflow-hidden w-full max-w-4xl mx-auto">
-            <div className="flex items-center gap-8 opacity-60 hover:opacity-80 transition-all duration-500 animate-slide-left">
-              <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="text-base sm:text-lg font-semibold">Swagify</div>
-                <div className="text-base sm:text-lg font-semibold">CardEye</div>
-                <div className="text-base sm:text-lg font-semibold">EolasBio</div>
-                <div className="text-base sm:text-lg font-semibold">Regional Bank</div>
-                <div className="text-base sm:text-lg font-semibold">Retail Chain</div>
-                <div className="text-base sm:text-lg font-semibold">Manufacturing Leader</div>
-              </div>
-              {/* Duplicate for seamless loop */}
-              <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="text-base sm:text-lg font-semibold">Swagify</div>
-                <div className="text-base sm:text-lg font-semibold">CardEye</div>
-                <div className="text-base sm:text-lg font-semibold">EolasBio</div>
-                <div className="text-base sm:text-lg font-semibold">Regional Bank</div>
-                <div className="text-base sm:text-lg font-semibold">Retail Chain</div>
-                <div className="text-base sm:text-lg font-semibold">Manufacturing Leader</div>
-              </div>
+        {/* Trust Indicators (Desktop) */}
+        <div className="text-center px-4 hidden sm:block overflow-hidden">
+          <p className="text-md text-white/50 mb-8 font-medium uppercase tracking-widest text-xs">
+            Trusted by innovative companies worldwide
+          </p>
+          <div className="relative w-full max-w-5xl mx-auto overflow-hidden">
+            <div className="flex gap-12 animate-slide-left hover:[animation-play-state:paused]">
+              <CompanyList />
+              <CompanyList /> {/* Loop repetition */}
             </div>
           </div>
         </div>
 
         {/* Mobile Trust Indicators */}
-        <div className="text-center px-4 mb-8 sm:hidden overflow-hidden animate-fade-in-trust">
-          <p className="text-sm text-white mb-6">Trusted by innovative companies worldwide</p>
-          <div className="relative overflow-hidden w-full max-w-sm mx-auto">
-            {/* Left blur fade */}
-            <div className="absolute left-0 top-0 w-8 h-full bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
-            {/* Right blur fade */}
-            <div className="absolute right-0 top-0 w-8 h-full bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
-            <div className="flex items-center gap-6 opacity-60 animate-slide-left-mobile">
-              <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="text-sm font-semibold">Swagify</div>
-                <div className="text-sm font-semibold">CardEye</div>
-                <div className="text-sm font-semibold">EolasBio</div>
-                <div className="text-sm font-semibold">Regional Bank</div>
-                <div className="text-sm font-semibold">Retail Chain</div>
-                <div className="text-sm font-semibold">Manufacturing Leader</div>
-              </div>
-              {/* Duplicate for seamless loop */}
-              <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="text-sm font-semibold">Swagify</div>
-                <div className="text-sm font-semibold">CardEye</div>
-                <div className="text-sm font-semibold">EolasBio</div>
-                <div className="text-sm font-semibold">Regional Bank</div>
-                <div className="text-sm font-semibold">Retail Chain</div>
-                <div className="text-sm font-semibold">Manufacturing Leader</div>
-              </div>
+        <div className="text-center px-4 mb-8 sm:hidden overflow-hidden">
+          <p className="text-xs text-white/50 mb-6 uppercase tracking-widest">
+            Trusted by companies
+          </p>
+          <div className="relative overflow-hidden w-full">
+            <div className="flex gap-8 animate-slide-left-mobile">
+              <CompanyList />
+              <CompanyList />
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

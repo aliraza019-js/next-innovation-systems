@@ -1,131 +1,185 @@
 "use client"
-import type React from "react"
-import type { ComponentProps, ReactNode } from "react"
-import { motion, useReducedMotion } from "framer-motion"
-import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from "lucide-react"
-import Image from "next/image"
-
-interface FooterLink {
-  title: string
-  href: string
-  icon?: React.ComponentType<{ className?: string }>
-}
-
-interface FooterSection {
-  label: string
-  links: FooterLink[]
-}
-
-const footerLinks: FooterSection[] = [
-  {
-    label: "Services",
-    links: [
-      { title: "Custom Software Development", href: "/#features" },
-      { title: "Cloud Solutions", href: "/#features" },
-      { title: "AI & Machine Learning", href: "/#features" },
-      { title: "DevOps & SecOps", href: "/#features" },
-    ],
-  },
-  {
-    label: "Company",
-    links: [
-      { title: "About NIS", href: "/#testimonials" },
-      { title: "Contact", href: "/#contact" },
-      { title: "Privacy Policy", href: "/privacy" },
-      { title: "Terms of Service", href: "/terms" },
-    ],
-  },
-  {
-    label: "Projects",
-    links: [
-      { title: "Project Showcase", href: "/#case-studies" },
-      { title: "Case Studies", href: "/case-studies" },
-      { title: "Consultation", href: "/#contact" },
-      { title: "Business Hours", href: "/#contact" },
-    ],
-  },
-  {
-    label: "Social Links",
-    links: [
-      { title: "Facebook", href: "#", icon: FacebookIcon },
-      { title: "Instagram", href: "#", icon: InstagramIcon },
-      { title: "Youtube", href: "#", icon: YoutubeIcon },
-      { title: "LinkedIn", href: "#", icon: LinkedinIcon },
-    ],
-  },
-]
+import React, { useState } from "react"
+import { motion } from "framer-motion"
+import { 
+  FacebookIcon, 
+  InstagramIcon, 
+  LinkedinIcon, 
+  YoutubeIcon, 
+  Mail, 
+  MapPin, 
+  Phone, 
+  ChevronRight,
+  Loader2,
+  CheckCircle2
+} from "lucide-react"
 
 export function Footer() {
-  return (
-    <footer className="md:rounded-t-6xl relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center rounded-t-4xl border-t bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 py-12 lg:py-16">
-      <div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
+  const currentYear = new Date().getFullYear()
+  const [email, setEmail] = useState("")
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const [errorMsg, setErrorMsg] = useState("")
 
-      <div className="grid w-full gap-8 xl:grid-cols-3 xl:gap-8">
-        <AnimatedContainer className="space-y-4">
-          <Image src="/nis-logo-icon.png" alt="NIS Logo" width={64} height={64} className="size-16" />
-          <div className="text-muted-foreground mt-8 text-sm md:mt-0 md:block hidden">
-            <p>© {new Date().getFullYear()} Next Innovation Systems. All rights reserved.</p>
-          </div>
-        </AnimatedContainer>
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!email) return
 
-        <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4 xl:col-span-2 xl:mt-0">
-          {footerLinks.map((section, index) => (
-            <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
-              <div className="mb-10 md:mb-0">
-                <h3 className="text-xs">{section.label}</h3>
-                <ul className="text-muted-foreground mt-4 space-y-2 text-sm">
-                  {section.links.map((link) => (
-                    <li key={link.title}>
-                      <a
-                        href={link.href}
-                        className="hover:text-foreground inline-flex items-center transition-all duration-300"
-                      >
-                        {link.icon && <link.icon className="me-1 size-4" />}
-                        {link.title}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </AnimatedContainer>
-          ))}
-        </div>
-      </div>
+    setStatus("loading")
+    setErrorMsg("")
 
-      <div className="md:hidden mt-8 text-center space-y-2">
-        <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} Next Innovation Systems. All rights reserved.</p>
-        <p className="text-muted-foreground text-xs">Professional IT Solutions</p>
-      </div>
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, type: "query" }),
+      })
 
-      <div className="hidden md:block mt-8 pt-6 border-t border-foreground/10 w-full">
-        <p className="text-muted-foreground text-xs text-center">Professional IT Solutions</p>
-      </div>
-    </footer>
-  )
-}
+      const data = await res.json()
 
-type ViewAnimationProps = {
-  delay?: number
-  className?: ComponentProps<typeof motion.div>["className"]
-  children: ReactNode
-}
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong")
+      }
 
-function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationProps) {
-  const shouldReduceMotion = useReducedMotion()
-
-  if (shouldReduceMotion) {
-    return children
+      setStatus("success")
+      setEmail("")
+      setTimeout(() => setStatus("idle"), 4000)
+    } catch (err: any) {
+      setStatus("error")
+      setErrorMsg(err.message || "Failed to send")
+      setTimeout(() => setStatus("idle"), 4000)
+    }
   }
 
   return (
-    <motion.div
-      initial={{ filter: "blur(4px)", translateY: -8, opacity: 0 }}
-      whileInView={{ filter: "blur(0px)", translateY: 0, opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ delay, duration: 0.8 }}
-      className={className}
-    >
-      {children}
-    </motion.div>
+    <footer className="w-full bg-[#0a0a0a] text-white pt-20 pb-10 px-6 border-t border-white/5">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+          
+          <div className="lg:col-span-5 space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl font-bold tracking-tight mb-6">
+                Next Innovation <span className="text-emerald-500">Systems</span>
+              </h2>
+         
+              <form onSubmit={handleSubmit} className="relative max-w-md group">
+                <div className="flex items-center bg-[#141414] border border-white/10 rounded-2xl overflow-hidden focus-within:border-emerald-500/50 transition-all duration-300 shadow-2xl">
+                  <div className="pl-4 text-white/40">
+                    <Mail size={20} />
+                  </div>
+                  <input 
+                    type="email" 
+                    placeholder="Email Address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    disabled={status === "loading"}
+                    className="w-full bg-transparent py-4 px-3 outline-none text-sm placeholder:text-white/20 disabled:opacity-50"
+                  />
+                  <button 
+                    type="submit"
+                    disabled={status === "loading" || !email}
+                    className="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-4 font-bold text-sm flex items-center gap-2 transition-colors shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {status === "loading" ? (
+                      <Loader2 size={18} className="animate-spin" />
+                    ) : status === "success" ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <>
+                        For Query
+                        <ChevronRight size={18} />
+                      </>
+                    )}
+                  </button>
+                </div>
+                {status === "success" && (
+                  <p className="text-emerald-400 text-xs mt-2 ml-1">Query sent successfully! We'll get back to you soon.</p>
+                )}
+                {status === "error" && (
+                  <p className="text-red-400 text-xs mt-2 ml-1">{errorMsg}</p>
+                )}
+              </form>
+            </motion.div>
+          </div>
+
+          {/* Middle: Quick Links */}
+          <div className="lg:col-span-3">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
+              <ul className="flex flex-wrap gap-x-6 gap-y-3 text-white/60">
+                {["Services", "Projects", "About NIS", "Contact", "Privacy"].map((link) => (
+                  <li key={link}>
+                    <a href="#" className="hover:text-emerald-500 transition-colors text-sm">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* Right Side: Address & Contact */}
+          <div className="lg:col-span-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="space-y-5"
+            >
+              <h3 className="text-lg font-semibold mb-6">Address</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 text-white/60">
+                  <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500">
+                    <MapPin size={20} />
+                  </div>
+                  <p className="text-sm pt-1 leading-relaxed">Lahore, Punjab Pakistan</p>
+                </div>
+                <div className="flex items-center gap-4 text-white/60">
+                  <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500">
+                    <Mail size={20} />
+                  </div>
+                  <p className="text-sm">contact@nextinnovation.systems</p>
+                </div>
+                <div className="flex items-center gap-4 text-white/60">
+                  <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500">
+                    <Phone size={20} />
+                  </div>
+                  <p className="text-sm">+92 (300) 0000000</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-white/40 text-xs tracking-widest uppercase">
+            © {currentYear} Next Innovation Systems. All rights reserved.
+          </p>
+          
+          <div className="flex items-center gap-6">
+            {[FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon].map((Icon, i) => (
+              <a key={i} href="#" className="text-white/40 hover:text-emerald-500 transition-colors">
+                <Icon size={20} />
+              </a>
+            ))}
+          </div>
+
+          <p className="text-white/40 text-xs font-medium uppercase tracking-[0.2em]">
+            Professional IT Solutions
+          </p>
+        </div>
+      </div>
+    </footer>
   )
 }

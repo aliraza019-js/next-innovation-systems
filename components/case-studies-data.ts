@@ -1,3 +1,8 @@
+export type CaseStudyStat = {
+  value: string
+  label: string
+}
+
 export type CaseStudy = {
   slug: string
   title: string
@@ -10,6 +15,7 @@ export type CaseStudy = {
   solution: string[]
   outcomes: string[]
   technologies: string[]
+  stats: CaseStudyStat[]
 }
 
 export const caseStudies: CaseStudy[] = [
@@ -19,7 +25,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Web Development / E-commerce",
     client: "Swag Management Platform",
     timeframe: "2024",
-    image: "/Projects/boxes-by-swagify.jpg",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop&q=80",
     summary:
       "A global swag gifting and management platform enabling teams to design, store, and ship custom branded swag boxes.",
     challenge:
@@ -35,6 +41,12 @@ export const caseStudies: CaseStudy[] = [
       "Improved operational visibility across design, storage, and shipping stages.",
     ],
     technologies: ["Vue.js", "Laravel", "MySQL"],
+    stats: [
+      { value: "Global", label: "Shipping" },
+      { value: "500+", label: "SKU Support" },
+      { value: "3x", label: "Faster Launches" },
+      { value: "Multi", label: "Warehouse" },
+    ],
   },
   {
     slug: "cardeye-payment-gateway",
@@ -42,7 +54,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Web Development",
     client: "CardEye",
     timeframe: "March 2024",
-    image: "/Projects/cardeye-payment-gateway.jpg",
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop&q=80",
     summary:
       "A secure self-hosted payment gateway with intelligent routing and fraud controls to improve acceptance rates and reduce chargebacks.",
     challenge:
@@ -58,6 +70,12 @@ export const caseStudies: CaseStudy[] = [
       "Enterprise-ready foundation for secure and scalable payment operations.",
     ],
     technologies: ["Vue.js", "Laravel", "Vuetify", "AWS"],
+    stats: [
+      { value: "99.9%", label: "Uptime" },
+      { value: "<200ms", label: "Latency" },
+      { value: "PCI", label: "Compliant" },
+      { value: "Smart", label: "Routing" },
+    ],
   },
   {
     slug: "nft-builder",
@@ -65,7 +83,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Web Development",
     client: "Digital Product Studio",
     timeframe: "November 2024",
-    image: "/Projects/3d-nft-builder.jpg",
+    image: "https://images.unsplash.com/photo-1639762681057-408e52192e55?w=800&h=500&fit=crop&q=80",
     summary:
       "A 3D avatar customization platform with real-time rendering, marketplace capabilities, and interoperable digital ownership features.",
     challenge:
@@ -81,6 +99,12 @@ export const caseStudies: CaseStudy[] = [
       "Improved product differentiation through advanced interactive UX.",
     ],
     technologies: ["Next.js", "Three.js", "Go"],
+    stats: [
+      { value: "60fps", label: "Rendering" },
+      { value: "1000+", label: "Asset Combos" },
+      { value: "Real-time", label: "3D Preview" },
+      { value: "Web3", label: "Integrated" },
+    ],
   },
   {
     slug: "eolasbio-corporate-site",
@@ -88,7 +112,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Corporate Website / Life Sciences",
     client: "EolasBio",
     timeframe: "2024",
-    image: "/Projects/eolasbio-corporate-site.jpg",
+    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&h=500&fit=crop&q=80",
     summary:
       "A professional life sciences website that presents complex services with clear structure for partners, researchers, and pharma stakeholders.",
     challenge:
@@ -104,5 +128,11 @@ export const caseStudies: CaseStudy[] = [
       "Elevated digital presence for enterprise and partnership conversations.",
     ],
     technologies: ["WordPress", "PHP", "MySQL"],
+    stats: [
+      { value: "40%", label: "More Leads" },
+      { value: "SEO", label: "Optimized" },
+      { value: "Multi", label: "Audience" },
+      { value: "CMS", label: "Powered" },
+    ],
   },
 ]
