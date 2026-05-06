@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import { NisLogoDark } from "@/components/nis-logo-dark";
 
 const navigation = [
   { name: "Services", href: "#features" },
@@ -88,18 +88,10 @@ export function GlassmorphismNav() {
          
             <Link
               href="/"
+              aria-label="Next Innovation Systems home"
               className="flex items-center gap-3 group transition-transform duration-200"
             >
-              {/* Yahan h-8 w-8 ko barha kar h-12 w-32 ya jo aapko suite kare wo kar dein */}
-              <div className="h-8 w-32 md:h-10 md:w-48 shrink-0 relative">
-                <Image
-                  src="/nis-logo-large.png"
-                  alt="NIS Logo"
-                  fill 
-                  className="object-contain object-left" // object-left se logo left side par align rahega
-                  priority
-                />
-              </div>
+              <NisLogoDark className="h-8 w-auto md:h-10 shrink-0 block" />
             </Link>
 
             {/* Desktop Navigation Links */}

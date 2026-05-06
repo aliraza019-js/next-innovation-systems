@@ -1,6 +1,8 @@
 "use client"
 import React, { useState } from "react"
+import Link from "next/link"
 import { motion } from "framer-motion"
+import { NisLogoDark } from "@/components/nis-logo-dark"
 import { 
   FacebookIcon, 
   InstagramIcon, 
@@ -62,9 +64,13 @@ export function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold tracking-tight mb-6">
-                Next Innovation <span className="text-emerald-500">Systems</span>
-              </h2>
+              <Link
+                href="/"
+                aria-label="Next Innovation Systems home"
+                className="inline-block mb-6"
+              >
+                <NisLogoDark className="h-9 w-auto md:h-10 block" />
+              </Link>
          
               <form onSubmit={handleSubmit} className="relative max-w-md group">
                 <div className="flex items-center bg-[#141414] border border-white/10 rounded-2xl overflow-hidden focus-within:border-emerald-500/50 transition-all duration-300 shadow-2xl">
