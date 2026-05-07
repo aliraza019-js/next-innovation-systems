@@ -7,7 +7,7 @@ import {
   Factory,
   ShieldCheck,
   Zap,
-} from "lucide-react"; // Placeholder icons
+} from "lucide-react"; 
 import "./hero-section.css";
 
 const companies = [
@@ -52,7 +52,7 @@ const Play = () => (
 );
 
 export function HeroSection() {
-  // Helper component for the scrolling list to avoid repetition
+
   const CompanyList = () => (
     <div className="flex items-center gap-12 whitespace-nowrap">
       {companies.map((company, index) => (
@@ -118,10 +118,10 @@ export function HeroSection() {
           </div>
         </h1>
 
-        <p className="text-base sm:text-xl md:text-2xl text-white max-w-3xl mx-auto mb-12 font-light">
-          We deliver cutting-edge technology solutions that drive innovation and
-          accelerate your digital journey.
-        </p>
+   <p className="text-md sm:text-xl md:text-2xl text-white w-full max-w-sm sm:max-w-xl md:max-w-3xl mx-auto mb-12 font-light px-4 sm:px-6 text-center leading-relaxed">
+  We deliver cutting-edge technology solutions that drive innovation and
+  accelerate your digital journey.
+</p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-buttons">

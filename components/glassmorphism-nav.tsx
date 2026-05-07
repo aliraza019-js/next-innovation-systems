@@ -8,7 +8,7 @@ import { NisLogoDark } from "@/components/nis-logo-dark";
 const navigation = [
   { name: "Services", href: "#features" },
   { name: "Projects", href: "#case-studies" },
-  { name: "About Us", href: "#about" },
+  { name: "About Us", href: "#testimonials" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -109,10 +109,10 @@ export function GlassmorphismNav() {
 
             {/* Right Side: CTA + Mobile Toggle */}
             <div className="flex items-center gap-4">
-              {/* Desktop CTA Button - Styled like the green button in your image */}
+            
               <div className="hidden md:block">
                 <button
-                  className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-6 py-2.5 rounded-full flex items-center transition-all duration-300 hover:scale-105 shadow-lg group"
+                  className="bg-white text-black font-medium px-6 py-2.5 rounded-full flex items-center transition-all duration-300 hover:scale-105 shadow-lg group"
                   onClick={() => scrollToSection("#contact")}
                 >
                   <span className="mr-2">Free Consultation</span>

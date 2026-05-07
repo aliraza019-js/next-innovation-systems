@@ -1,26 +1,75 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { ArrowUpRight, Calendar } from "lucide-react"
-import { motion } from "motion/react"
-import { caseStudies, CaseStudy } from "@/components/case-studies-data"
-import { CaseStudyDetail } from "@/components/case-study-detail"
+import { useMemo, useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import { ArrowUpRight, Calendar } from "lucide-react";
+import { motion } from "motion/react";
+import { caseStudies, CaseStudy } from "@/components/case-studies-data";
+import { CaseStudyDetail } from "@/components/case-study-detail";
+import "./project-showcase-section.css";
 
 const techStack = [
-  { name: "React.js", category: "Frontend", icon: "https://cdn.simpleicons.org/react/61DAFB" },
-  { name: "Next.js", category: "Framework", icon: "https://cdn.simpleicons.org/nextdotjs/white" },
-  { name: "Vue.js", category: "Frontend", icon: "https://cdn.simpleicons.org/vuedotjs/4FC08D" },
-  { name: "Nuxt.js", category: "Framework", icon: "https://cdn.simpleicons.org/nestjs/E0234E" },
-  { name: "Node.js", category: "Runtime", icon: "https://cdn.simpleicons.org/nodedotjs/339933" },
-  { name: "TypeScript", category: "Language", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
-  { name: "Express.js", category: "Backend", icon: "https://cdn.simpleicons.org/express/white" },
-  { name: "Nest.js", category: "Backend", icon: "https://cdn.simpleicons.org/nestjs/E0234E" },
-  { name: "JavaScript", category: "Language", icon: "https://cdn.simpleicons.org/javascript/F7DF1E" },
-  { name: "Three.js", category: "3D / WebGL", icon: "https://cdn.simpleicons.org/threedotjs/white" },
-  { name: "Docker", category: "DevOps", icon: "https://cdn.simpleicons.org/docker/2496ED" },
-  { name: "Git", category: "VCS", icon: "https://cdn.simpleicons.org/git/F05032" },
-]
+  {
+    name: "React.js",
+    category: "Frontend",
+    icon: "https://cdn.simpleicons.org/react/61DAFB",
+  },
+  {
+    name: "Next.js",
+    category: "Framework",
+    icon: "https://cdn.simpleicons.org/nextdotjs/white",
+  },
+  {
+    name: "Vue.js",
+    category: "Frontend",
+    icon: "https://cdn.simpleicons.org/vuedotjs/4FC08D",
+  },
+  {
+    name: "Nuxt.js",
+    category: "Framework",
+    icon: "https://cdn.simpleicons.org/nestjs/E0234E",
+  },
+  {
+    name: "Node.js",
+    category: "Runtime",
+    icon: "https://cdn.simpleicons.org/nodedotjs/339933",
+  },
+  {
+    name: "TypeScript",
+    category: "Language",
+    icon: "https://cdn.simpleicons.org/typescript/3178C6",
+  },
+  {
+    name: "Express.js",
+    category: "Backend",
+    icon: "https://cdn.simpleicons.org/express/white",
+  },
+  {
+    name: "Nest.js",
+    category: "Backend",
+    icon: "https://cdn.simpleicons.org/nestjs/E0234E",
+  },
+  {
+    name: "JavaScript",
+    category: "Language",
+    icon: "https://cdn.simpleicons.org/javascript/F7DF1E",
+  },
+  {
+    name: "Three.js",
+    category: "3D / WebGL",
+    icon: "https://cdn.simpleicons.org/threedotjs/white",
+  },
+  {
+    name: "Docker",
+    category: "DevOps",
+    icon: "https://cdn.simpleicons.org/docker/2496ED",
+  },
+  {
+    name: "Git",
+    category: "VCS",
+    icon: "https://cdn.simpleicons.org/git/F05032",
+  },
+];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -28,7 +77,7 @@ const containerVariants = {
     opacity: 1,
     transition: { staggerChildren: 0.1 },
   },
-}
+};
 
 const itemVariants = {
   hidden: { y: -50, opacity: 0 },
@@ -37,11 +86,99 @@ const itemVariants = {
     opacity: 1,
     transition: { type: "spring", stiffness: 260, damping: 20 },
   },
-}
+};
 
 export function ProjectShowcaseSection() {
+  const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null);
 
-  const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null)
+  const openStudy = (study: CaseStudy) => {
+    setSelectedStudy(study);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      url.searchParams.set("case-study", study.slug);
+      window.history.pushState({}, "", url.toString());
+    }
+  };
+
+  const closeStudy = () => {
+    setSelectedStudy(null);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("case-study");
+      window.history.pushState({}, "", url.toString());
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const handlePopState = () => {
+        const params = new URLSearchParams(window.location.search);
+        const slug = params.get("case-study");
+        if (slug) {
+          const study = caseStudies.find((s) => s.slug === slug);
+          setSelectedStudy(study || null);
+        } else {
+          setSelectedStudy(null);
+        }
+      };
+      
+      handlePopState(); // Check on mount
+      
+      window.addEventListener("popstate", handlePopState);
+      return () => window.removeEventListener("popstate", handlePopState);
+    }
+  }, []);
+
+  const INITIAL_VISIBLE = 3;
+  const LOAD_MORE_STEP = 8;
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
+
+
+  const [imgLoadingBySlug, setImgLoadingBySlug] = useState<
+    Record<string, boolean>
+  >(() => {
+    const initial: Record<string, boolean> = {};
+    for (const s of caseStudies.slice(0, INITIAL_VISIBLE))
+      initial[s.slug] = true;
+    return initial;
+  });
+
+  const visibleStudies = useMemo(
+    () => caseStudies.slice(0, visibleCount),
+    [visibleCount],
+  );
+  const hasMore = visibleCount < caseStudies.length;
+
+  const handleLoadMore = () => {
+    const nextCount = Math.min(
+      visibleCount + LOAD_MORE_STEP,
+      caseStudies.length,
+    );
+
+    setImgLoadingBySlug((prev) => {
+      const next = { ...prev };
+      for (const s of caseStudies.slice(visibleCount, nextCount))
+        next[s.slug] = true;
+      return next;
+    });
+    setVisibleCount(nextCount);
+  };
+  const imgRefs = useRef<Record<string, HTMLImageElement | null>>({});
+
+  useEffect(() => {
+
+    setImgLoadingBySlug((prev) => {
+      const next = { ...prev };
+      let changed = false;
+      for (const [slug, el] of Object.entries(imgRefs.current)) {
+        if (el && el.complete && next[slug]) {
+          next[slug] = false;
+          changed = true;
+        }
+      }
+      return changed ? next : prev;
+    });
+  }, []);
 
   return (
     <>
@@ -49,21 +186,22 @@ export function ProjectShowcaseSection() {
       {selectedStudy && (
         <CaseStudyDetail
           study={selectedStudy}
-          onClose={() => setSelectedStudy(null)}
+          onClose={closeStudy}
         />
       )}
 
       <section id="case-studies" className="relative z-10 px-4 py-16 sm:py-24">
         <div className="mx-auto max-w-7xl">
-
           <div className="mb-10 text-center sm:mb-14">
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-5xl">
               Turn complex technology <br />
-              challenges into <span className="text-emerald-500">measurable growth</span>
+              challenges into{" "}
+              <span className="text-emerald-500">measurable growth</span>
             </h2>
             <p className="mx-auto max-w-3xl text-balance text-base font-light leading-relaxed text-white/75 sm:text-lg">
-              We combine consulting, engineering, and design expertise to deliver measurable business value from strategy
-              through implementation.
+              We combine consulting, engineering, and design expertise to
+              deliver measurable business value from strategy through
+              implementation.
             </p>
           </div>
 
@@ -76,44 +214,73 @@ export function ProjectShowcaseSection() {
                 Delivery highlights across industries
               </h2>
             </div>
-            <Link
-              href="/case-studies"
-              className="inline-flex items-center gap-2 rounded-full border border-emerald-200/30 bg-emerald-500/15 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-emerald-500/25"
-            >
-              View all case studies
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
+
           </div>
 
           {/* ── Cards Grid ── */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mb-24">
-            {caseStudies.map((study) => (
+            {visibleStudies.map((study, index) => (
               <article
                 key={study.slug}
-                className="overflow-hidden rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md transition-all duration-300 hover:border-emerald-200/30 hover:bg-emerald-500/10 group cursor-pointer"
-                onClick={() => setSelectedStudy(study)} // <-- card click pe modal open
+                className="card-reveal overflow-hidden rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md transition-all duration-300 hover:border-emerald-200/30 hover:bg-emerald-500/10 group cursor-pointer"
+                onClick={() => openStudy(study)} // <-- card click pe modal open
+                style={{ animationDelay: `${Math.min(index, 8) * 60}ms` }}
               >
-                <div className="overflow-hidden">
+                <div className="relative overflow-hidden">
+                  {imgLoadingBySlug[study.slug] && (
+                    <div
+                      className="skeleton-shimmer absolute inset-0"
+                      aria-hidden="true"
+                    />
+                  )}
                   <img
+                    ref={(el) => {
+                      imgRefs.current[study.slug] = el;
+                    }}
                     src={study.image}
                     alt={study.title}
-                    loading="lazy"
+                    loading="eager"
                     className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    style={{
+                      opacity: imgLoadingBySlug[study.slug] ? 0 : 1,
+                      transition: "opacity 400ms ease",
+                    }}
+                    onLoad={() =>
+                      setImgLoadingBySlug((prev) => ({
+                        ...prev,
+                        [study.slug]: false,
+                      }))
+                    }
+                    onError={() =>
+                      setImgLoadingBySlug((prev) => ({
+                        ...prev,
+                        [study.slug]: false,
+                      }))
+                    }
                   />
                 </div>
                 <div className="p-6">
                   <div className="mb-3 flex items-center gap-4 text-xs text-white/65">
-                    <span className="rounded-full border border-white/20 px-2.5 py-1">{study.category}</span>
+                    <span className="rounded-full border border-white/20 px-2.5 py-1">
+                      {study.category}
+                    </span>
                     <span className="inline-flex items-center gap-1">
                       <Calendar className="h-3.5 w-3.5" />
                       {study.timeframe}
                     </span>
                   </div>
-                  <h3 className="mb-2 text-xl font-semibold text-white">{study.title}</h3>
-                  <p className="mb-5 text-sm leading-relaxed text-white/75">{study.summary}</p>
+                  <h3 className="mb-2 text-xl font-semibold text-white">
+                    {study.title}
+                  </h3>
+                  <p className="mb-5 text-sm leading-relaxed text-white/75">
+                    {study.summary}
+                  </p>
                   {/* Button — now triggers modal, not Link */}
                   <button
-                    onClick={(e) => { e.stopPropagation(); setSelectedStudy(study) }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openStudy(study);
+                    }}
                     className="inline-flex items-center gap-2 text-sm font-medium text-emerald-200 transition-colors hover:text-emerald-100"
                   >
                     Read case study
@@ -123,6 +290,19 @@ export function ProjectShowcaseSection() {
               </article>
             ))}
           </div>
+
+          {hasMore && (
+            <div className="mt-6 flex justify-center">
+              <button
+                type="button"
+                onClick={handleLoadMore}
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-200/30 bg-emerald-500/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-emerald-500/25"
+              >
+                Load more
+                <ArrowUpRight className="h-4 w-4" />
+              </button>
+            </div>
+          )}
 
           {/* ── Tech Stack ── */}
           <div className="mt-20 border-t border-white/10 pt-20">
@@ -170,9 +350,8 @@ export function ProjectShowcaseSection() {
               ))}
             </motion.div>
           </div>
-
         </div>
       </section>
     </>
-  )
+  );
 }
