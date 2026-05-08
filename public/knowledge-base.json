@@ -1,0 +1,328 @@
+{
+  "company": {
+    "name": "Next Innovation Systems",
+    "shortName": "NIS",
+    "tagline": "Professional IT Solutions",
+    "description": "Next Innovation Systems (NIS) is a professional IT solutions company that transforms businesses with custom software, cloud, AI/ML, DevOps, AI automation, and digital transformation services. We also specialize in AI-powered customer engagement solutions including WhatsApp AI agents, Instagram DM automation, and omnichannel messaging platforms — particularly for the automotive/car dealership industry.",
+    "founded": "2020",
+    "badge": "Transforming Businesses Since 2020",
+    "website": "https://nexinsystems.com",
+    "location": "Lahore, Punjab, Pakistan",
+    "email": "contact@nextinnovation.systems",
+    "phone": "+92 (300) 0000000",
+    "founder": "Ali Raza",
+    "founderWebsite": "https://aliraza.tech"
+  },
+  "stats": {
+    "projectsDelivered": "150+",
+    "happyClients": "50+",
+    "successRate": "98%"
+  },
+  "services": [
+    {
+      "name": "Custom Software Development",
+      "description": "Tailored software solutions designed around your workflows and business goals. We build enterprise-grade applications from scratch using modern tech stacks.",
+      "forWhom": "Startups, SMBs, and enterprises needing bespoke software.",
+      "benefits": "Full ownership of code, custom workflows, seamless integrations, scalable architecture."
+    },
+    {
+      "name": "Cloud Solutions",
+      "description": "Migration, modernization, and optimization for secure and scalable cloud operations. We help businesses move to AWS, Azure, or GCP with minimal disruption.",
+      "forWhom": "Businesses looking to reduce infrastructure costs and improve scalability.",
+      "benefits": "Reduced downtime, cost optimization, auto-scaling, improved security posture."
+    },
+    {
+      "name": "AI & Machine Learning",
+      "description": "Production-ready AI/ML systems that automate processes and improve decision-making. From chatbots to predictive analytics, we build intelligent solutions.",
+      "forWhom": "Companies wanting to automate repetitive tasks or gain data-driven insights.",
+      "benefits": "Process automation, predictive analytics, intelligent chatbots, data-driven decisions."
+    },
+    {
+      "name": "Mobile App Development",
+      "description": "Native and cross-platform mobile apps focused on performance and user experience. We build for iOS and Android using React Native and Flutter.",
+      "forWhom": "Businesses needing consumer or enterprise mobile apps.",
+      "benefits": "Cross-platform reach, native performance, push notifications, offline capability."
+    },
+    {
+      "name": "UI/UX Design",
+      "description": "Human-centered product design that improves usability, engagement, and conversions. We create beautiful, intuitive interfaces that users love.",
+      "forWhom": "Any business wanting to improve user experience and conversion rates.",
+      "benefits": "Higher conversions, better retention, reduced support queries, brand consistency."
+    },
+    {
+      "name": "DevOps & SecOps",
+      "description": "Accelerated release cycles with secure CI/CD, observability, and infrastructure controls. We implement automated pipelines and monitoring.",
+      "forWhom": "Engineering teams needing faster, safer deployments.",
+      "benefits": "Faster releases, automated testing, infrastructure monitoring, security compliance."
+    },
+    {
+      "name": "Digital Transformation",
+      "description": "Strategic modernization to align technology initiatives with business outcomes. We help organizations rethink their processes and technology stack.",
+      "forWhom": "Traditional businesses looking to modernize operations.",
+      "benefits": "Modernized workflows, reduced manual processes, data-driven culture, competitive edge."
+    },
+    {
+      "name": "Dedicated Team",
+      "description": "Skilled specialists embedded with your team for reliable delivery and execution speed. We provide vetted developers, designers, and project managers.",
+      "forWhom": "Companies needing to scale their engineering team quickly.",
+      "benefits": "Faster hiring, no recruitment overhead, flexible scaling, full-time commitment."
+    },
+    {
+      "name": "WhatsApp AI Agent",
+      "description": "An intelligent AI-powered WhatsApp chatbot that handles customer inquiries, qualifies leads, answers FAQs, and schedules appointments 24/7. Fully customized to your business voice and workflows. Integrated with WhatsApp Business API.",
+      "forWhom": "Car dealerships, service businesses, e-commerce, and any customer-facing business that receives high volumes of WhatsApp inquiries.",
+      "benefits": "24/7 instant responses, automatic lead qualification, reduced staff workload by 60%+, increased customer satisfaction, seamless handoff to human agents when needed."
+    },
+    {
+      "name": "Instagram DM Automation",
+      "description": "AI-powered Instagram Direct Message automation that handles service bookings, parts inquiries, order management, and customer updates. Responds in your brand's tone and can process orders without human intervention.",
+      "forWhom": "Car dealerships, retail businesses, service providers, and any brand with active Instagram presence.",
+      "benefits": "Automated service bookings, real-time parts availability answers, order tracking updates, 24/7 customer communication in your brand voice."
+    },
+    {
+      "name": "Omnichannel AI Messaging",
+      "description": "A unified AI messaging platform that connects all your customer channels — WhatsApp, Website Chatbot, Facebook Messenger, Instagram DM, Email, and Phone (Voice Receptionist) — into one intelligent system. One AI brain, every channel.",
+      "forWhom": "Businesses receiving customer inquiries across multiple channels who want a consistent, automated experience everywhere.",
+      "benefits": "Single unified inbox, consistent AI responses across all channels, no inquiry falls through the cracks, reduced response time to under 30 seconds on every platform."
+    },
+    {
+      "name": "AI Lead Filtering & Qualification",
+      "description": "Smart AI system that automatically separates serious buyers from 'tyre kickers' by asking qualifying questions. Instantly scores leads and routes high-intent prospects to your sales team while the AI handles casual browsers.",
+      "forWhom": "Car dealerships, real estate, B2B sales teams, and any business that needs to filter high volumes of inquiries.",
+      "benefits": "Sales team focuses only on serious buyers, 50%+ reduction in wasted time, instant lead scoring, automatic follow-up sequences for warm leads."
+    }
+  ],
+  "carDealershipVertical": {
+    "pagePath": "/car-dealerships",
+    "headline": "Never Miss Another Lead",
+    "subheadline": "Irish dealerships lose €200K+ annually from missed leads and inefficient customer handling.",
+    "description": "NIS offers a complete AI-powered customer engagement solution specifically designed for car dealerships. Our platform combines WhatsApp AI agents, Instagram DM automation, lead filtering, and omnichannel messaging to ensure every lead is captured, qualified, and routed to your sales team — 24/7.",
+    "keyFeatures": [
+      {
+        "name": "Tyre Kicker Filtering",
+        "description": "AI automatically filters serious buyers from browsers by asking the right qualifying questions. Responds to 50+ common questions about NCT, mileage, trade-ins, and pricing instantly across website, phone, and social channels. Available 24/7."
+      },
+      {
+        "name": "WhatsApp AI Agent",
+        "description": "Intelligent WhatsApp chatbot customized for your dealership that handles inquiries, qualifies leads, answers FAQs about inventory, pricing, and test drives, and books appointments — all automatically."
+      },
+      {
+        "name": "Instagram & Social DM Automation",
+        "description": "Handles service bookings, parts inquiries, order management, and customer updates via Instagram DM and Facebook Messenger. Processes orders and provides tracking without human intervention, in your dealership's voice."
+      },
+      {
+        "name": "Omnichannel Messaging Hub",
+        "description": "One AI brain across 6 channels: WhatsApp, Website Chatbot, Messenger, Instagram, Email, and Phone (Voice Receptionist). Every channel is connected so no lead falls through the cracks."
+      }
+    ],
+    "targetAudience": "Car dealerships in Ireland and globally who want to stop losing leads and automate customer engagement.",
+    "cta": "Book a demo or enquire at /car-dealerships"
+  },
+  "siteNavigation": {
+    "pages": [
+      { "path": "/", "label": "Home", "description": "Main landing page with services overview, project showcase, tech stack, and contact form." },
+      { "path": "/car-dealerships", "label": "Car Dealerships", "description": "Dedicated page for our AI-powered car dealership solution — WhatsApp AI, Instagram DM, lead filtering, omnichannel messaging." },
+      { "path": "/case-studies", "label": "Case Studies", "description": "Full portfolio of 13+ delivered projects with detailed case studies, screenshots, and outcomes." },
+      { "path": "/#features", "label": "Services", "description": "All 8 core IT services — custom software, cloud, AI/ML, mobile apps, UI/UX, DevOps, digital transformation, dedicated teams." },
+      { "path": "/#case-studies", "label": "Project Showcase", "description": "Interactive project cards with case study modals showing challenge, solution, outcomes, and galleries." }
+    ]
+  },
+  "projects": [
+    {
+      "name": "Boxes by Swagify",
+      "category": "Web Development / E-commerce",
+      "client": "Swag Management Platform",
+      "year": "2024",
+      "summary": "A global swag gifting and management platform enabling teams to design, store, and ship custom branded swag boxes.",
+      "technologies": ["Vue.js", "Laravel", "MySQL"],
+      "keyResults": ["Global shipping support", "500+ SKU support", "3x faster campaign launches"]
+    },
+    {
+      "name": "Self Hosted Payment Gateway",
+      "category": "Web Development / FinTech",
+      "client": "CardEye",
+      "year": "2024",
+      "summary": "A secure self-hosted payment gateway with intelligent routing and fraud controls to improve acceptance rates and reduce chargebacks.",
+      "technologies": ["Vue.js", "Laravel", "Vuetify", "AWS"],
+      "keyResults": ["99.9% uptime", "<200ms latency", "PCI compliant", "Smart routing"]
+    },
+    {
+      "name": "3D Generative NFT Builder",
+      "category": "Web Development / Web3",
+      "client": "Digital Product Studio",
+      "year": "2024",
+      "summary": "A 3D avatar customization platform with real-time rendering, marketplace capabilities, and interoperable digital ownership features.",
+      "technologies": ["Next.js", "Three.js", "Go"],
+      "keyResults": ["60fps rendering", "1000+ asset combinations", "Real-time 3D preview"]
+    },
+    {
+      "name": "EolasBio Corporate Website",
+      "category": "Corporate Website / Life Sciences",
+      "client": "EolasBio",
+      "year": "2024",
+      "summary": "A professional life sciences website that presents complex services with clear structure for partners, researchers, and pharma stakeholders.",
+      "technologies": ["WordPress", "PHP", "MySQL"],
+      "keyResults": ["40% more leads", "SEO optimized", "Multi-audience support"]
+    },
+    {
+      "name": "AI Campaign Builder Platform",
+      "category": "SaaS / Marketing Automation",
+      "client": "Enterprise Marketing Client",
+      "year": "2025",
+      "summary": "A comprehensive AI-powered campaign management platform with cohort building, campaign library, and HubSpot-integrated execution workflows.",
+      "technologies": ["React.js", "TypeScript", "Node.js", "HubSpot API"],
+      "keyResults": ["11-step data foundation", "6 tools unified into one", "Automated CRM sync"]
+    },
+    {
+      "name": "Autogather Platform",
+      "category": "Web App / B2B SaaS",
+      "client": "Autogather",
+      "year": "2025",
+      "summary": "A full-featured B2B platform for professional assessment, career tracking, product discovery, and case-study-driven learning.",
+      "technologies": ["Next.js", "TypeScript", "PostgreSQL", "AWS"],
+      "keyResults": ["5-in-1 platform", "70% engagement increase", "45% faster onboarding"]
+    },
+    {
+      "name": "Crypto Wallet & DApp Dashboard",
+      "category": "Web3 / FinTech",
+      "client": "Crypto Platform Client",
+      "year": "2024",
+      "summary": "A full-stack Web3 wallet and DApp dashboard with portfolio tracking, transaction history, DApp store, and site monitoring for crypto users.",
+      "technologies": ["React.js", "Web3.js", "Node.js", "Ethers.js"],
+      "keyResults": ["Multi-chain support", "60% time saved", "Real-time portfolio tracking"]
+    },
+    {
+      "name": "Custom Enterprise CRM",
+      "category": "Enterprise Software / CRM",
+      "client": "B2B Enterprise Client",
+      "year": "2024",
+      "summary": "A custom enterprise CRM with dynamic form builder, shared packages, transaction management, and environmental reporting for complex B2B workflows.",
+      "technologies": ["React.js", "Node.js", "PostgreSQL", "Redis"],
+      "keyResults": ["4 legacy tools replaced", "65% faster reporting", "30% shorter sales cycle"]
+    },
+    {
+      "name": "EFXPro Trading Platform",
+      "category": "FinTech / Trading",
+      "client": "EFXPro",
+      "year": "2024",
+      "summary": "A professional forex and financial trading platform with real-time market data, economic news feed, account management, and detailed instrument pages.",
+      "technologies": ["React.js", "TypeScript", "WebSocket", "Node.js"],
+      "keyResults": ["<100ms data refresh", "40% longer sessions", "2K+ active traders"]
+    },
+    {
+      "name": "Aladdin Catering Platform",
+      "category": "Web App / Food & Beverage",
+      "client": "Aladdin Catering",
+      "year": "2024",
+      "summary": "A modern catering and food ordering platform with interactive menus, order management, and a seamless customer booking experience.",
+      "technologies": ["Next.js", "Tailwind CSS", "Supabase"],
+      "keyResults": ["180% more orders", "90% less errors", "Self-service booking"]
+    },
+    {
+      "name": "Ducorr Corporate Platform",
+      "category": "Corporate Website / Industrial",
+      "client": "Ducorr",
+      "year": "2024",
+      "summary": "A comprehensive industrial corporate platform with detailed product catalogs, project portfolios, career listings, and case-study-based knowledge resources.",
+      "technologies": ["Next.js", "TypeScript", "Sanity CMS"],
+      "keyResults": ["55% more traffic", "35% fewer support queries", "3x more job applicants"]
+    },
+    {
+      "name": "Managed Hosting Dashboard",
+      "category": "SaaS / DevOps",
+      "client": "Hosting Platform Client",
+      "year": "2025",
+      "summary": "A managed hosting control panel with real-time site monitoring, resource dashboards, and hosting overview for agencies and developers.",
+      "technologies": ["React.js", "Node.js", "WebSocket", "PostgreSQL"],
+      "keyResults": ["50% fewer support tickets", "99.95% uptime accuracy", "300+ sites managed"]
+    },
+    {
+      "name": "SparkDoc AI Writing Platform",
+      "category": "AI / SaaS",
+      "client": "SparkDoc",
+      "year": "2025",
+      "summary": "An AI-powered document writing platform with intelligent chatbot, auto-suggestions, citation analysis, and source management for researchers and writers.",
+      "technologies": ["Next.js", "OpenAI API", "TypeScript", "PostgreSQL"],
+      "keyResults": ["3x faster writing", "85% less citation errors", "4.9 star beta rating"]
+    }
+  ],
+  "trustedCompanies": ["Swagify", "CardEye", "EolasBio", "Regional Bank", "Retail Chain", "Manufacturing Leader"],
+  "technologyExpertise": [
+    "React.js", "Next.js", "Vue.js", "TypeScript", "Node.js", "Laravel", "PHP",
+    "Go", "Python", "Three.js", "Web3.js", "Ethers.js",
+    "PostgreSQL", "MySQL", "Redis", "Supabase",
+    "AWS", "Docker", "CI/CD", "WebSocket",
+    "OpenAI API", "HubSpot API", "Tailwind CSS", "Sanity CMS", "WordPress",
+    "WhatsApp Business API", "Instagram Graph API", "Twilio", "OpenAI GPT"
+  ],
+  "processAndValues": {
+    "consultationOffer": "Free project consultation",
+    "pricingModels": ["Transparent fixed-price", "Hourly billing"],
+    "communication": "Dedicated communication channel for every project",
+    "postLaunch": "Post-launch support included",
+    "responseTime": "We respond within 24 hours of inquiry",
+    "approach": "We combine consulting, engineering, and design expertise to deliver measurable business value from strategy through implementation."
+  },
+  "faq": [
+    {
+      "question": "How can I get in touch with NIS?",
+      "answer": "You can reach us via email at contact@nextinnovation.systems, use the contact form on our website, or call us at +92 (300) 0000000. We typically respond within 24 hours."
+    },
+    {
+      "question": "What industries does NIS serve?",
+      "answer": "We serve a wide range of industries including FinTech, E-commerce, Life Sciences, Web3/Blockchain, SaaS, Food & Beverage, Industrial, Marketing, Automotive/Car Dealerships, and more."
+    },
+    {
+      "question": "What is the typical project timeline?",
+      "answer": "Timelines vary based on project scope. A simple website may take 2-4 weeks, while complex platforms can take 3-6 months. We'll provide a detailed timeline during our free consultation."
+    },
+    {
+      "question": "Do you offer free consultations?",
+      "answer": "Yes! We offer free project consultations. You can reach out through our contact form or email, and we'll schedule a call to discuss your requirements."
+    },
+    {
+      "question": "What is NIS's pricing model?",
+      "answer": "We offer transparent fixed-price and hourly billing models. The best model depends on your project scope and requirements, which we discuss during the consultation."
+    },
+    {
+      "question": "Where is NIS located?",
+      "answer": "NIS is based in Lahore, Punjab, Pakistan, but we work with clients globally and have delivered projects for companies worldwide."
+    },
+    {
+      "question": "Does NIS provide post-launch support?",
+      "answer": "Yes, post-launch support is included with every project. We ensure your product runs smoothly and are available for maintenance, updates, and feature additions."
+    },
+    {
+      "question": "What do you do?",
+      "answer": "We are a full-service IT solutions company. We build custom software, mobile apps, cloud infrastructure, AI/ML systems, and enterprise platforms. We also specialize in AI-powered customer engagement — WhatsApp AI agents, Instagram DM automation, and omnichannel messaging, especially for car dealerships. With 150+ delivered projects and a 98% success rate, we help businesses turn technology challenges into measurable growth."
+    },
+    {
+      "question": "How much does it cost?",
+      "answer": "Our pricing depends on your project's scope and complexity. We offer both transparent fixed-price and hourly billing models. The best way to get an accurate quote is to schedule a FREE consultation — we'll discuss your requirements and provide a detailed proposal with no hidden costs."
+    },
+    {
+      "question": "How do I get started?",
+      "answer": "Getting started is easy! Step 1: Reach out via our contact form on the website or email us at contact@nextinnovation.systems. Step 2: We'll schedule a FREE consultation call within 24 hours to discuss your project. Step 3: Our team prepares a detailed proposal with timeline, scope, and pricing. Step 4: Once approved, your dedicated team starts building! We make the process as smooth as possible."
+    },
+    {
+      "question": "Do you work with car dealerships?",
+      "answer": "Absolutely! We have a dedicated AI-powered solution for car dealerships at /car-dealerships. It includes WhatsApp AI agents for lead qualification, Instagram DM automation for service bookings, tyre-kicker filtering to focus your team on serious buyers, and an omnichannel hub connecting WhatsApp, Messenger, Instagram, Email, Phone, and website chat. Irish dealerships lose €200K+ annually from missed leads — our system ensures you never miss another one."
+    },
+    {
+      "question": "What is WhatsApp AI?",
+      "answer": "Our WhatsApp AI Agent is an intelligent chatbot integrated with WhatsApp Business API that handles customer inquiries, qualifies leads, answers FAQs, and schedules appointments 24/7. It's fully customized to your business voice and workflows. Great for car dealerships, e-commerce, and any customer-facing business. Learn more at /car-dealerships."
+    },
+    {
+      "question": "What is Instagram DM automation?",
+      "answer": "Our Instagram DM Automation uses AI to automatically handle service bookings, parts inquiries, order management, and customer updates via Instagram Direct Messages. It responds in your brand's tone and can process orders without human intervention. Perfect for car dealerships and retail businesses."
+    },
+    {
+      "question": "What is omnichannel messaging?",
+      "answer": "Our Omnichannel AI Messaging platform connects all your customer channels — WhatsApp, Website Chatbot, Facebook Messenger, Instagram DM, Email, and Phone (Voice Receptionist) — into one intelligent system. One AI brain handles every channel so no inquiry falls through the cracks. Response time drops to under 30 seconds on every platform."
+    },
+    {
+      "question": "Can you help with lead qualification?",
+      "answer": "Yes! Our AI Lead Filtering system automatically separates serious buyers from casual browsers by asking smart qualifying questions. It scores leads instantly and routes high-intent prospects to your sales team. Particularly popular with car dealerships — we call it our 'tyre kicker filter'. Your sales team spends 50%+ less time on unqualified leads."
+    }
+  ]
+}

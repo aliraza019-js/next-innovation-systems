@@ -18,7 +18,7 @@ export function CaseStudyDetail({ study, onClose }: CaseStudyDetailProps) {
     return () => { document.body.style.overflow = "" }
   }, [])
 
-  // Close on Escape — also handles lightbox
+
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -51,84 +51,74 @@ export function CaseStudyDetail({ study, onClose }: CaseStudyDetailProps) {
         className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/90 backdrop-blur-md p-4 md:p-8"
         onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
       >
-        <div className="relative w-full max-w-7xl my-auto rounded-3xl overflow-hidden bg-[#080c0c] border border-white/10 shadow-[0_0_80px_-20px_rgba(16,185,129,0.15)]">
+        <div className="relative w-full max-w-7xl my-auto rounded-3xl overflow-hidden bg-black border border-white/10 shadow-[0_0_80px_-20px_rgba(16,185,129,0.15)]">
 
-          {/* Close Button */}
+          {/* ── Close Button — Glassy Emerald ── */}
           <button
             onClick={onClose}
             aria-label="Close"
-            className="absolute top-4 right-4 z-20 h-9 w-9 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-white transition-colors"
+            className="absolute top-4 right-4 z-20 h-10 w-10 flex items-center justify-center rounded-full bg-emerald-500/20 hover:bg-emerald-500/40 border border-emerald-400/40 hover:border-emerald-400/80 text-emerald-300 hover:text-white backdrop-blur-md shadow-[0_0_16px_rgba(16,185,129,0.25)] hover:shadow-[0_0_24px_rgba(16,185,129,0.45)] transition-all duration-200"
           >
             <X size={18} />
           </button>
 
-          {/* ── Hero Image with Title Overlay ── */}
-          <div className="relative h-64 md:h-96 w-full overflow-hidden">
+          {/* ── Hero Image ── */}
+          <div className="relative w-full overflow-hidden">
             <img
               src={images[0]}
               alt={study.title}
-              className="h-full w-full object-cover"
+              className="h-64 md:h-[420px] w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#080c0c] via-black/50 to-transparent" />
-            {/* Subtle green glow at bottom */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-emerald-500/5 to-transparent" />
-            <div className="absolute bottom-0 left-0 p-8">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-emerald-400">
-                {study.category}
-              </p>
-              <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-                {study.title}
-              </h1>
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#080c0c] via-transparent to-transparent opacity-60 pointer-events-none" />
           </div>
 
           {/* ── Content Body ── */}
-          <div className="px-6 md:px-10 pb-12 bg-[#080c0c]">
+          <div className="px-8 md:px-12 pb-16 pt-10 bg-[#080c0c]">
 
-            {/* Stats Row */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 my-6">
-              {study.stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-5 text-center"
-                >
-                  <p className="text-2xl md:text-3xl font-bold text-emerald-400 mb-1">{stat.value}</p>
-                  <p className="text-[11px] uppercase tracking-widest text-white/40 font-medium">{stat.label}</p>
-                </div>
-              ))}
-            </div>
+            {/* Category */}
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
+              {study.category}
+            </p>
+
+            {/* Title */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5">
+              {study.title}
+            </h1>
 
             {/* Meta row */}
-            <div className="flex flex-wrap items-center gap-4 mb-8 text-sm text-white/50">
-              <span className="inline-flex items-center gap-1.5">
+            <div className="flex flex-wrap items-center gap-4 mb-10 text-sm text-white/45">
+              <span className="inline-flex items-center gap-2 bg-white/[0.04] border border-white/[0.06] rounded-full px-4 py-1.5">
                 <Calendar size={14} />
                 {study.timeframe}
               </span>
-              <span className="inline-flex items-center gap-1.5">
+              <span className="inline-flex items-center gap-2 bg-white/[0.04] border border-white/[0.06] rounded-full px-4 py-1.5">
                 <Tag size={14} />
                 {study.client}
               </span>
             </div>
 
+            {/* Divider */}
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-white/[0.08] to-transparent mb-10" />
+
             {/* Overview */}
-            <div className="mb-8">
-              <p className="text-[11px] uppercase tracking-widest text-white/30 font-semibold mb-3">Overview</p>
-              <p className="text-white/80 leading-relaxed text-base md:text-lg">{study.summary}</p>
+            <div className="mb-12">
+              <p className="text-[11px] uppercase tracking-[0.18em] text-white/30 font-semibold mb-4">Overview</p>
+              <p className="text-white/75 leading-[1.8] text-base md:text-lg max-w-4xl">{study.summary}</p>
             </div>
 
             {/* Challenge + Solution */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-1 h-5 rounded-full bg-emerald-500" />
-                  <p className="text-[11px] uppercase tracking-widest text-white/40 font-semibold">The Challenge</p>
+                  <p className="text-md uppercase tracking-widest text-emerald-500 font-semibold">The Challenge</p>
                 </div>
                 <p className="text-white/65 text-sm leading-relaxed">{study.challenge}</p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-1 h-5 rounded-full bg-emerald-500" />
-                  <p className="text-[11px] uppercase tracking-widest text-white/40 font-semibold">The Solution</p>
+                  <p className="text-md uppercase tracking-widest text-emerald-500 font-semibold">The Solution</p>
                 </div>
                 <ul className="space-y-2">
                   {study.solution.map((item, i) => (
@@ -141,11 +131,28 @@ export function CaseStudyDetail({ study, onClose }: CaseStudyDetailProps) {
               </div>
             </div>
 
+            <div className="text-center my-14">
+              {/* Tech Stack */}
+              <div>
+                <p className="text-md uppercase tracking-widest text-white font-semibold mb-4">Technologies Used</p>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {study.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-white/70"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             {/* ── IMAGE GALLERY ── */}
             {images.length > 1 && (
-              <div className="mb-10">
+              <div className="mb-14">
                 <div className="flex items-center justify-between mb-4">
-                  <p className="text-[11px] uppercase tracking-widest text-white/30 font-semibold">
+                  <p className="text-[11px] uppercase tracking-widest text-white font-semibold">
                     Project Screenshots
                   </p>
                   <span className="text-[11px] text-white/25">{images.length} images — click to expand</span>
@@ -184,35 +191,21 @@ export function CaseStudyDetail({ study, onClose }: CaseStudyDetailProps) {
             )}
 
             {/* Key Outcomes */}
-            <div className="mb-8">
-              <p className="text-[11px] uppercase tracking-widest text-white/30 font-semibold mb-4">Key Outcomes</p>
+            <div className="mb-12">
+              <p className="text-md uppercase tracking-widest text-white text-center font-semibold mb-6">Key Outcomes</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {study.outcomes.map((outcome, i) => (
                   <div
                     key={i}
-                    className="rounded-xl border border-emerald-500/15 bg-emerald-500/5 px-4 py-4 text-sm text-white/70 leading-relaxed"
+                    className="rounded-xl border border-emerald-500/15 bg-emerald-500/5 px-5 py-5 text-sm text-white/70 leading-[1.7]"
                   >
-                    <ArrowUpRight size={14} className="text-emerald-400 mb-2" />
+                    <ArrowUpRight size={14} className="text-emerald-400 mb-3" />
                     {outcome}
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Tech Stack */}
-            <div>
-              <p className="text-[11px] uppercase tracking-widest text-white/30 font-semibold mb-4">Technologies Used</p>
-              <div className="flex flex-wrap gap-2">
-                {study.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-white/70"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -227,7 +220,7 @@ export function CaseStudyDetail({ study, onClose }: CaseStudyDetailProps) {
           <button
             onClick={() => setLightboxIndex(null)}
             aria-label="Close lightbox"
-            className="absolute top-4 right-4 z-10 h-10 w-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-white transition-colors"
+            className="absolute top-4 right-4 z-10 h-10 w-10 flex items-center justify-center rounded-full bg-emerald-500/20 hover:bg-emerald-500/40 border border-emerald-400/40 hover:border-emerald-400/80 text-emerald-300 hover:text-white backdrop-blur-md shadow-[0_0_16px_rgba(16,185,129,0.25)] hover:shadow-[0_0_24px_rgba(16,185,129,0.45)] transition-all duration-200"
           >
             <X size={20} />
           </button>
@@ -275,11 +268,10 @@ export function CaseStudyDetail({ study, onClose }: CaseStudyDetailProps) {
                 <button
                   key={i}
                   onClick={(e) => { e.stopPropagation(); setLightboxIndex(i) }}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    i === lightboxIndex
-                      ? "w-6 bg-emerald-400"
-                      : "w-1.5 bg-white/30 hover:bg-white/60"
-                  }`}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${i === lightboxIndex
+                    ? "w-6 bg-emerald-400"
+                    : "w-1.5 bg-white/30 hover:bg-white/60"
+                    }`}
                 />
               ))}
             </div>

@@ -1,0 +1,290 @@
+/* ═══════════════════════════════════════════════════
+   Case Study Detail — Premium Page Styles
+   ═══════════════════════════════════════════════════ */
+
+/* ── Challenge / Solution / Outcome Cards ── */
+.csd-card {
+  position: relative;
+  padding: 32px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.csd-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(16, 185, 129, 0.15) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.csd-card:hover {
+  border-color: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.025);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 60px -20px rgba(16, 185, 129, 0.06);
+}
+
+.csd-card:hover::before {
+  opacity: 1;
+}
+
+/* Icon wrappers */
+.csd-card__icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.4s ease;
+}
+
+.csd-card__icon-wrap--challenge {
+  background: rgba(239, 68, 68, 0.08);
+  color: rgba(239, 68, 68, 0.7);
+  border: 1px solid rgba(239, 68, 68, 0.1);
+}
+
+.csd-card:hover .csd-card__icon-wrap--challenge {
+  background: rgba(239, 68, 68, 0.12);
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.1);
+}
+
+.csd-card__icon-wrap--solution {
+  background: rgba(16, 185, 129, 0.08);
+  color: rgba(16, 185, 129, 0.7);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.csd-card:hover .csd-card__icon-wrap--solution {
+  background: rgba(16, 185, 129, 0.12);
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.1);
+}
+
+.csd-card__icon-wrap--outcome {
+  background: rgba(59, 130, 246, 0.08);
+  color: rgba(59, 130, 246, 0.7);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.csd-card:hover .csd-card__icon-wrap--outcome {
+  background: rgba(59, 130, 246, 0.12);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+}
+
+
+/* ── Tech Stack Chips ── */
+.csd-tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.csd-tech-chip:hover {
+  border-color: rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.06);
+  color: rgba(16, 185, 129, 0.85);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.08);
+}
+
+
+/* ── Entrance Animations ── */
+@keyframes csd-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.csd-card {
+  animation: csd-fade-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+}
+
+.csd-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.csd-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.csd-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* ── Narrative Block (Challenge / Solution / Outcome) ── */
+.csd-narrative {
+  position: relative;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 28px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px -40px rgba(16, 185, 129, 0.09);
+}
+
+.csd-narrative::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      600px 240px at 20% 0%,
+      rgba(16, 185, 129, 0.08),
+      transparent 60%
+    ),
+    radial-gradient(
+      520px 220px at 90% 10%,
+      rgba(59, 130, 246, 0.06),
+      transparent 55%
+    );
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.csd-narrative__row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 6px;
+}
+
+.csd-narrative__divider {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 15%,
+    rgba(255, 255, 255, 0.04) 50%,
+    rgba(255, 255, 255, 0.08) 85%,
+    transparent 100%
+  );
+}
+
+.csd-narrative__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.75);
+  flex: 0 0 auto;
+  margin-top: 2px;
+  backdrop-filter: blur(10px);
+}
+
+.csd-narrative__icon--challenge {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.14);
+  color: rgba(239, 68, 68, 0.75);
+}
+
+.csd-narrative__icon--solution {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.16);
+  color: rgba(16, 185, 129, 0.75);
+}
+
+.csd-narrative__icon--outcome {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.14);
+  color: rgba(59, 130, 246, 0.75);
+}
+
+.csd-narrative__content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.csd-narrative__title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 10px;
+}
+
+.csd-narrative__text {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.csd-narrative__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.csd-narrative__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.csd-narrative__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  margin-top: 9px;
+  background: rgba(16, 185, 129, 0.65);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.08);
+  flex: 0 0 auto;
+}
+
+@media (min-width: 768px) {
+  .csd-narrative {
+    padding: 34px;
+  }
+  .csd-narrative__row {
+    padding: 22px 10px;
+    gap: 16px;
+  }
+  .csd-narrative__icon {
+    width: 44px;
+    height: 44px;
+  }
+  .csd-narrative__text,
+  .csd-narrative__list-item {
+    font-size: 15px;
+  }
+}

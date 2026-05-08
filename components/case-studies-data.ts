@@ -1,22 +1,16 @@
-export type CaseStudyStat = {
-  value: string
-  label: string
-}
-
 export type CaseStudy = {
   slug: string
   title: string
   category: string
   client: string
   timeframe: string
-  image: string        // hero / card thumbnail (first image)
-  images: string[]     // full gallery — all project screenshots
+  image: string
+  images: string[]
   summary: string
   challenge: string
   solution: string[]
   outcomes: string[]
   technologies: string[]
-  stats: CaseStudyStat[]
 }
 
 export const caseStudies: CaseStudy[] = [
@@ -26,7 +20,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Web Development / E-commerce",
     client: "Swag Management Platform",
     timeframe: "2024",
-    image: "/projects/boxes-by-swagify/image.png",
+    image: "/projects/boxes-by-swagify/thumbnail.png",
     images: [
       "/projects/boxes-by-swagify/image.png",
       "/projects/boxes-by-swagify/image copy.png",
@@ -53,12 +47,6 @@ export const caseStudies: CaseStudy[] = [
       "Improved operational visibility across design, storage, and shipping stages.",
     ],
     technologies: ["Vue.js", "Laravel", "MySQL"],
-    stats: [
-      { value: "Global", label: "Shipping" },
-      { value: "500+", label: "SKU Support" },
-      { value: "3x", label: "Faster Launches" },
-      { value: "Multi", label: "Warehouse" },
-    ],
   },
   {
     slug: "self-hosted-gateway",
@@ -66,7 +54,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Web Development / FinTech",
     client: "CardEye",
     timeframe: "March 2024",
-    image: "/projects/self-hosted-gateway/dashboard-2_optimized.0-1920x1507-1.jpg",
+    image: "/projects/self-hosted-gateway/thumbnail.png",
     images: [
       "/projects/self-hosted-gateway/dashboard-2_optimized.0-1920x1507-1.jpg",
       "/projects/self-hosted-gateway/levin-pay-sign-in_optimized.png",
@@ -90,12 +78,6 @@ export const caseStudies: CaseStudy[] = [
       "Enterprise-ready foundation for secure and scalable payment operations.",
     ],
     technologies: ["Vue.js", "Laravel", "Vuetify", "AWS"],
-    stats: [
-      { value: "99.9%", label: "Uptime" },
-      { value: "<200ms", label: "Latency" },
-      { value: "PCI", label: "Compliant" },
-      { value: "Smart", label: "Routing" },
-    ],
   },
   {
     slug: "3d-generative-nft-builder",
@@ -103,12 +85,12 @@ export const caseStudies: CaseStudy[] = [
     category: "Web Development / Web3",
     client: "Digital Product Studio",
     timeframe: "November 2024",
-    image: "/projects/3d-generative-nft-builder/Screenshot-2025-02-03-at-12.16.03 AM.png",
+    image: "/projects/3d-generative-nft-builder/thumbnail.png",
     images: [
-      "/projects/3d-generative-nft-builder/Screenshot-2025-02-03-at-12.16.03 AM.png",
-      "/projects/3d-generative-nft-builder/Screenshot-2025-02-03-at-12.16.43 AM.png",
-      "/projects/3d-generative-nft-builder/Screenshot-2025-02-03-at-12.17.04 AM.png",
-      "/projects/3d-generative-nft-builder/Screenshot-2025-02-03-at-12.17.17 AM.png",
+      "/projects/3d-generative-nft-builder/img-1.png",
+      "/projects/3d-generative-nft-builder/img-2.png",
+      "/projects/3d-generative-nft-builder/img-3.png",
+      "/projects/3d-generative-nft-builder/img-4.png",
     ],
     summary:
       "A 3D avatar customization platform with real-time rendering, marketplace capabilities, and interoperable digital ownership features.",
@@ -125,12 +107,6 @@ export const caseStudies: CaseStudy[] = [
       "Improved product differentiation through advanced interactive UX.",
     ],
     technologies: ["Next.js", "Three.js", "Go"],
-    stats: [
-      { value: "60fps", label: "Rendering" },
-      { value: "1000+", label: "Asset Combos" },
-      { value: "Real-time", label: "3D Preview" },
-      { value: "Web3", label: "Integrated" },
-    ],
   },
   {
     slug: "EolasBio",
@@ -138,7 +114,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Corporate Website / Life Sciences",
     client: "EolasBio",
     timeframe: "2024",
-    image: "/projects/EolasBio/image.png",
+    image: "/projects/EolasBio/thumbnail.png",
     images: [
       "/projects/EolasBio/image.png",
       "/projects/EolasBio/image copy.png",
@@ -159,12 +135,6 @@ export const caseStudies: CaseStudy[] = [
       "Elevated digital presence for enterprise and partnership conversations.",
     ],
     technologies: ["WordPress", "PHP", "MySQL"],
-    stats: [
-      { value: "40%", label: "More Leads" },
-      { value: "SEO", label: "Optimized" },
-      { value: "Multi", label: "Audience" },
-      { value: "CMS", label: "Powered" },
-    ],
   },
   {
     slug: "campaign-builder",
@@ -172,7 +142,7 @@ export const caseStudies: CaseStudy[] = [
     category: "SaaS / Marketing Automation",
     client: "Enterprise Marketing Client",
     timeframe: "January 2025",
-    image: "/projects/campaign-builder/cohort-campaign-selection.webp",
+    image: "/projects/campaign-builder/thumbnail.png",
     images: [
       "/projects/campaign-builder/cohort-campaign-selection.webp",
       "/projects/campaign-builder/cohort-campaign-selection (1).webp",
@@ -199,12 +169,6 @@ export const caseStudies: CaseStudy[] = [
       "Enabled data-driven segmentation with 11-step data foundation process.",
     ],
     technologies: ["React.js", "TypeScript", "Node.js", "HubSpot API"],
-    stats: [
-      { value: "11-step", label: "Data Foundation" },
-      { value: "6", label: "Tools Unified" },
-      { value: "Auto", label: "CRM Sync" },
-      { value: "AI", label: "Powered" },
-    ],
   },
   {
     slug: "autogather",
@@ -212,7 +176,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Web App / B2B SaaS",
     client: "Autogather",
     timeframe: "March 2025",
-    image: "/projects/autogather/cover.webp",
+    image: "/projects/autogather/thumbnail.png",
     images: [
       "/projects/autogather/cover.webp",
       "/projects/autogather/home.webp",
@@ -241,12 +205,6 @@ export const caseStudies: CaseStudy[] = [
       "Reduced onboarding time for new users by 45% with guided assessments.",
     ],
     technologies: ["Next.js", "TypeScript", "PostgreSQL", "AWS"],
-    stats: [
-      { value: "5-in-1", label: "Platform" },
-      { value: "70%", label: "Engagement Up" },
-      { value: "45%", label: "Faster Onboard" },
-      { value: "AI", label: "Assessments" },
-    ],
   },
   {
     slug: "crypto-wallet",
@@ -254,7 +212,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Web3 / FinTech",
     client: "Crypto Platform Client",
     timeframe: "2024",
-    image: "/projects/crypto-wallet/cover.webp",
+    image: "/projects/crypto-wallet/thumbnail.png",
     images: [
       "/projects/crypto-wallet/cover.webp",
       "/projects/crypto-wallet/dashboard.webp",
@@ -282,12 +240,6 @@ export const caseStudies: CaseStudy[] = [
       "Enabled instant DApp discovery and deployment from a single dashboard.",
     ],
     technologies: ["React.js", "Web3.js", "Node.js", "Ethers.js"],
-    stats: [
-      { value: "Multi", label: "Chain" },
-      { value: "60%", label: "Time Saved" },
-      { value: "Real-time", label: "Portfolio" },
-      { value: "DApp", label: "Store" },
-    ],
   },
   {
     slug: "custom-enterprise-crm",
@@ -295,7 +247,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Enterprise Software / CRM",
     client: "B2B Enterprise Client",
     timeframe: "October 2024",
-    image: "/projects/custom-enterprise-crm/cover.webp",
+    image: "/projects/custom-enterprise-crm/thumbnail.png",
     images: [
       "/projects/custom-enterprise-crm/cover.webp",
       "/projects/custom-enterprise-crm/companies-dashboard.webp",
@@ -322,12 +274,6 @@ export const caseStudies: CaseStudy[] = [
       "Sales cycle shortened by 30% with real-time pipeline and form automation.",
     ],
     technologies: ["React.js", "Node.js", "PostgreSQL", "Redis"],
-    stats: [
-      { value: "4-in-1", label: "Tools Replaced" },
-      { value: "65%", label: "Faster Reporting" },
-      { value: "30%", label: "Shorter Cycle" },
-      { value: "Custom", label: "Form Builder" },
-    ],
   },
   {
     slug: "efxpro",
@@ -335,7 +281,7 @@ export const caseStudies: CaseStudy[] = [
     category: "FinTech / Trading",
     client: "EFXPro",
     timeframe: "2024",
-    image: "/projects/efxpro/home.webp",
+    image: "/projects/efxpro/thumbnail.png",
     images: [
       "/projects/efxpro/home.webp",
       "/projects/efxpro/detail-page.webp",
@@ -358,12 +304,6 @@ export const caseStudies: CaseStudy[] = [
       "Launched to 2,000+ active traders within the first month of release.",
     ],
     technologies: ["React.js", "TypeScript", "WebSocket", "Node.js"],
-    stats: [
-      { value: "<100ms", label: "Data Refresh" },
-      { value: "40%", label: "Longer Sessions" },
-      { value: "2K+", label: "Traders" },
-      { value: "Live", label: "Market Data" },
-    ],
   },
   {
     slug: "aladdin-catering",
@@ -371,11 +311,15 @@ export const caseStudies: CaseStudy[] = [
     category: "Web App / Food & Beverage",
     client: "Aladdin Catering",
     timeframe: "2024",
-    image: "/projects/aladdin-catering/home.webp",
+    image: "/projects/aladdin-catering/thumbnail.png",
     images: [
       "/projects/aladdin-catering/home.webp",
       "/projects/aladdin-catering/menu.webp",
       "/projects/aladdin-catering/catering-menu.webp",
+      "/projects/aladdin-catering/add-to-cart.webp",
+
+      "/projects/aladdin-catering/about-us.webp",
+
     ],
     summary:
       "A modern catering and food ordering platform with interactive menus, order management, and a seamless customer booking experience.",
@@ -392,12 +336,6 @@ export const caseStudies: CaseStudy[] = [
       "Improved customer satisfaction through self-service booking and tracking.",
     ],
     technologies: ["Next.js", "Tailwind CSS", "Supabase"],
-    stats: [
-      { value: "180%", label: "More Orders" },
-      { value: "90%", label: "Less Errors" },
-      { value: "Self", label: "Service" },
-      { value: "Live", label: "Menu Mgmt" },
-    ],
   },
   {
     slug: "ducorr",
@@ -405,7 +343,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Corporate Website / Industrial",
     client: "Ducorr",
     timeframe: "2024",
-    image: "/projects/ducorr/projects.webp",
+    image: "/projects/ducorr/thumbnail.png",
     images: [
       "/projects/ducorr/projects.webp",
       "/projects/ducorr/products-details.webp",
@@ -428,12 +366,6 @@ export const caseStudies: CaseStudy[] = [
       "Attracted 3x more qualified job applicants through the careers platform.",
     ],
     technologies: ["Next.js", "TypeScript", "Sanity CMS"],
-    stats: [
-      { value: "55%", label: "More Traffic" },
-      { value: "35%", label: "Less Queries" },
-      { value: "3x", label: "More Applicants" },
-      { value: "CMS", label: "Powered" },
-    ],
   },
   {
     slug: "managed-hosting-dashboard",
@@ -441,7 +373,7 @@ export const caseStudies: CaseStudy[] = [
     category: "SaaS / DevOps",
     client: "Hosting Platform Client",
     timeframe: "2025",
-    image: "/projects/managed-hosting-dashboard/cover.webp",
+    image: "/projects/managed-hosting-dashboard/thumbnail.png",
     images: [
       "/projects/managed-hosting-dashboard/cover.webp",
       "/projects/managed-hosting-dashboard/dashboard.webp",
@@ -463,12 +395,6 @@ export const caseStudies: CaseStudy[] = [
       "Onboarded 300+ sites in the first 2 months post-launch.",
     ],
     technologies: ["React.js", "Node.js", "WebSocket", "PostgreSQL"],
-    stats: [
-      { value: "50%", label: "Fewer Tickets" },
-      { value: "99.95%", label: "Uptime Accuracy" },
-      { value: "300+", label: "Sites" },
-      { value: "Real-time", label: "Monitoring" },
-    ],
   },
   {
     slug: "sparkdoc-ai",
@@ -476,7 +402,7 @@ export const caseStudies: CaseStudy[] = [
     category: "AI / SaaS",
     client: "SparkDoc",
     timeframe: "April 2025",
-    image: "/projects/sparkdoc-ai/Dashboard.webp",
+    image: "/projects/sparkdoc-ai/thumbnail.png",
     images: [
       "/projects/sparkdoc-ai/Dashboard.webp",
       "/projects/sparkdoc-ai/Register.webp",
@@ -502,11 +428,5 @@ export const caseStudies: CaseStudy[] = [
       "Achieved 4.9 star rating in beta with 500+ early access researchers.",
     ],
     technologies: ["Next.js", "OpenAI API", "TypeScript", "PostgreSQL"],
-    stats: [
-      { value: "3x", label: "Faster Writing" },
-      { value: "85%", label: "Less Cite Errors" },
-      { value: "4.9★", label: "Beta Rating" },
-      { value: "AI", label: "Powered" },
-    ],
   },
 ]

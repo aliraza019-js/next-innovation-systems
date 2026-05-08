@@ -88,7 +88,7 @@ export function Footer() {
                   <button 
                     type="submit"
                     disabled={status === "loading" || !email}
-                    className="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-4 font-bold text-sm flex items-center gap-2 transition-colors shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="bg-white hover:bg-white text-black px-6 py-4 font-bold text-sm flex items-center gap-2 transition-colors shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {status === "loading" ? (
                       <Loader2 size={18} className="animate-spin" />
@@ -112,7 +112,6 @@ export function Footer() {
             </motion.div>
           </div>
 
-          {/* Middle: Quick Links */}
           <div className="lg:col-span-3">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -133,7 +132,6 @@ export function Footer() {
             </motion.div>
           </div>
 
-          {/* Right Side: Address & Contact */}
           <div className="lg:col-span-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

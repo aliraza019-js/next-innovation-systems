@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     const body = await req.json()
     const { name, email, message, type } = body
 
-    // Validate required fields
+    
     if (!email) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 })
     }
@@ -20,9 +20,9 @@ export async function POST(req: Request) {
       )
     }
 
-    // Determine which email to send based on form type
+
     if (type === "query") {
-      // Footer query form — notify NIS team about the inquiry
+
       const { data, error } = await resend.emails.send({
         from: "NIS Website <onboarding@resend.dev>",
         to: [process.env.CONTACT_EMAIL || "contact@nextinnovation.systems"],
@@ -71,11 +71,12 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ error: "Invalid form type" }, { status: 400 })
-  } catch (error) {
+  } catch (error: any) {
     console.error("Email send error:", error)
     return NextResponse.json(
-      { error: "Failed to send email" },
+      { error: error.message || "Failed to send email" },
       { status: 500 }
     )
   }
 }
+

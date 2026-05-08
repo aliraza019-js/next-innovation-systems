@@ -27,7 +27,7 @@ const techStack = [
   {
     name: "Nuxt.js",
     category: "Framework",
-    icon: "https://cdn.simpleicons.org/nestjs/E0234E",
+    icon: "https://cdn.simpleicons.org/nuxt/E0234E",
   },
   {
     name: "Node.js",
@@ -121,9 +121,9 @@ export function ProjectShowcaseSection() {
           setSelectedStudy(null);
         }
       };
-      
+
       handlePopState(); // Check on mount
-      
+
       window.addEventListener("popstate", handlePopState);
       return () => window.removeEventListener("popstate", handlePopState);
     }

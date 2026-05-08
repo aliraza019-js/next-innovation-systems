@@ -9,6 +9,8 @@ import {
   Zap,
 } from "lucide-react"; 
 import "./hero-section.css";
+import Link from "next/link";
+
 
 const companies = [
   { name: "Swagify", icon: <Zap size={20} /> },
