@@ -35,47 +35,53 @@ export function TestimonialsSection() {
       text: "NIS delivered our swag management platform end-to-end, helping us design, store, and ship custom swag globally.",
       name: "Boxes by Swagify",
       role: "Web Development / E-commerce",
+      image: "https://i.pravatar.cc/150?u=swagify"
     },
     {
       text: "CardEye's self-hosted payment gateway improved transaction efficiency and reduced chargebacks with stronger security.",
       name: "CardEye",
       role: "Web Development",
+      image: "https://i.pravatar.cc/150?u=cardeye"
     },
     {
       text: "Our 3D NFT Builder launched real-time avatar customization and marketplace capabilities with modern web technologies.",
       name: "3D NFT Builder",
       role: "Web Development",
+      image: "https://i.pravatar.cc/150?u=nft"
     },
     {
       text: "NIS built a corporate website that clearly communicates our life science services and global partnerships.",
       name: "EolasBio",
       role: "Corporate Website / Life Sciences",
+      image: "https://i.pravatar.cc/150?u=eolas"
     },
     {
       text: "The secure mobile banking app now serves over 500,000 active users with a 4.8-star customer rating.",
       name: "Regional Bank",
       role: "Mobile Development",
+      image: "https://i.pravatar.cc/150?u=bank"
     },
     {
       text: "Our platform redesign increased conversion by 65% and improved page load performance by 80%.",
       name: "Retail Chain",
       role: "E-commerce Platform Redesign",
+      image: "https://i.pravatar.cc/150?u=retail"
     },
     {
       text: "IoT sensors and analytics improved factory efficiency by 35% while reducing production downtime.",
       name: "Manufacturing Leader",
       role: "IoT & Automation",
+      image: "https://i.pravatar.cc/150?u=factory"
     },
     {
       text: "NIS became our trusted technology partner with transparent communication and measurable delivery outcomes.",
       name: "Enterprise Client",
       role: "Digital Transformation",
+      image: "https://i.pravatar.cc/150?u=enterprise"
     },
   ]
-
   return (
     <section id="testimonials" ref={sectionRef} className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8">
-      {/* Grid Background */}
       <div className="absolute inset-0 opacity-10">
         <div
           className="h-full w-full"
@@ -90,7 +96,7 @@ export function TestimonialsSection() {
       </div>
 
       <div className="relative max-w-7xl mx-auto">
-        {/* Header Section - Keep as user loves it */}
+
         <div className="text-center mb-16 md:mb-32">
           <div className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out inline-flex items-center gap-2 text-white/60 text-sm font-medium tracking-wider uppercase mb-6">
             <div className="w-8 h-px bg-white/30"></div>
@@ -105,7 +111,6 @@ export function TestimonialsSection() {
           </p>
         </div>
 
-        {/* Testimonials Carousel */}
         <div className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out relative flex justify-center items-center min-h-[600px] md:min-h-[800px] overflow-hidden">
           <div
             className="flex gap-8 max-w-6xl"

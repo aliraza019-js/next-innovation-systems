@@ -15,7 +15,7 @@ export default function CarDealershipsPage() {
     <div className="min-h-screen bg-black overflow-hidden">
       <main className="min-h-screen relative overflow-hidden">
         {/* Aurora background */}
-        <div className="fixed inset-0 w-full h-full">
+        <div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
           <Aurora colorStops={["#00382d", "#006a54", "#0b3f35"]} amplitude={1.2} blend={0.6} speed={0.8} />
         </div>
 

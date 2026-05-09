@@ -12,13 +12,12 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-black overflow-hidden">
       <main className="min-h-screen relative overflow-hidden">
-        <div className="fixed inset-0 w-full h-full">
+        <div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
           <Aurora colorStops={["#00382d", "#006a54", "#0b3f35"]} amplitude={1.2} blend={0.6} speed={0.8} />
         </div>
         <div className="relative z-10">
           <GlassmorphismNav />
           <HeroSection />
-          <ProblemSolutionSection />
           <ITServicesSection />
           <ProjectShowcaseSection />
           <TestimonialsSection />

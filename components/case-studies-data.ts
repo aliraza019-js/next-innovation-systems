@@ -5,6 +5,7 @@ export type CaseStudy = {
   client: string
   timeframe: string
   image: string
+  images: string[]
   summary: string
   challenge: string
   solution: string[]
@@ -19,7 +20,18 @@ export const caseStudies: CaseStudy[] = [
     category: "Web Development / E-commerce",
     client: "Swag Management Platform",
     timeframe: "2024",
-    image: "/Projects/boxes-by-swagify.jpg",
+    image: "/projects/boxes-by-swagify/thumbnail.png",
+    images: [
+      "/projects/boxes-by-swagify/image.png",
+      "/projects/boxes-by-swagify/image copy.png",
+      "/projects/boxes-by-swagify/image copy 2.png",
+      "/projects/boxes-by-swagify/image copy 3.png",
+      "/projects/boxes-by-swagify/image copy 4.png",
+      "/projects/boxes-by-swagify/image copy 5.png",
+      "/projects/boxes-by-swagify/image copy 6.png",
+      "/projects/boxes-by-swagify/image copy 7.png",
+      "/projects/boxes-by-swagify/image copy 8.png",
+    ],
     summary:
       "A global swag gifting and management platform enabling teams to design, store, and ship custom branded swag boxes.",
     challenge:
@@ -37,12 +49,20 @@ export const caseStudies: CaseStudy[] = [
     technologies: ["Vue.js", "Laravel", "MySQL"],
   },
   {
-    slug: "cardeye-payment-gateway",
-    title: "Self Hosted Payment Gateway (CardEye)",
-    category: "Web Development",
+    slug: "self-hosted-gateway",
+    title: "Self Hosted Payment Gateway",
+    category: "Web Development / FinTech",
     client: "CardEye",
     timeframe: "March 2024",
-    image: "/Projects/cardeye-payment-gateway.jpg",
+    image: "/projects/self-hosted-gateway/thumbnail.png",
+    images: [
+      "/projects/self-hosted-gateway/dashboard-2_optimized.0-1920x1507-1.jpg",
+      "/projects/self-hosted-gateway/levin-pay-sign-in_optimized.png",
+      "/projects/self-hosted-gateway/transaction-2_optimized.0.jpg",
+      "/projects/self-hosted-gateway/transaction-detail-page_optimized.jpg",
+      "/projects/self-hosted-gateway/fraudulent-2_optimized.0-user-details.jpg",
+      "/projects/self-hosted-gateway/notification-design-3_optimized.png",
+    ],
     summary:
       "A secure self-hosted payment gateway with intelligent routing and fraud controls to improve acceptance rates and reduce chargebacks.",
     challenge:
@@ -60,12 +80,18 @@ export const caseStudies: CaseStudy[] = [
     technologies: ["Vue.js", "Laravel", "Vuetify", "AWS"],
   },
   {
-    slug: "nft-builder",
-    title: "3D NFT Builder",
-    category: "Web Development",
+    slug: "3d-generative-nft-builder",
+    title: "3D Generative NFT Builder",
+    category: "Web Development / Web3",
     client: "Digital Product Studio",
     timeframe: "November 2024",
-    image: "/Projects/3d-nft-builder.jpg",
+    image: "/projects/3d-generative-nft-builder/thumbnail.png",
+    images: [
+      "/projects/3d-generative-nft-builder/img-1.png",
+      "/projects/3d-generative-nft-builder/img-2.png",
+      "/projects/3d-generative-nft-builder/img-3.png",
+      "/projects/3d-generative-nft-builder/img-4.png",
+    ],
     summary:
       "A 3D avatar customization platform with real-time rendering, marketplace capabilities, and interoperable digital ownership features.",
     challenge:
@@ -83,12 +109,17 @@ export const caseStudies: CaseStudy[] = [
     technologies: ["Next.js", "Three.js", "Go"],
   },
   {
-    slug: "eolasbio-corporate-site",
+    slug: "EolasBio",
     title: "EolasBio Corporate Website",
     category: "Corporate Website / Life Sciences",
     client: "EolasBio",
     timeframe: "2024",
-    image: "/Projects/eolasbio-corporate-site.jpg",
+    image: "/projects/EolasBio/thumbnail.png",
+    images: [
+      "/projects/EolasBio/image.png",
+      "/projects/EolasBio/image copy.png",
+      "/projects/EolasBio/image copy 2.png",
+    ],
     summary:
       "A professional life sciences website that presents complex services with clear structure for partners, researchers, and pharma stakeholders.",
     challenge:
@@ -104,5 +135,298 @@ export const caseStudies: CaseStudy[] = [
       "Elevated digital presence for enterprise and partnership conversations.",
     ],
     technologies: ["WordPress", "PHP", "MySQL"],
+  },
+  {
+    slug: "campaign-builder",
+    title: "AI Campaign Builder Platform",
+    category: "SaaS / Marketing Automation",
+    client: "Enterprise Marketing Client",
+    timeframe: "January 2025",
+    image: "/projects/campaign-builder/thumbnail.png",
+    images: [
+      "/projects/campaign-builder/cohort-campaign-selection.webp",
+      "/projects/campaign-builder/cohort-campaign-selection (1).webp",
+      "/projects/campaign-builder/campaign-library.webp",
+      "/projects/campaign-builder/cohort-library.webp",
+      "/projects/campaign-builder/customer-library.webp",
+      "/projects/campaign-builder/product-library.webp",
+      "/projects/campaign-builder/marketplace-home.webp",
+      "/projects/campaign-builder/marketplace-explore.webp",
+      "/projects/campaign-builder/marketplace-explore (1).webp",
+    ],
+    summary:
+      "A comprehensive AI-powered campaign management platform with cohort building, campaign library, and HubSpot-integrated execution workflows.",
+    challenge:
+      "The client needed to unify customer segmentation, campaign creation, and marketplace discovery in a single intelligent platform that could sync with their CRM.",
+    solution: [
+      "Architected a modular campaign builder with cohort selection and campaign pairing.",
+      "Built a product and customer library with data quality assessment tooling.",
+      "Integrated marketplace exploration for discovering campaign templates and assets.",
+    ],
+    outcomes: [
+      "Reduced campaign launch time from days to hours through guided workflows.",
+      "Unified 6 previously siloed marketing tools into a single platform.",
+      "Enabled data-driven segmentation with 11-step data foundation process.",
+    ],
+    technologies: ["React.js", "TypeScript", "Node.js", "HubSpot API"],
+  },
+  {
+    slug: "autogather",
+    title: "Autogather Platform",
+    category: "Web App / B2B SaaS",
+    client: "Autogather",
+    timeframe: "March 2025",
+    image: "/projects/autogather/thumbnail.png",
+    images: [
+      "/projects/autogather/cover.webp",
+      "/projects/autogather/home.webp",
+      "/projects/autogather/dashboard.webp",
+      "/projects/autogather/assessment.webp",
+      "/projects/autogather/assessment (1).webp",
+      "/projects/autogather/career.webp",
+      "/projects/autogather/case-studies-learning.webp",
+      "/projects/autogather/products-details.webp",
+      "/projects/autogather/products-details (1).webp",
+      "/projects/autogather/projects.webp",
+      "/projects/autogather/full-page.webp",
+    ],
+    summary:
+      "A full-featured B2B platform for professional assessment, career tracking, product discovery, and case-study-driven learning.",
+    challenge:
+      "The client needed a unified digital workspace combining HR assessments, product catalogs, career paths, and knowledge resources in one coherent platform.",
+    solution: [
+      "Built a multi-module platform with assessment engine, career tracker, and product library.",
+      "Designed an intuitive dashboard surfacing key metrics and user progress.",
+      "Implemented case-study learning flows with structured knowledge paths.",
+    ],
+    outcomes: [
+      "Consolidated 5 separate tools into a single cohesive platform.",
+      "Increased user engagement by 70% through structured learning journeys.",
+      "Reduced onboarding time for new users by 45% with guided assessments.",
+    ],
+    technologies: ["Next.js", "TypeScript", "PostgreSQL", "AWS"],
+  },
+  {
+    slug: "crypto-wallet",
+    title: "Crypto Wallet & DApp Dashboard",
+    category: "Web3 / FinTech",
+    client: "Crypto Platform Client",
+    timeframe: "2024",
+    image: "/projects/crypto-wallet/thumbnail.png",
+    images: [
+      "/projects/crypto-wallet/cover.webp",
+      "/projects/crypto-wallet/dashboard.webp",
+      "/projects/crypto-wallet/dashboard (1).webp",
+      "/projects/crypto-wallet/wallet-overview.webp",
+      "/projects/crypto-wallet/portfolio.webp",
+      "/projects/crypto-wallet/portfolio (1).webp",
+      "/projects/crypto-wallet/transactions.webp",
+      "/projects/crypto-wallet/dapp-store.webp",
+      "/projects/crypto-wallet/hosting-overview.webp",
+      "/projects/crypto-wallet/site-monitoring.webp",
+    ],
+    summary:
+      "A full-stack Web3 wallet and DApp dashboard with portfolio tracking, transaction history, DApp store, and site monitoring for crypto users.",
+    challenge:
+      "The client needed a single unified interface for managing multi-chain wallets, monitoring DApp performance, and tracking on-chain activity securely.",
+    solution: [
+      "Built a multi-chain wallet interface with real-time portfolio valuation.",
+      "Designed a DApp store with discovery, install, and usage analytics.",
+      "Implemented site monitoring and hosting overview for deployed DApps.",
+    ],
+    outcomes: [
+      "Delivered a seamless Web3 UX that abstracts blockchain complexity for users.",
+      "Reduced wallet management time by 60% through unified portfolio views.",
+      "Enabled instant DApp discovery and deployment from a single dashboard.",
+    ],
+    technologies: ["React.js", "Web3.js", "Node.js", "Ethers.js"],
+  },
+  {
+    slug: "custom-enterprise-crm",
+    title: "Custom Enterprise CRM",
+    category: "Enterprise Software / CRM",
+    client: "B2B Enterprise Client",
+    timeframe: "October 2024",
+    image: "/projects/custom-enterprise-crm/thumbnail.png",
+    images: [
+      "/projects/custom-enterprise-crm/cover.webp",
+      "/projects/custom-enterprise-crm/companies-dashboard.webp",
+      "/projects/custom-enterprise-crm/login.webp",
+      "/projects/custom-enterprise-crm/create-form.webp",
+      "/projects/custom-enterprise-crm/forms-preview.webp",
+      "/projects/custom-enterprise-crm/shared-forms.webp",
+      "/projects/custom-enterprise-crm/shared-packages.webp",
+      "/projects/custom-enterprise-crm/transactions.webp",
+      "/projects/custom-enterprise-crm/environmental-reporting.webp",
+    ],
+    summary:
+      "A custom enterprise CRM with dynamic form builder, shared packages, transaction management, and environmental reporting for complex B2B workflows.",
+    challenge:
+      "Off-the-shelf CRMs could not handle the client's multi-entity structure, custom data collection requirements, and environmental compliance reporting needs.",
+    solution: [
+      "Designed a flexible form builder with shared templates and package management.",
+      "Built a companies dashboard with full transaction and relationship tracking.",
+      "Implemented environmental reporting module aligned with compliance standards.",
+    ],
+    outcomes: [
+      "Eliminated reliance on 4 separate legacy tools with one unified CRM.",
+      "Compliance reporting time reduced by 65% through automated data aggregation.",
+      "Sales cycle shortened by 30% with real-time pipeline and form automation.",
+    ],
+    technologies: ["React.js", "Node.js", "PostgreSQL", "Redis"],
+  },
+  {
+    slug: "efxpro",
+    title: "EFXPro Trading Platform",
+    category: "FinTech / Trading",
+    client: "EFXPro",
+    timeframe: "2024",
+    image: "/projects/efxpro/thumbnail.png",
+    images: [
+      "/projects/efxpro/home.webp",
+      "/projects/efxpro/detail-page.webp",
+      "/projects/efxpro/detail-page (1).webp",
+      "/projects/efxpro/economic-news.webp",
+      "/projects/efxpro/account.webp",
+    ],
+    summary:
+      "A professional forex and financial trading platform with real-time market data, economic news feed, account management, and detailed instrument pages.",
+    challenge:
+      "The client needed a high-performance trading interface that could handle real-time data streams, serve both retail and professional traders, and maintain speed at scale.",
+    solution: [
+      "Built a real-time market data dashboard with live price feeds and charts.",
+      "Designed detailed instrument pages with historical data and analytics.",
+      "Integrated economic news feed with relevance filtering for active traders.",
+    ],
+    outcomes: [
+      "Delivered sub-100ms data refresh rates for live trading views.",
+      "Increased average session duration by 40% versus the previous platform.",
+      "Launched to 2,000+ active traders within the first month of release.",
+    ],
+    technologies: ["React.js", "TypeScript", "WebSocket", "Node.js"],
+  },
+  {
+    slug: "aladdin-catering",
+    title: "Aladdin Catering Platform",
+    category: "Web App / Food & Beverage",
+    client: "Aladdin Catering",
+    timeframe: "2024",
+    image: "/projects/aladdin-catering/thumbnail.png",
+    images: [
+      "/projects/aladdin-catering/home.webp",
+      "/projects/aladdin-catering/menu.webp",
+      "/projects/aladdin-catering/catering-menu.webp",
+      "/projects/aladdin-catering/add-to-cart.webp",
+
+      "/projects/aladdin-catering/about-us.webp",
+
+    ],
+    summary:
+      "A modern catering and food ordering platform with interactive menus, order management, and a seamless customer booking experience.",
+    challenge:
+      "The catering business needed to move from phone-based orders to a digital platform that could handle menu management and customer bookings efficiently.",
+    solution: [
+      "Built a dynamic menu management system with categories and item customization.",
+      "Designed an intuitive booking and order flow for catering events.",
+      "Implemented an admin panel for order tracking and menu updates.",
+    ],
+    outcomes: [
+      "Online orders increased by 180% within 60 days of launch.",
+      "Reduced order errors by 90% by eliminating phone-based communication.",
+      "Improved customer satisfaction through self-service booking and tracking.",
+    ],
+    technologies: ["Next.js", "Tailwind CSS", "Supabase"],
+  },
+  {
+    slug: "ducorr",
+    title: "Ducorr Corporate Platform",
+    category: "Corporate Website / Industrial",
+    client: "Ducorr",
+    timeframe: "2024",
+    image: "/projects/ducorr/thumbnail.png",
+    images: [
+      "/projects/ducorr/projects.webp",
+      "/projects/ducorr/products-details.webp",
+      "/projects/ducorr/products-details (1).webp",
+      "/projects/ducorr/career.webp",
+      "/projects/ducorr/case-studies-learning.webp",
+    ],
+    summary:
+      "A comprehensive industrial corporate platform with detailed product catalogs, project portfolios, career listings, and case-study-based knowledge resources.",
+    challenge:
+      "Ducorr needed to modernize their digital presence to serve industrial buyers, job seekers, and partners with structured, easy-to-navigate content architecture.",
+    solution: [
+      "Designed a product detail system with technical specs and documentation.",
+      "Built a projects portfolio section showcasing industrial case studies.",
+      "Implemented a careers module and knowledge base for multiple audiences.",
+    ],
+    outcomes: [
+      "Organic search traffic increased by 55% within 3 months post-launch.",
+      "Reduced inbound support queries by 35% with self-service knowledge base.",
+      "Attracted 3x more qualified job applicants through the careers platform.",
+    ],
+    technologies: ["Next.js", "TypeScript", "Sanity CMS"],
+  },
+  {
+    slug: "managed-hosting-dashboard",
+    title: "Managed Hosting Dashboard",
+    category: "SaaS / DevOps",
+    client: "Hosting Platform Client",
+    timeframe: "2025",
+    image: "/projects/managed-hosting-dashboard/thumbnail.png",
+    images: [
+      "/projects/managed-hosting-dashboard/cover.webp",
+      "/projects/managed-hosting-dashboard/dashboard.webp",
+      "/projects/managed-hosting-dashboard/hosting-overview.webp",
+      "/projects/managed-hosting-dashboard/site-monitoring.webp",
+    ],
+    summary:
+      "A managed hosting control panel with real-time site monitoring, resource dashboards, and hosting overview for agencies and developers.",
+    challenge:
+      "The client needed a white-label hosting dashboard that could give their customers clear visibility into uptime, resource usage, and site health in real time.",
+    solution: [
+      "Built a real-time site monitoring module with uptime tracking and alerts.",
+      "Designed a hosting overview panel with resource allocation and usage graphs.",
+      "Implemented a responsive dashboard with drill-down views for each hosted site.",
+    ],
+    outcomes: [
+      "Customer support tickets reduced by 50% through self-service monitoring.",
+      "Achieved 99.95% uptime visibility accuracy across all monitored sites.",
+      "Onboarded 300+ sites in the first 2 months post-launch.",
+    ],
+    technologies: ["React.js", "Node.js", "WebSocket", "PostgreSQL"],
+  },
+  {
+    slug: "sparkdoc-ai",
+    title: "SparkDoc AI Writing Platform",
+    category: "AI / SaaS",
+    client: "SparkDoc",
+    timeframe: "April 2025",
+    image: "/projects/sparkdoc-ai/thumbnail.png",
+    images: [
+      "/projects/sparkdoc-ai/Dashboard.webp",
+      "/projects/sparkdoc-ai/Register.webp",
+      "/projects/sparkdoc-ai/ai-chatbot.webp",
+      "/projects/sparkdoc-ai/auto-suggestion.webp",
+      "/projects/sparkdoc-ai/add-function.webp",
+      "/projects/sparkdoc-ai/cite-analysis.webp",
+      "/projects/sparkdoc-ai/document-settings.webp",
+      "/projects/sparkdoc-ai/view-sources.webp",
+    ],
+    summary:
+      "An AI-powered document writing platform with intelligent chatbot, auto-suggestions, citation analysis, and source management for researchers and writers.",
+    challenge:
+      "The client needed to build a next-generation writing assistant that could reduce research friction, improve citation accuracy, and boost writer productivity at scale.",
+    solution: [
+      "Built an AI chatbot integrated into the document editor for in-context assistance.",
+      "Implemented auto-suggestion engine trained on document context and user patterns.",
+      "Designed citation analysis and source management with one-click reference insertion.",
+    ],
+    outcomes: [
+      "Writing speed increased by 3x for active users within the first 30 days.",
+      "Citation error rates reduced by 85% through automated source validation.",
+      "Achieved 4.9 star rating in beta with 500+ early access researchers.",
+    ],
+    technologies: ["Next.js", "OpenAI API", "TypeScript", "PostgreSQL"],
   },
 ]

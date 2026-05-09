@@ -27,6 +27,11 @@
   width: 100%;
 }
 
+.text-rotate-element-wrapper {
+  display: inline-flex;
+  overflow: hidden;
+}
+
 .text-rotate-element {
   display: inline-block;
 }

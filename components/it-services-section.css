@@ -1,0 +1,67 @@
+/* Card wrapper — sirf padding: 1px, transparent background */
+.service-card-animated {
+  position: relative;
+  border-radius: 20px;
+  padding: 1px;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Rotating border — DEFAULT MEIN PAUSED */
+.service-card-animated::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    transparent 0deg,
+    transparent 75%,
+    #10b981 88%,
+    #34d399 94%,
+    transparent 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: spin 3s linear infinite;
+  animation-play-state: paused;   /* ← YEH KEY HAI */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* SIRF hovered card pe chale */
+.service-card-animated:hover::before {
+  animation-play-state: running;
+  opacity: 1;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin {
+  to { --angle: 360deg; }
+}
+
+/* Inner glass card */
+.card-inner-content {
+  position: relative;
+  z-index: 1;
+  border-radius: 19px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card-animated:hover .card-inner-content {
+  background: rgba(16, 185, 129, 0.04);
+  border-color: transparent; /* border hide ho jaye taake animation visible rahe */
+}
