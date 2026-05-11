@@ -3,14 +3,14 @@ import React, { useState } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { NisLogoDark } from "@/components/nis-logo-dark"
-import { 
-  FacebookIcon, 
-  InstagramIcon, 
-  LinkedinIcon, 
-  YoutubeIcon, 
-  Mail, 
-  MapPin, 
-  Phone, 
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  YoutubeIcon,
+  Mail,
+  MapPin,
+  Phone,
   ChevronRight,
   Loader2,
   CheckCircle2
@@ -56,7 +56,7 @@ export function Footer() {
     <footer className="w-full bg-[#0a0a0a] text-white pt-20 pb-10 px-6 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
-          
+
           <div className="lg:col-span-5 space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -71,21 +71,21 @@ export function Footer() {
               >
                 <NisLogoDark className="h-9 w-auto md:h-10 block" />
               </Link>
-         
+
               <form onSubmit={handleSubmit} className="relative max-w-md group">
                 <div className="flex items-center bg-[#141414] border border-white/10 rounded-2xl overflow-hidden focus-within:border-emerald-500/50 transition-all duration-300 shadow-2xl">
                   <div className="pl-4 text-white/40">
                     <Mail size={20} />
                   </div>
-                  <input 
-                    type="email" 
+                  <input
+                    type="email"
                     placeholder="Email Address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={status === "loading"}
                     className="w-full bg-transparent py-4 px-3 outline-none text-sm placeholder:text-white/20 disabled:opacity-50"
                   />
-                  <button 
+                  <button
                     type="submit"
                     disabled={status === "loading" || !email}
                     className="bg-white hover:bg-white text-black px-6 py-4 font-bold text-sm flex items-center gap-2 transition-colors shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -120,10 +120,14 @@ export function Footer() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
-              <ul className="flex flex-wrap gap-x-6 gap-y-3 text-white/60">
-                {["Services", "Projects", "About NIS", "Contact", "Privacy"].map((link) => (
+
+              <ul className="flex flex-col gap-3 text-white/60">
+                {["Services", "Projects", "About Us", "Contact", "Privacy"].map((link) => (
                   <li key={link}>
-                    <a href="#" className="hover:text-emerald-500 transition-colors text-sm">
+                    <a
+                      href="#"
+                      className="hover:text-emerald-500 transition-colors text-sm"
+                    >
                       {link}
                     </a>
                   </li>
@@ -170,7 +174,14 @@ export function Footer() {
           <p className="text-white/40 text-xs tracking-widest uppercase">
             © {currentYear} Next Innovation Systems. All rights reserved.
           </p>
-          
+
+
+
+          <p className="text-white/40 text-xs font-medium uppercase tracking-[0.2em]">
+            Professional IT Solutions
+          </p>
+
+
           <div className="flex items-center gap-6">
             {[FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon].map((Icon, i) => (
               <a key={i} href="#" className="text-white/40 hover:text-emerald-500 transition-colors">
@@ -178,10 +189,6 @@ export function Footer() {
               </a>
             ))}
           </div>
-
-          <p className="text-white/40 text-xs font-medium uppercase tracking-[0.2em]">
-            Professional IT Solutions
-          </p>
         </div>
       </div>
     </footer>

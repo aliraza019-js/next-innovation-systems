@@ -139,14 +139,16 @@ export function HeroSection() {
 
          
           </Button>
-          <Button
-            size="lg"
-            className="rounded-full px-8 py-4 text-lg font-medium border border-white/20 text-white bg-transparent hover:bg-emerald-600 hover:border-emerald-600 transition-all hover:scale-105 group"
-          >
-           <div className="flex justify-center align-items-center items-center">
-             <Play /> View Our Work
-           </div>
-          </Button>
+          <a href="#case-studies">
+            <Button
+              size="lg"
+              className="rounded-full px-8 py-4 text-lg font-medium border border-white/20 text-white bg-transparent hover:bg-emerald-600 hover:border-emerald-600 transition-all hover:scale-105 group"
+            >
+             <div className="flex justify-center align-items-center items-center">
+               <Play /> View Our Work
+             </div>
+            </Button>
+          </a>
         </div>
 
         {/* Trust Indicators (Desktop) */}

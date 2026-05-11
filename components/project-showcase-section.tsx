@@ -8,6 +8,7 @@ import { caseStudies, CaseStudy } from "@/components/case-studies-data";
 import { CaseStudyDetail } from "@/components/case-study-detail";
 import "./project-showcase-section.css";
 
+
 const techStack = [
   {
     name: "React.js",
@@ -27,7 +28,7 @@ const techStack = [
   {
     name: "Nuxt.js",
     category: "Framework",
-    icon: "https://cdn.simpleicons.org/nuxt/E0234E",
+    icon: "https://cdn.simpleicons.org/nuxtdotjs/00DC82",
   },
   {
     name: "Node.js",
@@ -64,12 +65,49 @@ const techStack = [
     category: "DevOps",
     icon: "https://cdn.simpleicons.org/docker/2496ED",
   },
+
+
   {
-    name: "Git",
-    category: "VCS",
-    icon: "https://cdn.simpleicons.org/git/F05032",
+    name: "Python",
+    category: "AI / ML",
+    icon: "https://cdn.simpleicons.org/python/3776AB",
+  },
+
+
+  {
+    name: "LangChain",
+    category: "RAG",
+    icon: "https://cdn.simpleicons.org/langchain/1C3C3C",
+  },
+
+  {
+    name: "ChromaDB",
+    category: "Vector DB",
+    icon: "https://avatars.githubusercontent.com/u/132288731?s=200&v=4",
+  },
+  {
+    name: "Hugging Face",
+    category: "AI Models",
+    icon: "https://cdn.simpleicons.org/huggingface/FFD21E",
+  },
+  {
+    name: "LangGraph",
+    category: "Agentic AI",
+    icon: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langgraph-color.png",
+  },
+  {
+    name: "CrewAI",
+    category: "Agentic AI",
+    icon: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/crewai-color.png",
+  },
+  {
+    name: "LlamaIndex",
+    category: "RAG",
+    icon: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/llamaindex-color.png",
   },
 ];
+
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
