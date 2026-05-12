@@ -46,14 +46,14 @@ export function CaseStudyDetail({ study, onClose }: CaseStudyDetailProps) {
 
   return (
     <>
-      {/* ── Main Modal ── */}
+
       <div
         className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/90 backdrop-blur-md p-4 md:p-8"
         onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
       >
         <div className="relative w-full max-w-7xl my-auto rounded-3xl overflow-hidden bg-black border border-white/10 shadow-[0_0_80px_-20px_rgba(16,185,129,0.15)]">
 
-          {/* ── Close Button — Glassy Emerald ── */}
+
           <button
             onClick={onClose}
             aria-label="Close"
@@ -62,30 +62,29 @@ export function CaseStudyDetail({ study, onClose }: CaseStudyDetailProps) {
             <X size={18} />
           </button>
 
-          {/* ── Hero Image ── */}
-          <div className="relative w-full overflow-hidden">
+          <div className="relative w-full overflow-hidden bg-[#0a0a0a]">
             <img
               src={images[0]}
               alt={study.title}
-              className="h-64 md:h-[420px] w-full object-cover"
+              className="h-64 md:h-[600px] w-full object-cover object-top"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#080c0c] via-transparent to-transparent opacity-60 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#080c0c] via-transparent to-transparent opacity-80 pointer-events-none" />
           </div>
 
-          {/* ── Content Body ── */}
+
           <div className="px-8 md:px-12 pb-16 pt-10 bg-[#080c0c]">
 
-            {/* Category */}
+
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
               {study.category}
             </p>
 
-            {/* Title */}
+
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5">
               {study.title}
             </h1>
 
-            {/* Meta row */}
+
             <div className="flex flex-wrap items-center gap-4 mb-10 text-sm text-white/45">
               <span className="inline-flex items-center gap-2 bg-white/[0.04] border border-white/[0.06] rounded-full px-4 py-1.5">
                 <Calendar size={14} />
@@ -97,16 +96,13 @@ export function CaseStudyDetail({ study, onClose }: CaseStudyDetailProps) {
               </span>
             </div>
 
-            {/* Divider */}
             <div className="h-px w-full bg-gradient-to-r from-transparent via-white/[0.08] to-transparent mb-10" />
 
-            {/* Overview */}
             <div className="mb-12">
               <p className="text-[11px] uppercase tracking-[0.18em] text-white/30 font-semibold mb-4">Overview</p>
               <p className="text-white/75 leading-[1.8] text-base md:text-lg max-w-4xl">{study.summary}</p>
             </div>
 
-            {/* Challenge + Solution */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
               <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
                 <div className="flex items-center gap-2 mb-4">

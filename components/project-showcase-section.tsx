@@ -150,7 +150,7 @@ export function ProjectShowcaseSection() {
         }
       };
 
-      handlePopState(); // Check on mount
+      handlePopState(); 
 
       window.addEventListener("popstate", handlePopState);
       return () => window.removeEventListener("popstate", handlePopState);
@@ -158,7 +158,7 @@ export function ProjectShowcaseSection() {
   }, []);
 
   const INITIAL_VISIBLE = 3;
-  const LOAD_MORE_STEP = 8;
+  const LOAD_MORE_STEP = 9;
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
 
 

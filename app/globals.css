@@ -302,11 +302,13 @@
 }
 
 .animate-slide-left {
-  animation: slide-left 30s linear infinite;
+  animation: slide-left 18s linear infinite;
+  will-change: transform;
 }
 
 .animate-slide-left-mobile {
-  animation: slide-left-mobile 25s linear infinite;
+  animation: slide-left-mobile 14s linear infinite;
+  will-change: transform;
 }
 
 /* Adding fade-in animations for page load */

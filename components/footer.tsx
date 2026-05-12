@@ -87,7 +87,7 @@ export function Footer() {
                   />
                   <button
                     type="submit"
-                    disabled={status === "loading" || !email}
+                    disabled={status === "loading"}
                     className="bg-white hover:bg-white text-black px-6 py-4 font-bold text-sm flex items-center gap-2 transition-colors shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {status === "loading" ? (

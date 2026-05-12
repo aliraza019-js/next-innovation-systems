@@ -137,6 +137,35 @@ export const caseStudies: CaseStudy[] = [
     technologies: ["WordPress", "PHP", "MySQL"],
   },
   {
+    slug: "nft-marketplace",
+    title: "NFT Marketplace for Digital Art & Collectibles",
+    category: "SaaS / Marketing Automation",
+    client: "Enterprise Marketing Client",
+    timeframe: "January 2025",
+    image: "/projects/nft-marketplace/thumbnail.png",
+    images: [
+      "/projects/nft-marketplace/image1.webp",
+      "/projects/nft-marketplace/image2.webp",
+      "/projects/nft-marketplace/image3.webp",
+
+    ],
+    summary:
+      "A comprehensive AI-powered campaign management platform with cohort building, campaign library, and HubSpot-integrated execution workflows.",
+    challenge:
+      "The NFT space lacked marketplaces that combined a premium visual experience with genuinely fast, low-friction trading flows.Existing platforms felt utilitarian. Collectors and creators wanted a marketplace that matched the artistic quality of the assets being traded palette",
+    solution: [
+      "Designed and built a fully functional NFT marketplace with a dark-themed, futuristic UI that puts the artwork front and center.",
+      "Built with React and Tailwind CSS for pixel-perfect responsiveness",
+      "Integrated with Web3.js and ERC-721 for secure on-chain ownership, the platform supports multi-category browsing, instant wallet connectivity, and streamlined buy/sell/auction flows."
+    ],
+    outcomes: [
+      "The marketplace launched to strong reception from the creator community.",
+      " The premium dark UI became a differentiator",
+      "with users consistently praising the visual experience and smooth trading flow."
+    ],
+    technologies: ["React.js", "Tailwind CSS", "Web3.js", "ERC-721", "Node.js", "Ethereum"],
+  },
+  {
     slug: "campaign-builder",
     title: "AI Campaign Builder Platform",
     category: "SaaS / Marketing Automation",
@@ -144,15 +173,11 @@ export const caseStudies: CaseStudy[] = [
     timeframe: "January 2025",
     image: "/projects/campaign-builder/thumbnail.png",
     images: [
-      "/projects/campaign-builder/cohort-campaign-selection.webp",
-      "/projects/campaign-builder/cohort-campaign-selection (1).webp",
-      "/projects/campaign-builder/campaign-library.webp",
-      "/projects/campaign-builder/cohort-library.webp",
-      "/projects/campaign-builder/customer-library.webp",
       "/projects/campaign-builder/product-library.webp",
-      "/projects/campaign-builder/marketplace-home.webp",
-      "/projects/campaign-builder/marketplace-explore.webp",
-      "/projects/campaign-builder/marketplace-explore (1).webp",
+      "/projects/campaign-builder/cohort-campaign-selection.webp",
+      "/projects/campaign-builder/cohort-library.webp",
+      "/projects/campaign-builder/campaign-library.webp",
+      "/projects/campaign-builder/customer-library.webp",
     ],
     summary:
       "A comprehensive AI-powered campaign management platform with cohort building, campaign library, and HubSpot-integrated execution workflows.",
@@ -179,15 +204,10 @@ export const caseStudies: CaseStudy[] = [
     image: "/projects/autogather/thumbnail.png",
     images: [
       "/projects/autogather/cover.webp",
-      "/projects/autogather/home.webp",
+
       "/projects/autogather/dashboard.webp",
       "/projects/autogather/assessment.webp",
-      "/projects/autogather/assessment (1).webp",
-      "/projects/autogather/career.webp",
-      "/projects/autogather/case-studies-learning.webp",
-      "/projects/autogather/products-details.webp",
-      "/projects/autogather/products-details (1).webp",
-      "/projects/autogather/projects.webp",
+
       "/projects/autogather/full-page.webp",
     ],
     summary:
@@ -214,16 +234,12 @@ export const caseStudies: CaseStudy[] = [
     timeframe: "2024",
     image: "/projects/crypto-wallet/thumbnail.png",
     images: [
-      "/projects/crypto-wallet/cover.webp",
-      "/projects/crypto-wallet/dashboard.webp",
+
       "/projects/crypto-wallet/dashboard (1).webp",
       "/projects/crypto-wallet/wallet-overview.webp",
-      "/projects/crypto-wallet/portfolio.webp",
-      "/projects/crypto-wallet/portfolio (1).webp",
+
       "/projects/crypto-wallet/transactions.webp",
       "/projects/crypto-wallet/dapp-store.webp",
-      "/projects/crypto-wallet/hosting-overview.webp",
-      "/projects/crypto-wallet/site-monitoring.webp",
     ],
     summary:
       "A full-stack Web3 wallet and DApp dashboard with portfolio tracking, transaction history, DApp store, and site monitoring for crypto users.",
@@ -277,7 +293,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "efxpro",
-    title: "EFXPro Trading Platform",
+    title: "EfxPro Trading Platform",
     category: "FinTech / Trading",
     client: "EFXPro",
     timeframe: "2024",
@@ -305,6 +321,37 @@ export const caseStudies: CaseStudy[] = [
     ],
     technologies: ["React.js", "TypeScript", "WebSocket", "Node.js"],
   },
+
+
+  {
+    slug: "ducorr",
+    title: "Cathodic Protection & Corrosion Solutions",
+    category: "Corporate / Industrial",
+    client: "CEO & Founder, Ducorr",
+    timeframe: "2024",
+    image: "/projects/ducorr/thumbnail.png",
+    images: [
+      "/projects/ducorr/career.webp",
+      "/projects/ducorr/case-studies-learning.webp",
+      "/projects/ducorr/products-details.webp",
+      "/projects/ducorr/projects.webp",
+    ],
+    summary:
+      "Ducorr is a leading cathodic protection specialist operating across UAE and KSA, offering corrosion solutions for marine structures, storage tanks, pipelines, and concrete installations.",
+    challenge:
+      "The challenge was building a digital platform that could serve multiple purposes: a professional corporate presence, a detailed product catalog covering marine, concrete, and tank protection systems, a project portfolio showcasing landmark Middle East infrastructure projects, and an integrated e-commerce store for direct product sales.",
+    solution: [
+      "We built a comprehensive digital platform for Ducorr ",
+      "Unifies their corporate identity, product lines, project portfolio, career portal, learning resources, and e-commerce store into a single performant, SEO-optimized website.",
+      " The platform positions Ducorr as the authority in cathodic protection across the Middle East."
+    ],
+    outcomes: [
+      "The new platform transformed Ducorr's digital presence, significantly improving search visibility for cathodic protection queries across UAE and KSA.",
+      " The unified platform streamlined lead generation, product inquiries, and career applications while showcasing 15+ years of expertise across landmark Middle East infrastructure projects."
+    ],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Headless CMS"],
+  },
+
   {
     slug: "aladdin-catering",
     title: "Aladdin Catering Platform",
@@ -338,36 +385,6 @@ export const caseStudies: CaseStudy[] = [
     technologies: ["Next.js", "Tailwind CSS", "Supabase"],
   },
   {
-    slug: "ducorr",
-    title: "Ducorr Corporate Platform",
-    category: "Corporate Website / Industrial",
-    client: "Ducorr",
-    timeframe: "2024",
-    image: "/projects/ducorr/thumbnail.png",
-    images: [
-      "/projects/ducorr/projects.webp",
-      "/projects/ducorr/products-details.webp",
-      "/projects/ducorr/products-details (1).webp",
-      "/projects/ducorr/career.webp",
-      "/projects/ducorr/case-studies-learning.webp",
-    ],
-    summary:
-      "A comprehensive industrial corporate platform with detailed product catalogs, project portfolios, career listings, and case-study-based knowledge resources.",
-    challenge:
-      "Ducorr needed to modernize their digital presence to serve industrial buyers, job seekers, and partners with structured, easy-to-navigate content architecture.",
-    solution: [
-      "Designed a product detail system with technical specs and documentation.",
-      "Built a projects portfolio section showcasing industrial case studies.",
-      "Implemented a careers module and knowledge base for multiple audiences.",
-    ],
-    outcomes: [
-      "Organic search traffic increased by 55% within 3 months post-launch.",
-      "Reduced inbound support queries by 35% with self-service knowledge base.",
-      "Attracted 3x more qualified job applicants through the careers platform.",
-    ],
-    technologies: ["Next.js", "TypeScript", "Sanity CMS"],
-  },
-  {
     slug: "managed-hosting-dashboard",
     title: "Managed Hosting Dashboard",
     category: "SaaS / DevOps",
@@ -375,9 +392,9 @@ export const caseStudies: CaseStudy[] = [
     timeframe: "2025",
     image: "/projects/managed-hosting-dashboard/thumbnail.png",
     images: [
-      "/projects/managed-hosting-dashboard/cover.webp",
       "/projects/managed-hosting-dashboard/dashboard.webp",
       "/projects/managed-hosting-dashboard/hosting-overview.webp",
+      "/projects/managed-hosting-dashboard/cover.webp",
       "/projects/managed-hosting-dashboard/site-monitoring.webp",
     ],
     summary:
