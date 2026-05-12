@@ -82,8 +82,8 @@ ${kb.siteNavigation.pages.map((p: any) => `  • ${p.path}  →  ${p.label}: ${p
 
 === PROJECTS / CASE STUDIES — full portfolio at /case-studies ===
 ${kb.projects.map((p: any) =>
-  `• ${p.name} (${p.category}, ${p.year}) — ${p.summary} Stack: ${p.technologies.join(", ")}. Results: ${p.keyResults.join(", ")}.`
-).join("\n")}
+    `• ${p.name} (${p.category}, ${p.year}) — ${p.summary} Stack: ${p.technologies.join(", ")}. Results: ${p.keyResults.join(", ")}.`
+  ).join("\n")}
 
 === TECHNOLOGY EXPERTISE ===
 ${kb.technologyExpertise.join(", ")}
@@ -181,7 +181,7 @@ export async function POST(req: Request) {
     const geminiData = await geminiRes.json()
     const reply =
       geminiData?.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "I appreciate your question! Unfortunately, I wasn't able to generate a response right now. You can always reach our team directly at contact@nextinnovation.systems — they'll be happy to help! 🙏"
+      "I appreciate your question! Unfortunately, I wasn't able to generate a response right now. You can always reach our team directly at contact@nexinsystems.com — they'll be happy to help! 🙏"
 
     return NextResponse.json({ reply })
   } catch (error: any) {

@@ -5,6 +5,7 @@ import "./globals.css"
 import { PageTransition } from "@/components/page-transition"
 import { NavigationTransition } from "@/components/navigation-transition"
 import { ChatWidget } from "@/components/chat-widget"
+import { ScrollToTop } from "@/components/scroll-to-top"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Dancing_Script, Caveat } from "next/font/google"
 
@@ -42,6 +43,7 @@ export default function RootLayout({
           <PageTransition>{children}</PageTransition>
         </Suspense>
         <SpeedInsights />
+        <ScrollToTop />
         <ChatWidget />
       </body>
     </html>

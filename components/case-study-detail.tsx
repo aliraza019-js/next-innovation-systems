@@ -57,7 +57,7 @@ export function CaseStudyDetail({ study, onClose }: CaseStudyDetailProps) {
           <button
             onClick={onClose}
             aria-label="Close"
-            className="absolute top-4 right-4 z-20 h-10 w-10 flex items-center justify-center rounded-full bg-emerald-500/20 hover:bg-emerald-500/40 border border-emerald-400/40 hover:border-emerald-400/80 text-emerald-300 hover:text-white backdrop-blur-md shadow-[0_0_16px_rgba(16,185,129,0.25)] hover:shadow-[0_0_24px_rgba(16,185,129,0.45)] transition-all duration-200"
+            className="absolute top-4 right-4 z-20 h-10 w-10 flex items-center justify-center rounded-full bg-black/70 hover:bg-black/90 border border-white/30 hover:border-white/60 text-white backdrop-blur-md shadow-[0_2px_16px_rgba(0,0,0,0.6)] transition-all duration-200"
           >
             <X size={18} />
           </button>

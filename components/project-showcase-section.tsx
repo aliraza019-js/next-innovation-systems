@@ -13,97 +13,87 @@ const techStack = [
   {
     name: "React.js",
     category: "Frontend",
-    icon: "https://cdn.simpleicons.org/react/61DAFB",
+    icon: "/react.svg",
   },
   {
     name: "Next.js",
     category: "Framework",
-    icon: "https://cdn.simpleicons.org/nextdotjs/white",
+    icon: "/next-js.svg",
   },
   {
     name: "Vue.js",
     category: "Frontend",
-    icon: "https://cdn.simpleicons.org/vuedotjs/4FC08D",
+    icon: "/vue.svg",
   },
   {
     name: "Nuxt.js",
     category: "Framework",
-    icon: "https://cdn.simpleicons.org/nuxtdotjs/00DC82",
+    icon: "/nuxt-js.svg",
   },
   {
     name: "Node.js",
     category: "Runtime",
-    icon: "https://cdn.simpleicons.org/nodedotjs/339933",
+    icon: "/nodejs.svg",
   },
   {
     name: "TypeScript",
     category: "Language",
-    icon: "https://cdn.simpleicons.org/typescript/3178C6",
+    icon: "/type-script.png",
   },
   {
     name: "Express.js",
     category: "Backend",
-    icon: "https://cdn.simpleicons.org/express/white",
+    icon: "/express.svg",
   },
   {
     name: "Nest.js",
     category: "Backend",
-    icon: "https://cdn.simpleicons.org/nestjs/E0234E",
+    icon: "/nest.svg",
   },
   {
     name: "JavaScript",
     category: "Language",
-    icon: "https://cdn.simpleicons.org/javascript/F7DF1E",
+    icon: "/javascript.svg",
   },
   {
     name: "Three.js",
     category: "3D / WebGL",
-    icon: "https://cdn.simpleicons.org/threedotjs/white",
+    icon: "/three.svg",
   },
   {
     name: "Docker",
     category: "DevOps",
-    icon: "https://cdn.simpleicons.org/docker/2496ED",
+    icon: "/docker.svg",
   },
 
 
   {
     name: "Python",
     category: "AI / ML",
-    icon: "https://cdn.simpleicons.org/python/3776AB",
+    icon: "/python.svg",
   },
 
 
   {
     name: "LangChain",
     category: "RAG",
-    icon: "https://cdn.simpleicons.org/langchain/1C3C3C",
+    icon: "/langchain.png",
   },
 
   {
-    name: "ChromaDB",
-    category: "Vector DB",
-    icon: "https://avatars.githubusercontent.com/u/132288731?s=200&v=4",
-  },
-  {
     name: "Hugging Face",
     category: "AI Models",
-    icon: "https://cdn.simpleicons.org/huggingface/FFD21E",
+    icon: "/huggingface.svg",
   },
   {
     name: "LangGraph",
     category: "Agentic AI",
-    icon: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langgraph-color.png",
-  },
-  {
-    name: "CrewAI",
-    category: "Agentic AI",
-    icon: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/crewai-color.png",
+    icon: "/lang-graph.svg",
   },
   {
     name: "LlamaIndex",
     category: "RAG",
-    icon: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/llamaindex-color.png",
+    icon: "/llama.png",
   },
 ];
 
@@ -313,7 +303,7 @@ export function ProjectShowcaseSection() {
                   <p className="mb-5 text-sm leading-relaxed text-white/75">
                     {study.summary}
                   </p>
-                  {/* Button — now triggers modal, not Link */}
+
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
@@ -345,7 +335,7 @@ export function ProjectShowcaseSection() {
           {/* ── Tech Stack ── */}
           <div className="mt-20 border-t border-white/10 pt-20">
             <div className="text-center mb-12">
-              <h3 className="text-2xl font-bold text-white mb-2 uppercase tracking-widest text-sm opacity-50">
+              <h3 className="text-2xl font-bold text-white mb-2 uppercase tracking-widest text-sm ">
                 Our Technology Stack
               </h3>
             </div>
@@ -374,7 +364,7 @@ export function ProjectShowcaseSection() {
                       <img
                         src={tech.icon}
                         alt={tech.name}
-                        className="h-full w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                        className="h-full w-full object-contain tech-icon-img"
                       />
                     </div>
                   </div>

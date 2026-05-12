@@ -69,7 +69,7 @@ export function Footer() {
                 aria-label="Next Innovation Systems home"
                 className="inline-block mb-6"
               >
-                <NisLogoDark className="h-9 w-auto md:h-10 block" />
+                <NisLogoDark className="h-10 w-auto md:h-12 block" />
               </Link>
 
               <form onSubmit={handleSubmit} className="relative max-w-md group">
@@ -122,13 +122,19 @@ export function Footer() {
               <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
 
               <ul className="flex flex-col gap-3 text-white/60">
-                {["Services", "Projects", "About Us", "Contact", "Privacy"].map((link) => (
-                  <li key={link}>
+                {[
+                  { label: "Services", href: "/#features" },
+                  { label: "Projects", href: "/#case-studies" },
+                  { label: "About Us", href: "/#testimonials" },
+                  { label: "Contact", href: "/#contact" },
+                  { label: "Privacy", href: "#" },
+                ].map((link) => (
+                  <li key={link.label}>
                     <a
-                      href="#"
+                      href={link.href}
                       className="hover:text-emerald-500 transition-colors text-sm"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}
@@ -156,13 +162,13 @@ export function Footer() {
                   <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500">
                     <Mail size={20} />
                   </div>
-                  <p className="text-sm">contact@nextinnovation.systems</p>
+                  <p className="text-sm">contact@nexinsystems.com</p>
                 </div>
                 <div className="flex items-center gap-4 text-white/60">
                   <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500">
                     <Phone size={20} />
                   </div>
-                  <p className="text-sm">+92 (300) 0000000</p>
+                  <p className="text-sm">+92 333 4039462</p>
                 </div>
               </div>
             </motion.div>
@@ -176,10 +182,6 @@ export function Footer() {
           </p>
 
 
-
-          <p className="text-white/40 text-xs font-medium uppercase tracking-[0.2em]">
-            Professional IT Solutions
-          </p>
 
 
           <div className="flex items-center gap-6">
