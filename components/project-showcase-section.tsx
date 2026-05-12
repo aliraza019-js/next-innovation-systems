@@ -8,68 +8,96 @@ import { caseStudies, CaseStudy } from "@/components/case-studies-data";
 import { CaseStudyDetail } from "@/components/case-study-detail";
 import "./project-showcase-section.css";
 
+
 const techStack = [
   {
     name: "React.js",
     category: "Frontend",
-    icon: "https://cdn.simpleicons.org/react/61DAFB",
+    icon: "/react.svg",
   },
   {
     name: "Next.js",
     category: "Framework",
-    icon: "https://cdn.simpleicons.org/nextdotjs/white",
+    icon: "/next-js.svg",
   },
   {
     name: "Vue.js",
     category: "Frontend",
-    icon: "https://cdn.simpleicons.org/vuedotjs/4FC08D",
+    icon: "/vue.svg",
   },
   {
     name: "Nuxt.js",
     category: "Framework",
-    icon: "https://cdn.simpleicons.org/nuxt/E0234E",
+    icon: "/nuxt-js.svg",
   },
   {
     name: "Node.js",
     category: "Runtime",
-    icon: "https://cdn.simpleicons.org/nodedotjs/339933",
+    icon: "/nodejs.svg",
   },
   {
     name: "TypeScript",
     category: "Language",
-    icon: "https://cdn.simpleicons.org/typescript/3178C6",
+    icon: "/type-script.png",
   },
   {
     name: "Express.js",
     category: "Backend",
-    icon: "https://cdn.simpleicons.org/express/white",
+    icon: "/express.svg",
   },
   {
     name: "Nest.js",
     category: "Backend",
-    icon: "https://cdn.simpleicons.org/nestjs/E0234E",
+    icon: "/nest.svg",
   },
   {
     name: "JavaScript",
     category: "Language",
-    icon: "https://cdn.simpleicons.org/javascript/F7DF1E",
+    icon: "/javascript.svg",
   },
   {
     name: "Three.js",
     category: "3D / WebGL",
-    icon: "https://cdn.simpleicons.org/threedotjs/white",
+    icon: "/three.svg",
   },
   {
     name: "Docker",
     category: "DevOps",
-    icon: "https://cdn.simpleicons.org/docker/2496ED",
+    icon: "/docker.svg",
+  },
+
+
+  {
+    name: "Python",
+    category: "AI / ML",
+    icon: "/python.svg",
+  },
+
+
+  {
+    name: "LangChain",
+    category: "RAG",
+    icon: "/langchain.png",
+  },
+
+  {
+    name: "Hugging Face",
+    category: "AI Models",
+    icon: "/huggingface.svg",
   },
   {
-    name: "Git",
-    category: "VCS",
-    icon: "https://cdn.simpleicons.org/git/F05032",
+    name: "LangGraph",
+    category: "Agentic AI",
+    icon: "/lang-graph.svg",
+  },
+  {
+    name: "LlamaIndex",
+    category: "RAG",
+    icon: "/llama.png",
   },
 ];
+
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -122,7 +150,7 @@ export function ProjectShowcaseSection() {
         }
       };
 
-      handlePopState(); // Check on mount
+      handlePopState(); 
 
       window.addEventListener("popstate", handlePopState);
       return () => window.removeEventListener("popstate", handlePopState);
@@ -130,7 +158,7 @@ export function ProjectShowcaseSection() {
   }, []);
 
   const INITIAL_VISIBLE = 3;
-  const LOAD_MORE_STEP = 8;
+  const LOAD_MORE_STEP = 9;
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
 
 
@@ -275,7 +303,7 @@ export function ProjectShowcaseSection() {
                   <p className="mb-5 text-sm leading-relaxed text-white/75">
                     {study.summary}
                   </p>
-                  {/* Button — now triggers modal, not Link */}
+
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
@@ -307,7 +335,7 @@ export function ProjectShowcaseSection() {
           {/* ── Tech Stack ── */}
           <div className="mt-20 border-t border-white/10 pt-20">
             <div className="text-center mb-12">
-              <h3 className="text-2xl font-bold text-white mb-2 uppercase tracking-widest text-sm opacity-50">
+              <h3 className="text-2xl font-bold text-white mb-2 uppercase tracking-widest text-sm ">
                 Our Technology Stack
               </h3>
             </div>
@@ -336,7 +364,7 @@ export function ProjectShowcaseSection() {
                       <img
                         src={tech.icon}
                         alt={tech.name}
-                        className="h-full w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                        className="h-full w-full object-contain tech-icon-img"
                       />
                     </div>
                   </div>

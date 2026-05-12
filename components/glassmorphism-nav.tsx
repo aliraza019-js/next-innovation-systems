@@ -14,8 +14,8 @@ const navigation = [
 
 export function GlassmorphismNav() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -23,33 +23,29 @@ export function GlassmorphismNav() {
       setHasLoaded(true);
     }, 100);
 
-    const controlNavbar = () => {
-      if (typeof window !== "undefined") {
-        const currentScrollY = window.scrollY;
-        if (currentScrollY > 50) {
-          if (
-            currentScrollY > lastScrollY.current &&
-            currentScrollY - lastScrollY.current > 5
-          ) {
-            setIsVisible(false);
-          } else if (lastScrollY.current - currentScrollY > 5) {
-            setIsVisible(true);
-          }
-        } else {
-          setIsVisible(true);
-        }
-        lastScrollY.current = currentScrollY;
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const heroThreshold = window.innerHeight * 0.8;
+
+      if (currentScrollY >= heroThreshold) {
+        // Past hero section — always hide
+        setIsVisible(false);
+      } else if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
+        // In hero, scrolling down — hide
+        setIsVisible(false);
+      } else {
+        // In hero, scrolling up or at top — show
+        setIsVisible(true);
       }
+
+      lastScrollY.current = currentScrollY;
     };
 
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", controlNavbar, { passive: true });
-      return () => {
-        window.removeEventListener("scroll", controlNavbar);
-        clearTimeout(timer);
-      };
-    }
-    return () => clearTimeout(timer);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const scrollToSection = (href: string) => {
@@ -68,6 +64,8 @@ export function GlassmorphismNav() {
         top: targetPosition,
         behavior: "smooth",
       });
+
+      window.history.pushState(null, "", href);
     }
     setIsOpen(false);
   };
@@ -75,26 +73,22 @@ export function GlassmorphismNav() {
   return (
     <>
       <nav
-        className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[95vw] max-w-7xl  ${
-          isVisible
-            ? "translate-y-0 opacity-100"
-            : "-translate-y-20 md:-translate-y-24 opacity-0"
-        } ${hasLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+        className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[95vw] max-w-7xl ${hasLoaded && isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-20 pointer-events-none"}`}
       >
         {/* Main Navigation Container */}
         <div className="bg-emerald-500/10 backdrop-blur-md border border-emerald-200/20 rounded-full px-4 py-2 md:px-8 md:py-3 shadow-xl ">
           <div className="flex items-center justify-between gap-4">
             {/* Logo Section */}
-         
+
             <Link
               href="/"
               aria-label="Next Innovation Systems home"
               className="flex items-center gap-3 group transition-transform duration-200"
             >
-              <NisLogoDark className="h-8 w-auto md:h-10 shrink-0 block" />
+              <NisLogoDark className="h-10 w-auto md:h-12 shrink-0 block" />
             </Link>
 
-            {/* Desktop Navigation Links */}
+
             <div className="hidden lg:flex items-center space-x-10">
               {navigation.map((item) => (
                 <button
@@ -107,9 +101,9 @@ export function GlassmorphismNav() {
               ))}
             </div>
 
-            {/* Right Side: CTA + Mobile Toggle */}
+
             <div className="flex items-center gap-4">
-            
+
               <div className="hidden md:block">
                 <button
                   className="bg-white text-black font-medium px-6 py-2.5 rounded-full flex items-center transition-all duration-300 hover:scale-105 shadow-lg group"
@@ -136,11 +130,10 @@ export function GlassmorphismNav() {
 
         {/* Mobile Dropdown Menu */}
         <div
-          className={`lg:hidden absolute top-full left-0 right-0 mt-4 transition-all duration-300 origin-top ${
-            isOpen
-              ? "scale-100 opacity-100"
-              : "scale-95 opacity-0 pointer-events-none"
-          }`}
+          className={`lg:hidden absolute top-full left-0 right-0 mt-4 transition-all duration-300 origin-top ${isOpen
+            ? "scale-100 opacity-100"
+            : "scale-95 opacity-0 pointer-events-none"
+            }`}
         >
           <div className="bg-emerald-950/90 backdrop-blur-xl border border-emerald-200/20 rounded-3xl p-6 shadow-2xl mx-auto w-[90vw]">
             <div className="flex flex-col space-y-4">

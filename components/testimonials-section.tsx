@@ -32,53 +32,83 @@ export function TestimonialsSection() {
 
   const testimonials = [
     {
-      text: "NIS delivered our swag management platform end-to-end, helping us design, store, and ship custom swag globally.",
-      name: "Boxes by Swagify",
-      role: "Web Development / E-commerce",
-      image: "https://i.pravatar.cc/150?u=swagify"
+      text: "The 3D Generative NFT Builder gave our users a seamless way to generate, customize, and mint NFT assets with real-time previews.",
+      name: "3D Generative NFT Builder",
+      role: "Web3 / NFT Platform",
+      image: "https://i.pravatar.cc/150?u=3d-generative-nft-builder"
     },
     {
-      text: "CardEye's self-hosted payment gateway improved transaction efficiency and reduced chargebacks with stronger security.",
-      name: "CardEye",
-      role: "Web Development",
-      image: "https://i.pravatar.cc/150?u=cardeye"
-    },
-    {
-      text: "Our 3D NFT Builder launched real-time avatar customization and marketplace capabilities with modern web technologies.",
-      name: "3D NFT Builder",
-      role: "Web Development",
-      image: "https://i.pravatar.cc/150?u=nft"
-    },
-    {
-      text: "NIS built a corporate website that clearly communicates our life science services and global partnerships.",
+      text: "EolasBio now has a modern digital presence that clearly communicates its biotechnology services and research capabilities.",
       name: "EolasBio",
-      role: "Corporate Website / Life Sciences",
-      image: "https://i.pravatar.cc/150?u=eolas"
+      role: "Corporate Website / Biotechnology",
+      image: "https://i.pravatar.cc/150?u=eolasbio"
     },
     {
-      text: "The secure mobile banking app now serves over 500,000 active users with a 4.8-star customer rating.",
-      name: "Regional Bank",
-      role: "Mobile Development",
-      image: "https://i.pravatar.cc/150?u=bank"
+      text: "The Aladdin Catering platform streamlined online bookings, menu browsing, and catering request management for customers.",
+      name: "Aladdin Catering",
+      role: "Restaurant / Catering Platform",
+      image: "https://i.pravatar.cc/150?u=aladdin-catering"
     },
     {
-      text: "Our platform redesign increased conversion by 65% and improved page load performance by 80%.",
-      name: "Retail Chain",
-      role: "E-commerce Platform Redesign",
-      image: "https://i.pravatar.cc/150?u=retail"
+      text: "AutoGather improved lead collection and automation workflows with a fast and scalable dashboard experience.",
+      name: "AutoGather",
+      role: "Automation Platform",
+      image: "https://i.pravatar.cc/150?u=autogather"
     },
     {
-      text: "IoT sensors and analytics improved factory efficiency by 35% while reducing production downtime.",
-      name: "Manufacturing Leader",
-      role: "IoT & Automation",
-      image: "https://i.pravatar.cc/150?u=factory"
+      text: "Boxes by Swagify delivered a complete swag management solution with inventory tracking and global order fulfillment.",
+      name: "Boxes by Swagify",
+      role: "E-commerce / Swag Platform",
+      image: "https://i.pravatar.cc/150?u=boxes-by-swagify"
     },
     {
-      text: "NIS became our trusted technology partner with transparent communication and measurable delivery outcomes.",
-      name: "Enterprise Client",
-      role: "Digital Transformation",
-      image: "https://i.pravatar.cc/150?u=enterprise"
+      text: "The Campaign Builder platform enabled teams to create and launch marketing campaigns with better analytics and automation.",
+      name: "Campaign Builder",
+      role: "Marketing Automation",
+      image: "https://i.pravatar.cc/150?u=campaign-builder"
     },
+    {
+      text: "Our Crypto Wallet solution introduced secure asset storage, transaction history, and a simplified crypto onboarding experience.",
+      name: "Crypto Wallet",
+      role: "FinTech / Blockchain",
+      image: "https://i.pravatar.cc/150?u=crypto-wallet"
+    },
+    {
+      text: "The Custom Enterprise CRM centralized sales pipelines, customer records, and operational reporting into a single platform.",
+      name: "Custom Enterprise CRM",
+      role: "CRM / Enterprise Software",
+      image: "https://i.pravatar.cc/150?u=custom-enterprise-crm"
+    },
+    {
+      text: "Ducorr’s website redesign improved brand identity, responsiveness, and customer engagement across all devices.",
+      name: "Ducorr",
+      role: "Corporate Website",
+      image: "https://i.pravatar.cc/150?u=ducorr"
+    },
+    {
+      text: "EFXPro received a scalable financial dashboard with improved user experience, reporting, and account management tools.",
+      name: "EFXPro",
+      role: "FinTech Dashboard",
+      image: "https://i.pravatar.cc/150?u=efxpro"
+    },
+    {
+      text: "ForBorga’s platform modernization enhanced usability, performance, and operational workflows for internal teams.",
+      name: "ForBorga",
+      role: "Business Platform",
+      image: "https://i.pravatar.cc/150?u=forborga"
+    },
+    {
+      text: "The Managed Hosting Dashboard simplified server monitoring, deployment management, and hosting analytics in one interface.",
+      name: "Managed Hosting Dashboard",
+      role: "Cloud / Hosting Platform",
+      image: "https://i.pravatar.cc/150?u=managed-hosting-dashboard"
+    },
+    {
+      text: "SparkDoc AI introduced intelligent document generation and AI-assisted workflows that significantly improved productivity.",
+      name: "SparkDoc AI",
+      role: "AI SaaS Platform",
+      image: "https://i.pravatar.cc/150?u=sparkdoc-ai"
+    }
   ]
   return (
     <section id="testimonials" ref={sectionRef} className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8">
@@ -107,7 +137,7 @@ export function TestimonialsSection() {
             Projects that <span className="font-medium italic">drive impact</span>
           </h2>
           <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Explore how businesses scale with custom software, cloud, AI/ML, mobile, and DevOps solutions from NIS
+            Explore how businesses scale with custom software, cloud, AI/ML, mobile, and DevOps solutions from Next Innovation Systems
           </p>
         </div>
 

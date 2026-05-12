@@ -9,15 +9,8 @@ const AnimatedChatDemo = ({ isActive }: { isActive: boolean }) => {
     { text: "Perfect. I can route you to our cloud solutions team now.", isBot: true, visible: false },
   ])
   const [typingDots, setTypingDots] = useState(0)
-  const [currentTime, setCurrentTime] = useState(new Date())
   const [cycleCount, setCycleCount] = useState(0)
 
-  useEffect(() => {
-    const timeInterval = setInterval(() => {
-      setCurrentTime(new Date())
-    }, 1000)
-    return () => clearInterval(timeInterval)
-  }, [])
 
   useEffect(() => {
     if (!isActive) return
