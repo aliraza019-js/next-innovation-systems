@@ -67,7 +67,7 @@ export function CTASection() {
     <section id="contact" ref={sectionRef} className="relative py-24 px-4 sm:px-6 lg:px-8 mb-32">
       <div className="relative max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          
+
           {/* Left Side: Content */}
           <div className="space-y-8">
             <div className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out">
@@ -106,43 +106,46 @@ export function CTASection() {
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleSubmit}>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-white/60 ml-1">Full Name *</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       placeholder="e.g. John Doe"
                       value={formData.name}
                       onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                       disabled={status === "loading"}
+                      required
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50 transition-colors disabled:opacity-50"
                     />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-white/60 ml-1">Email Address *</label>
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       placeholder="you@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                       disabled={status === "loading"}
+                      required
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50 transition-colors disabled:opacity-50"
                     />
                   </div>
                   <div className="space-y-2 md:col-span-2">
                     <label className="text-sm font-medium text-white/60 ml-1">Message *</label>
-                    <textarea 
+                    <textarea
                       rows={4}
                       placeholder="Tell me about your project, timeline, and budget..."
                       value={formData.message}
                       onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
                       disabled={status === "loading"}
+                      required
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50 transition-colors resize-none disabled:opacity-50"
                     />
                   </div>
-                  
+
                   <div className="md:col-span-2 pt-2 space-y-3">
-                    <button 
+                    <button
                       type="submit"
-                      disabled={status === "loading" || !formData.name || !formData.email || !formData.message}
-                      className="group w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-slate-900 rounded-full font-bold text-base hover:bg-white transition-all duration-300 hover:scale-[1.02] shadow-[0_0_20px_rgba(16,185,129,0.3)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                      disabled={status === "loading"}
+                      className="group w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-slate-900 rounded-full font-bold text-base hover:bg-white transition-all duration-300 hover:scale-[1.02] shadow-[0_0_20px_rgba(16,185,129,0.3)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 cursor-pointer"
                     >
                       {status === "loading" ? (
                         <>

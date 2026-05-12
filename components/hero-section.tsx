@@ -1,24 +1,18 @@
 import { Button } from "@/components/ui/button";
 import RotatingText from "./RotatingText";
-import {
-  Building2,
-  Landmark,
-  ShoppingBag,
-  Factory,
-  ShieldCheck,
-  Zap,
-} from "lucide-react"; 
+
 import "./hero-section.css";
-import Link from "next/link";
 
 
 const companies = [
-  { name: "Swagify", icon: <Zap size={20} /> },
-  { name: "CardEye", icon: <ShieldCheck size={20} /> },
-  { name: "EolasBio", icon: <Zap size={20} /> },
-  { name: "Regional Bank", icon: <Landmark size={20} /> },
-  { name: "Retail Chain", icon: <ShoppingBag size={20} /> },
-  { name: "Manufacturing Leader", icon: <Factory size={20} /> },
+  { icon: "/images/Clients-logo/swagify.png" },
+  { icon: "/images/Clients-logo/efxpro.png" },
+  { icon: "/images/Clients-logo/ducorr.png" },
+  { icon: "/images/Clients-logo/alladin.png" },
+  { icon: "/images/Clients-logo/sparkdoc.png" },
+  { icon: "/images/Clients-logo/eventxpro.svg" },
+  { icon: "/images/Clients-logo/cardeye.svg" },
+  { icon: "/images/Clients-logo/eolas.png" },
 ];
 
 const ArrowRight = () => (
@@ -53,21 +47,25 @@ const Play = () => (
   </svg>
 );
 
-export function HeroSection() {
 
+const CompanyIcon = ({ icon, name }: { icon: string; name: string }) => {
+  return (
+    <div className="w-24 h-8 flex items-center justify-center flex-shrink-0">
+      <img
+        src={icon}
+        alt={name}
+        className="max-h-full max-w-full object-contain brightness-0 invert opacity-50 pointer-events-none"
+      />
+    </div>
+  );
+};
+
+export function HeroSection() {
   const CompanyList = () => (
-    <div className="flex items-center gap-12 whitespace-nowrap">
+    <div className="flex items-center gap-14 whitespace-nowrap flex-shrink-0 pr-14">
       {companies.map((company, index) => (
-        <div
-          key={index}
-          className="flex items-center gap-2 text-white/60 hover:text-emerald-400 transition-all duration-50 cursor-default group/logo"
-        >
-          <div className="grayscale group-hover/logo:grayscale-0 transition-all duration-50">
-            {company.icon}
-          </div>
-          <span className="text-base sm:text-lg font-semibold tracking-tight">
-            {company.name}
-          </span>
+        <div key={index} className="flex items-center">
+          <CompanyIcon icon={company.icon} name={company.name} />
         </div>
       ))}
     </div>
@@ -79,10 +77,7 @@ export function HeroSection() {
         {/* Badge */}
         <div className="inline-block mb-8 mt-12 animate-fade-in-badge">
           <div className="badge-wrapper">
-          
             <div className="snake-border-layer"></div>
-
-           
             <div className="badge-content-glass px-4 py-2 flex items-center shadow-[0_0_20px_rgba(0,0,0,0.2)]">
               <span className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse shrink-0"></span>
               <span className="text-white text-sm font-medium tracking-wide">
@@ -120,10 +115,10 @@ export function HeroSection() {
           </div>
         </h1>
 
-   <p className="text-md sm:text-xl md:text-2xl text-white w-full max-w-sm sm:max-w-xl md:max-w-3xl mx-auto mb-12 font-light px-4 sm:px-6 text-center leading-relaxed">
-  We deliver cutting-edge technology solutions that drive innovation and
-  accelerate your digital journey.
-</p>
+        <p className="text-md sm:text-xl md:text-2xl text-white w-full max-w-sm sm:max-w-xl md:max-w-3xl mx-auto mb-12 font-light px-4 sm:px-6 text-center leading-relaxed">
+          We deliver cutting-edge technology solutions that drive innovation and
+          accelerate your digital journey.
+        </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-buttons">
@@ -131,33 +126,31 @@ export function HeroSection() {
             size="lg"
             className="bg-white text-black rounded-full px-8 py-4 text-lg font-medium hover:bg-white transition-all group"
           >
-            <div className="flex justify-center align-items-center items-center"
-            >
-
-                 Start Your Project <ArrowRight />
+            <div className="flex justify-center align-items-center items-center">
+              Start Your Project <ArrowRight />
             </div>
-
-         
           </Button>
-          <Button
-            size="lg"
-            className="rounded-full px-8 py-4 text-lg font-medium border border-white/20 text-white bg-transparent hover:bg-emerald-600 hover:border-emerald-600 transition-all hover:scale-105 group"
-          >
-           <div className="flex justify-center align-items-center items-center">
-             <Play /> View Our Work
-           </div>
-          </Button>
+          <a href="#case-studies">
+            <Button
+              size="lg"
+              className="rounded-full px-8 py-4 text-lg font-medium border border-white/20 text-white bg-transparent hover:bg-emerald-600 hover:border-emerald-600 transition-all hover:scale-105 group"
+            >
+              <div className="flex justify-center align-items-center items-center">
+                <Play /> View Our Work
+              </div>
+            </Button>
+          </a>
         </div>
 
-        {/* Trust Indicators (Desktop) */}
+     
         <div className="text-center px-4 hidden sm:block overflow-hidden">
           <p className="text-md text-white/50 mb-8 font-medium uppercase tracking-widest text-xs">
             Trusted by innovative companies worldwide
           </p>
-          <div className="relative w-full max-w-5xl mx-auto overflow-hidden">
-            <div className="flex gap-12 animate-slide-left hover:[animation-play-state:paused]">
+          <div className="relative w-full mx-auto overflow-hidden pointer-events-none">
+            <div className="flex w-max animate-slide-left">
               <CompanyList />
-              <CompanyList /> {/* Loop repetition */}
+              <CompanyList />
             </div>
           </div>
         </div>
@@ -167,8 +160,8 @@ export function HeroSection() {
           <p className="text-xs text-white/50 mb-6 uppercase tracking-widest">
             Trusted by companies
           </p>
-          <div className="relative overflow-hidden w-full">
-            <div className="flex gap-8 animate-slide-left-mobile">
+          <div className="relative overflow-hidden w-full pointer-events-none">
+            <div className="flex w-max animate-slide-left-mobile">
               <CompanyList />
               <CompanyList />
             </div>

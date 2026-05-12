@@ -15,12 +15,7 @@ type Message = {
 // Email prompt states
 type EmailPromptState = "hidden" | "visible" | "submitting" | "success" | "dismissed"
 
-const INITIAL_MESSAGE: Message = {
-  id: "welcome",
-  role: "assistant",
-  content: "Hey there! 👋 I'm the NIS Assistant. Ask me anything about our services, projects, pricing, or how we can help your business grow!",
-  timestamp: new Date(),
-}
+const WELCOME_CONTENT = "Hey there! 👋 I'm the NIS Assistant. Ask me anything about our services, projects, pricing, or how we can help your business grow!"
 
 const SUGGESTED_QUESTIONS = [
   "What do you do?",
@@ -29,7 +24,7 @@ const SUGGESTED_QUESTIONS = [
   "Show me your projects",
 ]
 
-// Email regex — same as backend
+// Email regex 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const SESSION_DISMISSED_KEY = "nis_email_prompt_dismissed"
@@ -37,7 +32,12 @@ const SESSION_SUBMITTED_KEY = "nis_email_submitted"
 
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
-  const [messages, setMessages] = useState<Message[]>([INITIAL_MESSAGE])
+  const [messages, setMessages] = useState<Message[]>(() => [{
+    id: "welcome",
+    role: "assistant",
+    content: WELCOME_CONTENT,
+    timestamp: new Date(),
+  }])
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [showScrollBtn, setShowScrollBtn] = useState(false)
@@ -251,8 +251,14 @@ export function ChatWidget() {
     }
   }
 
-  const formatTime = (date: Date) =>
-    date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+  const formatTime = (date: Date) => {
+    let hours = date.getHours()
+    const minutes = date.getMinutes()
+    const ampm = hours >= 12 ? 'PM' : 'AM'
+    hours = hours % 12
+    if (hours === 0) hours = 12
+    return `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`
+  }
 
   const showEmailPrompt = emailPromptState === "visible" || emailPromptState === "submitting" || emailPromptState === "success"
 
@@ -286,6 +292,7 @@ export function ChatWidget() {
               <X className="chat-fab__icon" />
             ) : (
               <>
+                {/* <img src="/nis-logo-icon.png" className="chat-fab__icon" /> */}
                 <MessageCircle className="chat-fab__icon" />
                 <span className="chat-fab__pulse" />
               </>
@@ -335,7 +342,7 @@ export function ChatWidget() {
               </div>
               <div className="chat-bubble__content">
                 <p className="chat-bubble__text">{msg.content}</p>
-                <span className="chat-bubble__time">{formatTime(msg.timestamp)}</span>
+                <span className="chat-bubble__time" suppressHydrationWarning>{formatTime(msg.timestamp)}</span>
               </div>
             </div>
           ))}

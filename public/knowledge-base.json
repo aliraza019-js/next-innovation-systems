@@ -8,8 +8,8 @@
     "badge": "Transforming Businesses Since 2020",
     "website": "https://nexinsystems.com",
     "location": "Lahore, Punjab, Pakistan",
-    "email": "contact@nextinnovation.systems",
-    "phone": "+92 (300) 0000000",
+    "email": "contact@nexinsystems.com",
+    "phone": "+92 333 4039462",
     "founder": "Ali Raza",
     "founderWebsite": "https://aliraza.tech"
   },
@@ -120,11 +120,31 @@
   },
   "siteNavigation": {
     "pages": [
-      { "path": "/", "label": "Home", "description": "Main landing page with services overview, project showcase, tech stack, and contact form." },
-      { "path": "/car-dealerships", "label": "Car Dealerships", "description": "Dedicated page for our AI-powered car dealership solution — WhatsApp AI, Instagram DM, lead filtering, omnichannel messaging." },
-      { "path": "/case-studies", "label": "Case Studies", "description": "Full portfolio of 13+ delivered projects with detailed case studies, screenshots, and outcomes." },
-      { "path": "/#features", "label": "Services", "description": "All 8 core IT services — custom software, cloud, AI/ML, mobile apps, UI/UX, DevOps, digital transformation, dedicated teams." },
-      { "path": "/#case-studies", "label": "Project Showcase", "description": "Interactive project cards with case study modals showing challenge, solution, outcomes, and galleries." }
+      {
+        "path": "/",
+        "label": "Home",
+        "description": "Main landing page with services overview, project showcase, tech stack, and contact form."
+      },
+      {
+        "path": "/car-dealerships",
+        "label": "Car Dealerships",
+        "description": "Dedicated page for our AI-powered car dealership solution — WhatsApp AI, Instagram DM, lead filtering, omnichannel messaging."
+      },
+      {
+        "path": "/case-studies",
+        "label": "Case Studies",
+        "description": "Full portfolio of 13+ delivered projects with detailed case studies, screenshots, and outcomes."
+      },
+      {
+        "path": "/#features",
+        "label": "Services",
+        "description": "All 8 core IT services — custom software, cloud, AI/ML, mobile apps, UI/UX, DevOps, digital transformation, dedicated teams."
+      },
+      {
+        "path": "/#case-studies",
+        "label": "Project Showcase",
+        "description": "Interactive project cards with case study modals showing challenge, solution, outcomes, and galleries."
+      }
     ]
   },
   "projects": [
@@ -134,8 +154,16 @@
       "client": "Swag Management Platform",
       "year": "2024",
       "summary": "A global swag gifting and management platform enabling teams to design, store, and ship custom branded swag boxes.",
-      "technologies": ["Vue.js", "Laravel", "MySQL"],
-      "keyResults": ["Global shipping support", "500+ SKU support", "3x faster campaign launches"]
+      "technologies": [
+        "Vue.js",
+        "Laravel",
+        "MySQL"
+      ],
+      "keyResults": [
+        "Global shipping support",
+        "500+ SKU support",
+        "3x faster campaign launches"
+      ]
     },
     {
       "name": "Self Hosted Payment Gateway",
@@ -143,8 +171,18 @@
       "client": "CardEye",
       "year": "2024",
       "summary": "A secure self-hosted payment gateway with intelligent routing and fraud controls to improve acceptance rates and reduce chargebacks.",
-      "technologies": ["Vue.js", "Laravel", "Vuetify", "AWS"],
-      "keyResults": ["99.9% uptime", "<200ms latency", "PCI compliant", "Smart routing"]
+      "technologies": [
+        "Vue.js",
+        "Laravel",
+        "Vuetify",
+        "AWS"
+      ],
+      "keyResults": [
+        "99.9% uptime",
+        "<200ms latency",
+        "PCI compliant",
+        "Smart routing"
+      ]
     },
     {
       "name": "3D Generative NFT Builder",
@@ -152,8 +190,16 @@
       "client": "Digital Product Studio",
       "year": "2024",
       "summary": "A 3D avatar customization platform with real-time rendering, marketplace capabilities, and interoperable digital ownership features.",
-      "technologies": ["Next.js", "Three.js", "Go"],
-      "keyResults": ["60fps rendering", "1000+ asset combinations", "Real-time 3D preview"]
+      "technologies": [
+        "Next.js",
+        "Three.js",
+        "Go"
+      ],
+      "keyResults": [
+        "60fps rendering",
+        "1000+ asset combinations",
+        "Real-time 3D preview"
+      ]
     },
     {
       "name": "EolasBio Corporate Website",
@@ -161,8 +207,16 @@
       "client": "EolasBio",
       "year": "2024",
       "summary": "A professional life sciences website that presents complex services with clear structure for partners, researchers, and pharma stakeholders.",
-      "technologies": ["WordPress", "PHP", "MySQL"],
-      "keyResults": ["40% more leads", "SEO optimized", "Multi-audience support"]
+      "technologies": [
+        "WordPress",
+        "PHP",
+        "MySQL"
+      ],
+      "keyResults": [
+        "40% more leads",
+        "SEO optimized",
+        "Multi-audience support"
+      ]
     },
     {
       "name": "AI Campaign Builder Platform",
@@ -170,8 +224,17 @@
       "client": "Enterprise Marketing Client",
       "year": "2025",
       "summary": "A comprehensive AI-powered campaign management platform with cohort building, campaign library, and HubSpot-integrated execution workflows.",
-      "technologies": ["React.js", "TypeScript", "Node.js", "HubSpot API"],
-      "keyResults": ["11-step data foundation", "6 tools unified into one", "Automated CRM sync"]
+      "technologies": [
+        "React.js",
+        "TypeScript",
+        "Node.js",
+        "HubSpot API"
+      ],
+      "keyResults": [
+        "11-step data foundation",
+        "6 tools unified into one",
+        "Automated CRM sync"
+      ]
     },
     {
       "name": "Autogather Platform",
@@ -179,8 +242,17 @@
       "client": "Autogather",
       "year": "2025",
       "summary": "A full-featured B2B platform for professional assessment, career tracking, product discovery, and case-study-driven learning.",
-      "technologies": ["Next.js", "TypeScript", "PostgreSQL", "AWS"],
-      "keyResults": ["5-in-1 platform", "70% engagement increase", "45% faster onboarding"]
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "PostgreSQL",
+        "AWS"
+      ],
+      "keyResults": [
+        "5-in-1 platform",
+        "70% engagement increase",
+        "45% faster onboarding"
+      ]
     },
     {
       "name": "Crypto Wallet & DApp Dashboard",
@@ -188,8 +260,17 @@
       "client": "Crypto Platform Client",
       "year": "2024",
       "summary": "A full-stack Web3 wallet and DApp dashboard with portfolio tracking, transaction history, DApp store, and site monitoring for crypto users.",
-      "technologies": ["React.js", "Web3.js", "Node.js", "Ethers.js"],
-      "keyResults": ["Multi-chain support", "60% time saved", "Real-time portfolio tracking"]
+      "technologies": [
+        "React.js",
+        "Web3.js",
+        "Node.js",
+        "Ethers.js"
+      ],
+      "keyResults": [
+        "Multi-chain support",
+        "60% time saved",
+        "Real-time portfolio tracking"
+      ]
     },
     {
       "name": "Custom Enterprise CRM",
@@ -197,8 +278,17 @@
       "client": "B2B Enterprise Client",
       "year": "2024",
       "summary": "A custom enterprise CRM with dynamic form builder, shared packages, transaction management, and environmental reporting for complex B2B workflows.",
-      "technologies": ["React.js", "Node.js", "PostgreSQL", "Redis"],
-      "keyResults": ["4 legacy tools replaced", "65% faster reporting", "30% shorter sales cycle"]
+      "technologies": [
+        "React.js",
+        "Node.js",
+        "PostgreSQL",
+        "Redis"
+      ],
+      "keyResults": [
+        "4 legacy tools replaced",
+        "65% faster reporting",
+        "30% shorter sales cycle"
+      ]
     },
     {
       "name": "EFXPro Trading Platform",
@@ -206,8 +296,17 @@
       "client": "EFXPro",
       "year": "2024",
       "summary": "A professional forex and financial trading platform with real-time market data, economic news feed, account management, and detailed instrument pages.",
-      "technologies": ["React.js", "TypeScript", "WebSocket", "Node.js"],
-      "keyResults": ["<100ms data refresh", "40% longer sessions", "2K+ active traders"]
+      "technologies": [
+        "React.js",
+        "TypeScript",
+        "WebSocket",
+        "Node.js"
+      ],
+      "keyResults": [
+        "<100ms data refresh",
+        "40% longer sessions",
+        "2K+ active traders"
+      ]
     },
     {
       "name": "Aladdin Catering Platform",
@@ -215,8 +314,16 @@
       "client": "Aladdin Catering",
       "year": "2024",
       "summary": "A modern catering and food ordering platform with interactive menus, order management, and a seamless customer booking experience.",
-      "technologies": ["Next.js", "Tailwind CSS", "Supabase"],
-      "keyResults": ["180% more orders", "90% less errors", "Self-service booking"]
+      "technologies": [
+        "Next.js",
+        "Tailwind CSS",
+        "Supabase"
+      ],
+      "keyResults": [
+        "180% more orders",
+        "90% less errors",
+        "Self-service booking"
+      ]
     },
     {
       "name": "Ducorr Corporate Platform",
@@ -224,8 +331,16 @@
       "client": "Ducorr",
       "year": "2024",
       "summary": "A comprehensive industrial corporate platform with detailed product catalogs, project portfolios, career listings, and case-study-based knowledge resources.",
-      "technologies": ["Next.js", "TypeScript", "Sanity CMS"],
-      "keyResults": ["55% more traffic", "35% fewer support queries", "3x more job applicants"]
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "Sanity CMS"
+      ],
+      "keyResults": [
+        "55% more traffic",
+        "35% fewer support queries",
+        "3x more job applicants"
+      ]
     },
     {
       "name": "Managed Hosting Dashboard",
@@ -233,8 +348,17 @@
       "client": "Hosting Platform Client",
       "year": "2025",
       "summary": "A managed hosting control panel with real-time site monitoring, resource dashboards, and hosting overview for agencies and developers.",
-      "technologies": ["React.js", "Node.js", "WebSocket", "PostgreSQL"],
-      "keyResults": ["50% fewer support tickets", "99.95% uptime accuracy", "300+ sites managed"]
+      "technologies": [
+        "React.js",
+        "Node.js",
+        "WebSocket",
+        "PostgreSQL"
+      ],
+      "keyResults": [
+        "50% fewer support tickets",
+        "99.95% uptime accuracy",
+        "300+ sites managed"
+      ]
     },
     {
       "name": "SparkDoc AI Writing Platform",
@@ -242,22 +366,64 @@
       "client": "SparkDoc",
       "year": "2025",
       "summary": "An AI-powered document writing platform with intelligent chatbot, auto-suggestions, citation analysis, and source management for researchers and writers.",
-      "technologies": ["Next.js", "OpenAI API", "TypeScript", "PostgreSQL"],
-      "keyResults": ["3x faster writing", "85% less citation errors", "4.9 star beta rating"]
+      "technologies": [
+        "Next.js",
+        "OpenAI API",
+        "TypeScript",
+        "PostgreSQL"
+      ],
+      "keyResults": [
+        "3x faster writing",
+        "85% less citation errors",
+        "4.9 star beta rating"
+      ]
     }
   ],
-  "trustedCompanies": ["Swagify", "CardEye", "EolasBio", "Regional Bank", "Retail Chain", "Manufacturing Leader"],
+  "trustedCompanies": [
+    "Swagify",
+    "CardEye",
+    "EolasBio",
+    "Regional Bank",
+    "Retail Chain",
+    "Manufacturing Leader"
+  ],
   "technologyExpertise": [
-    "React.js", "Next.js", "Vue.js", "TypeScript", "Node.js", "Laravel", "PHP",
-    "Go", "Python", "Three.js", "Web3.js", "Ethers.js",
-    "PostgreSQL", "MySQL", "Redis", "Supabase",
-    "AWS", "Docker", "CI/CD", "WebSocket",
-    "OpenAI API", "HubSpot API", "Tailwind CSS", "Sanity CMS", "WordPress",
-    "WhatsApp Business API", "Instagram Graph API", "Twilio", "OpenAI GPT"
+    "React.js",
+    "Next.js",
+    "Vue.js",
+    "TypeScript",
+    "Node.js",
+    "Laravel",
+    "PHP",
+    "Go",
+    "Python",
+    "Three.js",
+    "Web3.js",
+    "Ethers.js",
+    "PostgreSQL",
+    "MySQL",
+    "Redis",
+    "Supabase",
+    "AWS",
+    "Docker",
+    "CI/CD",
+    "WebSocket",
+    "OpenAI API",
+    "HubSpot API",
+    "Tailwind CSS",
+    "Sanity CMS",
+    "WordPress",
+    "WhatsApp Business API",
+    "Instagram Graph API",
+    "Twilio",
+    "OpenAI GPT"
   ],
   "processAndValues": {
     "consultationOffer": "Free project consultation",
-    "pricingModels": ["Transparent fixed-price", "Hourly billing"],
+    "pricingModels": [
+      "Transparent fixed-price",
+      "Hourly billing"
+    ],
     "communication": "Dedicated communication channel for every project",
     "postLaunch": "Post-launch support included",
     "responseTime": "We respond within 24 hours of inquiry",
@@ -266,7 +432,7 @@
   "faq": [
     {
       "question": "How can I get in touch with NIS?",
-      "answer": "You can reach us via email at contact@nextinnovation.systems, use the contact form on our website, or call us at +92 (300) 0000000. We typically respond within 24 hours."
+      "answer": "You can reach us via email at contact@nextinnovation.systems, use the contact form on our website, or call us at +92 333 4039462. We typically respond within 24 hours."
     },
     {
       "question": "What industries does NIS serve?",
