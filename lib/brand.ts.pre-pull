@@ -1,0 +1,5 @@
+/** Primary NIS green — use for CTAs, tints, and Aurora stops. */
+export const BRAND_GREEN = "#007a55" as const
+
+/** WebGL Aurora: dark corners + brand peak (reads well on `bg-black`). */
+export const AURORA_COLOR_STOPS = ["#001f16", "#007a55", "#003327"] as const
