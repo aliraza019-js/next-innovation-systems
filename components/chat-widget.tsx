@@ -3,8 +3,8 @@
 import { useState, useRef, useEffect, useCallback } from "react"
 import { MessageCircle, X, Send, Loader2, Bot, User, Sparkles, ArrowDown, Mail, CheckCircle } from "lucide-react"
 import { BRAND_COLORS } from "@/lib/brand"
-import "./chat-widget.css"
-
+// @ts-ignore: CSS import without module declaration
+import './chat-widget.css'
 type Message = {
   id: string
   role: "user" | "assistant"
@@ -278,22 +278,14 @@ export function ChatWidget() {
           onClick={() => setIsOpen(!isOpen)}
           className={`chat-fab ${isOpen ? "chat-fab--open" : ""}`}
           aria-label={isOpen ? "Close chat" : "Open chat"}
-
+          style={{backgroundColor:"white" }}
         >
           <div className="chat-fab__icon-wrapper">
             {isOpen ? (
               <X className="chat-fab__icon. bg-white" />
             ) : (
               <>
-                <img
-                  src="/nis-logo-icon.png"
-                  alt=""
-                  width={48}
-                  height={48}
-                  decoding="async"
-                  className="chat-fab__icon"
-                />
-
+                <img src="/nis-logo-icon.png" className="chat-fab__icon" />
                 <span className="chat-fab__pulse" />
               </>
             )}
