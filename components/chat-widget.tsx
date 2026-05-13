@@ -15,7 +15,7 @@ type Message = {
 // Email prompt states
 type EmailPromptState = "hidden" | "visible" | "submitting" | "success" | "dismissed"
 
-const WELCOME_CONTENT = "Hey there! 👋 I'm the NIS Assistant. Ask me anything about our services, projects, pricing, or how we can help your business grow!"
+const WELCOME_CONTENT = "Hey there! 👋 I'm the Next Innovation Systems Assistant. Ask me anything about our services, projects, pricing, or how we can help your business grow!"
 
 const SUGGESTED_QUESTIONS = [
   "What do you do?",
@@ -299,10 +299,11 @@ export function ChatWidget() {
         <div className="chat-header">
           <div className="chat-header__left">
             <div className="chat-header__avatar">
-              <Sparkles size={20} />
+                <img src="/nis-logo-icon.png" className="chat-fab__icon" />
+
             </div>
             <div>
-              <h3 className="chat-header__title">NIS Assistant</h3>
+              <h3 className="chat-header__title">Next Innovation Systems Assistant</h3>
               <div className="chat-header__status">
                 <span className="chat-header__dot" />
                 Online
