@@ -47,7 +47,7 @@ export async function POST(req: Request) {
       // CTA contact form — full consultation request
       const { data, error } = await resend.emails.send({
         from: "NIS Website <onboarding@resend.dev>",
-        to: [process.env.CONTACT_EMAIL || ""],
+        to: [process.env.CONTACT_EMAIL || "contact@nexinsystems.com"],
         subject: `New Consultation Request from ${name}`,
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
