@@ -537,6 +537,16 @@
   animation: fade-in-up 0.7s ease-out forwards;
 }
 
+/* Testimonials column infinite scroll (replaces JS marquee; duration set inline per column) */
+@keyframes testimonial-column-marquee {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
 /* Adding gradient animations for animated header component */
 @keyframes gradient-background-1 {
   0%,
