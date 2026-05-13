@@ -278,22 +278,14 @@ export function ChatWidget() {
           onClick={() => setIsOpen(!isOpen)}
           className={`chat-fab ${isOpen ? "chat-fab--open" : ""}`}
           aria-label={isOpen ? "Close chat" : "Open chat"}
-          style={{
-            background: !isOpen
-              ? `linear-gradient(135deg, ${BRAND_COLORS.emerald} 0%, ${BRAND_COLORS.emeraldDark} 100%)`
-              : undefined,
-            boxShadow: !isOpen
-              ? `0 4px 24px ${BRAND_COLORS.emerald}66, 0 0 0 0 ${BRAND_COLORS.emerald}4d`
-              : undefined,
-          }}
+          style={{backgroundColor:"white" }}
         >
           <div className="chat-fab__icon-wrapper">
             {isOpen ? (
               <X className="chat-fab__icon" />
             ) : (
               <>
-                {/* <img src="/nis-logo-icon.png" className="chat-fab__icon" /> */}
-                <MessageCircle className="chat-fab__icon" />
+                <img src="/nis-logo-icon.png" className="chat-fab__icon" />
                 <span className="chat-fab__pulse" />
               </>
             )}
