@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react"
 import { MessageCircle, X, Send, Loader2, Bot, User, Sparkles, ArrowDown, Mail, CheckCircle } from "lucide-react"
 import { BRAND_COLORS } from "@/lib/brand"
+// @ts-ignore: CSS import without declaration file
 import "./chat-widget.css"
 
 type Message = {

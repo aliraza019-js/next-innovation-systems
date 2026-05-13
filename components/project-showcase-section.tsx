@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState, useEffect, useRef } from "react";
+import { useMemo, useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Calendar } from "lucide-react";
 import { motion } from "motion/react";
@@ -191,22 +192,7 @@ export function ProjectShowcaseSection() {
     });
     setVisibleCount(nextCount);
   };
-  const imgRefs = useRef<Record<string, HTMLImageElement | null>>({});
 
-  useEffect(() => {
-
-    setImgLoadingBySlug((prev) => {
-      const next = { ...prev };
-      let changed = false;
-      for (const [slug, el] of Object.entries(imgRefs.current)) {
-        if (el && el.complete && next[slug]) {
-          next[slug] = false;
-          changed = true;
-        }
-      }
-      return changed ? next : prev;
-    });
-  }, []);
 
   return (
     <>
@@ -254,21 +240,20 @@ export function ProjectShowcaseSection() {
                 onClick={() => openStudy(study)} // <-- card click pe modal open
                 style={{ animationDelay: `${Math.min(index, 8) * 60}ms` }}
               >
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden h-56">
                   {imgLoadingBySlug[study.slug] && (
                     <div
                       className="skeleton-shimmer absolute inset-0"
                       aria-hidden="true"
                     />
                   )}
-                  <img
-                    ref={(el) => {
-                      imgRefs.current[study.slug] = el;
-                    }}
+                  <Image
                     src={study.image}
-                    alt={study.title}
-                    loading="eager"
-                    className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    alt={`${study.title} — project by Next Innovation Systems`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={index < 3}
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                     style={{
                       opacity: imgLoadingBySlug[study.slug] ? 0 : 1,
                       transition: "opacity 400ms ease",
@@ -361,9 +346,11 @@ export function ProjectShowcaseSection() {
                   <div className="relative mb-4">
                     <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative h-16 w-16 sm:h-20 sm:w-20 flex items-center justify-center rounded-full bg-white/5 border border-white/10 p-4 transition-all duration-300 group-hover:border-emerald-500/50 group-hover:bg-white/10">
-                      <img
+                      <Image
                         src={tech.icon}
-                        alt={tech.name}
+                        alt={`${tech.name} — ${tech.category} technology used by Next Innovation Systems`}
+                        width={64}
+                        height={64}
                         className="h-full w-full object-contain tech-icon-img"
                       />
                     </div>
