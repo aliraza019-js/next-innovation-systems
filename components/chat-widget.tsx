@@ -282,7 +282,7 @@ export function ChatWidget() {
         >
           <div className="chat-fab__icon-wrapper">
             {isOpen ? (
-              <X className="chat-fab__icon. bg-white" />
+              <X className="chat-fab__icon" style={{ color: "black" }} />
             ) : (
               <>
                 <img src="/nis-logo-icon.png" className="chat-fab__icon" />
