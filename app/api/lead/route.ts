@@ -49,7 +49,7 @@ export async function POST(req: Request) {
     // ── Send lead notification to admin ──
     const { error } = await resend.emails.send({
       from: "NIS Chatbot <onboarding@resend.dev>",
-      to: [process.env.CONTACT_EMAIL || "contact@nextinnovation.systems"],
+      to: [process.env.CONTACT_EMAIL || "contact@nexinsystems.com"],
       replyTo: normalizedEmail,
       subject: `🔥 New Lead Captured: ${normalizedEmail}`,
       html: `

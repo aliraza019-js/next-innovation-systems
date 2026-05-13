@@ -23,14 +23,14 @@ export const caseStudies: CaseStudy[] = [
     image: "/projects/boxes-by-swagify/thumbnail.png",
     images: [
       "/projects/boxes-by-swagify/image.png",
-      "/projects/boxes-by-swagify/image copy.png",
-      "/projects/boxes-by-swagify/image copy 2.png",
-      "/projects/boxes-by-swagify/image copy 3.png",
-      "/projects/boxes-by-swagify/image copy 4.png",
-      "/projects/boxes-by-swagify/image copy 5.png",
-      "/projects/boxes-by-swagify/image copy 6.png",
-      "/projects/boxes-by-swagify/image copy 7.png",
-      "/projects/boxes-by-swagify/image copy 8.png",
+      "/projects/boxes-by-swagify/image-copy.png",
+      "/projects/boxes-by-swagify/image-copy-2.png",
+      "/projects/boxes-by-swagify/image-copy-3.png",
+      "/projects/boxes-by-swagify/image-copy-4.png",
+      "/projects/boxes-by-swagify/image-copy-5.png",
+      "/projects/boxes-by-swagify/image-copy-6.png",
+      "/projects/boxes-by-swagify/image-copy-7.png",
+      "/projects/boxes-by-swagify/image-copy-8.png",
     ],
     summary:
       "A global swag gifting and management platform enabling teams to design, store, and ship custom branded swag boxes.",
@@ -109,16 +109,16 @@ export const caseStudies: CaseStudy[] = [
     technologies: ["Next.js", "Three.js", "Go"],
   },
   {
-    slug: "EolasBio",
+    slug: "eolasbio",
     title: "EolasBio Corporate Website",
     category: "Corporate Website / Life Sciences",
     client: "EolasBio",
     timeframe: "2024",
-    image: "/projects/EolasBio/thumbnail.png",
+    image: "/projects/eolasbio/thumbnail.png",
     images: [
-      "/projects/EolasBio/image.png",
-      "/projects/EolasBio/image copy.png",
-      "/projects/EolasBio/image copy 2.png",
+      "/projects/eolasbio/image.png",
+      "/projects/eolasbio/image-copy.png",
+      "/projects/eolasbio/image-copy-2.png",
     ],
     summary:
       "A professional life sciences website that presents complex services with clear structure for partners, researchers, and pharma stakeholders.",
@@ -147,21 +147,20 @@ export const caseStudies: CaseStudy[] = [
       "/projects/nft-marketplace/image1.webp",
       "/projects/nft-marketplace/image2.webp",
       "/projects/nft-marketplace/image3.webp",
-
     ],
     summary:
       "A comprehensive AI-powered campaign management platform with cohort building, campaign library, and HubSpot-integrated execution workflows.",
     challenge:
-      "The NFT space lacked marketplaces that combined a premium visual experience with genuinely fast, low-friction trading flows.Existing platforms felt utilitarian. Collectors and creators wanted a marketplace that matched the artistic quality of the assets being traded palette",
+      "The NFT space lacked marketplaces that combined a premium visual experience with genuinely fast, low-friction trading flows.",
     solution: [
-      "Designed and built a fully functional NFT marketplace with a dark-themed, futuristic UI that puts the artwork front and center.",
-      "Built with React and Tailwind CSS for pixel-perfect responsiveness",
-      "Integrated with Web3.js and ERC-721 for secure on-chain ownership, the platform supports multi-category browsing, instant wallet connectivity, and streamlined buy/sell/auction flows."
+      "Designed and built a fully functional NFT marketplace with a dark-themed, futuristic UI.",
+      "Built with React and Tailwind CSS for pixel-perfect responsiveness.",
+      "Integrated with Web3.js and ERC-721 for secure on-chain ownership."
     ],
     outcomes: [
       "The marketplace launched to strong reception from the creator community.",
-      " The premium dark UI became a differentiator",
-      "with users consistently praising the visual experience and smooth trading flow."
+      "The premium dark UI became a differentiator.",
+      "Smooth trading flow consistently praised by users."
     ],
     technologies: ["React.js", "Tailwind CSS", "Web3.js", "ERC-721", "Node.js", "Ethereum"],
   },
@@ -182,11 +181,11 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "A comprehensive AI-powered campaign management platform with cohort building, campaign library, and HubSpot-integrated execution workflows.",
     challenge:
-      "The client needed to unify customer segmentation, campaign creation, and marketplace discovery in a single intelligent platform that could sync with their CRM.",
+      "The client needed to unify customer segmentation, campaign creation, and marketplace discovery in a single intelligent platform.",
     solution: [
       "Architected a modular campaign builder with cohort selection and campaign pairing.",
       "Built a product and customer library with data quality assessment tooling.",
-      "Integrated marketplace exploration for discovering campaign templates and assets.",
+      "Integrated marketplace exploration for discovering campaign templates.",
     ],
     outcomes: [
       "Reduced campaign launch time from days to hours through guided workflows.",
@@ -204,25 +203,23 @@ export const caseStudies: CaseStudy[] = [
     image: "/projects/autogather/thumbnail.png",
     images: [
       "/projects/autogather/cover.webp",
-
       "/projects/autogather/dashboard.webp",
       "/projects/autogather/assessment.webp",
-
       "/projects/autogather/full-page.webp",
     ],
     summary:
       "A full-featured B2B platform for professional assessment, career tracking, product discovery, and case-study-driven learning.",
     challenge:
-      "The client needed a unified digital workspace combining HR assessments, product catalogs, career paths, and knowledge resources in one coherent platform.",
+      "The client needed a unified digital workspace combining HR assessments, product catalogs, and career paths.",
     solution: [
-      "Built a multi-module platform with assessment engine, career tracker, and product library.",
-      "Designed an intuitive dashboard surfacing key metrics and user progress.",
+      "Built a multi-module platform with assessment engine and career tracker.",
+      "Designed an intuitive dashboard surfacing key metrics.",
       "Implemented case-study learning flows with structured knowledge paths.",
     ],
     outcomes: [
       "Consolidated 5 separate tools into a single cohesive platform.",
       "Increased user engagement by 70% through structured learning journeys.",
-      "Reduced onboarding time for new users by 45% with guided assessments.",
+      "Reduced onboarding time for new users by 45%.",
     ],
     technologies: ["Next.js", "TypeScript", "PostgreSQL", "AWS"],
   },
@@ -234,26 +231,24 @@ export const caseStudies: CaseStudy[] = [
     timeframe: "2024",
     image: "/projects/crypto-wallet/thumbnail.png",
     images: [
-
-      "/projects/crypto-wallet/dashboard (1).webp",
+      "/projects/crypto-wallet/dashboard-1.webp",
       "/projects/crypto-wallet/wallet-overview.webp",
-
       "/projects/crypto-wallet/transactions.webp",
       "/projects/crypto-wallet/dapp-store.webp",
     ],
     summary:
-      "A full-stack Web3 wallet and DApp dashboard with portfolio tracking, transaction history, DApp store, and site monitoring for crypto users.",
+      "A full-stack Web3 wallet and DApp dashboard with portfolio tracking, transaction history, and site monitoring.",
     challenge:
-      "The client needed a single unified interface for managing multi-chain wallets, monitoring DApp performance, and tracking on-chain activity securely.",
+      "The client needed a single unified interface for managing multi-chain wallets and monitoring DApp performance.",
     solution: [
       "Built a multi-chain wallet interface with real-time portfolio valuation.",
-      "Designed a DApp store with discovery, install, and usage analytics.",
+      "Designed a DApp store with discovery and usage analytics.",
       "Implemented site monitoring and hosting overview for deployed DApps.",
     ],
     outcomes: [
-      "Delivered a seamless Web3 UX that abstracts blockchain complexity for users.",
-      "Reduced wallet management time by 60% through unified portfolio views.",
-      "Enabled instant DApp discovery and deployment from a single dashboard.",
+      "Delivered a seamless Web3 UX that abstracts blockchain complexity.",
+      "Reduced wallet management time by 60% through unified views.",
+      "Enabled instant DApp discovery and deployment.",
     ],
     technologies: ["React.js", "Web3.js", "Node.js", "Ethers.js"],
   },
@@ -276,18 +271,18 @@ export const caseStudies: CaseStudy[] = [
       "/projects/custom-enterprise-crm/environmental-reporting.webp",
     ],
     summary:
-      "A custom enterprise CRM with dynamic form builder, shared packages, transaction management, and environmental reporting for complex B2B workflows.",
+      "A custom enterprise CRM with dynamic form builder, shared packages, and environmental reporting.",
     challenge:
-      "Off-the-shelf CRMs could not handle the client's multi-entity structure, custom data collection requirements, and environmental compliance reporting needs.",
+      "Off-the-shelf CRMs could not handle the client's multi-entity structure and custom data collection requirements.",
     solution: [
-      "Designed a flexible form builder with shared templates and package management.",
-      "Built a companies dashboard with full transaction and relationship tracking.",
-      "Implemented environmental reporting module aligned with compliance standards.",
+      "Designed a flexible form builder with shared templates.",
+      "Built a companies dashboard with full transaction tracking.",
+      "Implemented environmental reporting module aligned with compliance.",
     ],
     outcomes: [
-      "Eliminated reliance on 4 separate legacy tools with one unified CRM.",
-      "Compliance reporting time reduced by 65% through automated data aggregation.",
-      "Sales cycle shortened by 30% with real-time pipeline and form automation.",
+      "Eliminated reliance on 4 legacy tools with one unified CRM.",
+      "Compliance reporting time reduced by 65%.",
+      "Sales cycle shortened by 30% with automation.",
     ],
     technologies: ["React.js", "Node.js", "PostgreSQL", "Redis"],
   },
@@ -301,28 +296,26 @@ export const caseStudies: CaseStudy[] = [
     images: [
       "/projects/efxpro/home.webp",
       "/projects/efxpro/detail-page.webp",
-      "/projects/efxpro/detail-page (1).webp",
+      "/projects/efxpro/detail-page-1.webp",
       "/projects/efxpro/economic-news.webp",
       "/projects/efxpro/account.webp",
     ],
     summary:
-      "A professional forex and financial trading platform with real-time market data, economic news feed, account management, and detailed instrument pages.",
+      "A professional forex and financial trading platform with real-time market data and account management.",
     challenge:
-      "The client needed a high-performance trading interface that could handle real-time data streams, serve both retail and professional traders, and maintain speed at scale.",
+      "The client needed a high-performance trading interface that could handle real-time data streams.",
     solution: [
-      "Built a real-time market data dashboard with live price feeds and charts.",
-      "Designed detailed instrument pages with historical data and analytics.",
-      "Integrated economic news feed with relevance filtering for active traders.",
+      "Built a real-time market data dashboard with live price feeds.",
+      "Designed detailed instrument pages with historical analytics.",
+      "Integrated economic news feed with relevance filtering.",
     ],
     outcomes: [
       "Delivered sub-100ms data refresh rates for live trading views.",
-      "Increased average session duration by 40% versus the previous platform.",
-      "Launched to 2,000+ active traders within the first month of release.",
+      "Increased average session duration by 40%.",
+      "Launched to 2,000+ active traders within the first month.",
     ],
     technologies: ["React.js", "TypeScript", "WebSocket", "Node.js"],
   },
-
-
   {
     slug: "ducorr",
     title: "Cathodic Protection & Corrosion Solutions",
@@ -337,21 +330,20 @@ export const caseStudies: CaseStudy[] = [
       "/projects/ducorr/projects.webp",
     ],
     summary:
-      "Ducorr is a leading cathodic protection specialist operating across UAE and KSA, offering corrosion solutions for marine structures, storage tanks, pipelines, and concrete installations.",
+      "Ducorr is a leading cathodic protection specialist operating across UAE and KSA.",
     challenge:
-      "The challenge was building a digital platform that could serve multiple purposes: a professional corporate presence, a detailed product catalog covering marine, concrete, and tank protection systems, a project portfolio showcasing landmark Middle East infrastructure projects, and an integrated e-commerce store for direct product sales.",
+      "Building a platform for corporate presence, product catalog, project portfolio, and e-commerce.",
     solution: [
-      "We built a comprehensive digital platform for Ducorr ",
-      "Unifies their corporate identity, product lines, project portfolio, career portal, learning resources, and e-commerce store into a single performant, SEO-optimized website.",
-      " The platform positions Ducorr as the authority in cathodic protection across the Middle East."
+      "Built a comprehensive digital platform for Ducorr.",
+      "Unifies corporate identity, projects, and e-commerce.",
+      "Positions Ducorr as the authority in the Middle East."
     ],
     outcomes: [
-      "The new platform transformed Ducorr's digital presence, significantly improving search visibility for cathodic protection queries across UAE and KSA.",
-      " The unified platform streamlined lead generation, product inquiries, and career applications while showcasing 15+ years of expertise across landmark Middle East infrastructure projects."
+      "Significantly improved search visibility across UAE and KSA.",
+      "Streamlined lead generation and product inquiries."
     ],
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Headless CMS"],
   },
-
   {
     slug: "aladdin-catering",
     title: "Aladdin Catering Platform",
@@ -364,23 +356,21 @@ export const caseStudies: CaseStudy[] = [
       "/projects/aladdin-catering/menu.webp",
       "/projects/aladdin-catering/catering-menu.webp",
       "/projects/aladdin-catering/add-to-cart.webp",
-
       "/projects/aladdin-catering/about-us.webp",
-
     ],
     summary:
-      "A modern catering and food ordering platform with interactive menus, order management, and a seamless customer booking experience.",
+      "A modern catering platform with interactive menus and order management.",
     challenge:
-      "The catering business needed to move from phone-based orders to a digital platform that could handle menu management and customer bookings efficiently.",
+      "The business needed to move from phone-based orders to a digital platform.",
     solution: [
-      "Built a dynamic menu management system with categories and item customization.",
-      "Designed an intuitive booking and order flow for catering events.",
-      "Implemented an admin panel for order tracking and menu updates.",
+      "Built a dynamic menu management system.",
+      "Designed an intuitive booking and order flow.",
+      "Implemented an admin panel for tracking orders.",
     ],
     outcomes: [
-      "Online orders increased by 180% within 60 days of launch.",
-      "Reduced order errors by 90% by eliminating phone-based communication.",
-      "Improved customer satisfaction through self-service booking and tracking.",
+      "Online orders increased by 180% within 60 days.",
+      "Reduced order errors by 90%.",
+      "Improved customer satisfaction through self-service.",
     ],
     technologies: ["Next.js", "Tailwind CSS", "Supabase"],
   },
@@ -398,18 +388,18 @@ export const caseStudies: CaseStudy[] = [
       "/projects/managed-hosting-dashboard/site-monitoring.webp",
     ],
     summary:
-      "A managed hosting control panel with real-time site monitoring, resource dashboards, and hosting overview for agencies and developers.",
+      "A managed hosting control panel with real-time monitoring and resource dashboards.",
     challenge:
-      "The client needed a white-label hosting dashboard that could give their customers clear visibility into uptime, resource usage, and site health in real time.",
+      "The client needed a white-label dashboard for uptime and resource usage visibility.",
     solution: [
-      "Built a real-time site monitoring module with uptime tracking and alerts.",
-      "Designed a hosting overview panel with resource allocation and usage graphs.",
-      "Implemented a responsive dashboard with drill-down views for each hosted site.",
+      "Built a real-time site monitoring module.",
+      "Designed a hosting overview panel with resource graphs.",
+      "Implemented a responsive dashboard for hosted sites.",
     ],
     outcomes: [
-      "Customer support tickets reduced by 50% through self-service monitoring.",
-      "Achieved 99.95% uptime visibility accuracy across all monitored sites.",
-      "Onboarded 300+ sites in the first 2 months post-launch.",
+      "Customer support tickets reduced by 50%.",
+      "Achieved 99.95% uptime visibility accuracy.",
+      "Onboarded 300+ sites in the first 2 months.",
     ],
     technologies: ["React.js", "Node.js", "WebSocket", "PostgreSQL"],
   },
@@ -421,8 +411,8 @@ export const caseStudies: CaseStudy[] = [
     timeframe: "April 2025",
     image: "/projects/sparkdoc-ai/thumbnail.png",
     images: [
-      "/projects/sparkdoc-ai/Dashboard.webp",
-      "/projects/sparkdoc-ai/Register.webp",
+      "/projects/sparkdoc-ai/dashboard.webp",
+      "/projects/sparkdoc-ai/register.webp",
       "/projects/sparkdoc-ai/ai-chatbot.webp",
       "/projects/sparkdoc-ai/auto-suggestion.webp",
       "/projects/sparkdoc-ai/add-function.webp",
@@ -431,18 +421,18 @@ export const caseStudies: CaseStudy[] = [
       "/projects/sparkdoc-ai/view-sources.webp",
     ],
     summary:
-      "An AI-powered document writing platform with intelligent chatbot, auto-suggestions, citation analysis, and source management for researchers and writers.",
+      "An AI-powered writing platform with chatbot, citation analysis, and source management.",
     challenge:
-      "The client needed to build a next-generation writing assistant that could reduce research friction, improve citation accuracy, and boost writer productivity at scale.",
+      "Building a writing assistant to reduce research friction and improve accuracy.",
     solution: [
-      "Built an AI chatbot integrated into the document editor for in-context assistance.",
-      "Implemented auto-suggestion engine trained on document context and user patterns.",
-      "Designed citation analysis and source management with one-click reference insertion.",
+      "Built an AI chatbot integrated into the document editor.",
+      "Implemented auto-suggestion engine for writers.",
+      "Designed citation analysis with one-click reference insertion.",
     ],
     outcomes: [
-      "Writing speed increased by 3x for active users within the first 30 days.",
-      "Citation error rates reduced by 85% through automated source validation.",
-      "Achieved 4.9 star rating in beta with 500+ early access researchers.",
+      "Writing speed increased by 3x for active users.",
+      "Citation error rates reduced by 85%.",
+      "Achieved 4.9 star rating in beta.",
     ],
     technologies: ["Next.js", "OpenAI API", "TypeScript", "PostgreSQL"],
   },

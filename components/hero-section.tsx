@@ -5,14 +5,14 @@ import "./hero-section.css";
 
 
 const companies = [
-  { icon: "/images/Clients-logo/swagify.png" },
-  { icon: "/images/Clients-logo/efxpro.png" },
-  { icon: "/images/Clients-logo/ducorr.png" },
-  { icon: "/images/Clients-logo/alladin.png" },
-  { icon: "/images/Clients-logo/sparkdoc.png" },
-  { icon: "/images/Clients-logo/eventxpro.svg" },
-  { icon: "/images/Clients-logo/cardeye.svg" },
-  { icon: "/images/Clients-logo/eolas.png" },
+  { icon: "/images/Clients-logo/swagify.png", name: "Swagify — Client of Next Innovation Systems" },
+  { icon: "/images/Clients-logo/efxpro.png", name: "EFX Pro — Client of Next Innovation Systems" },
+  { icon: "/images/Clients-logo/ducorr.png", name: "Ducorr — Client of Next Innovation Systems" },
+  { icon: "/images/Clients-logo/alladin.png", name: "Aladdin Catering — Client of Next Innovation Systems" },
+  { icon: "/images/Clients-logo/sparkdoc.png", name: "SparkDoc — Client of Next Innovation Systems" },
+  { icon: "/images/Clients-logo/eventxpro.svg", name: "EventXPro — Client of Next Innovation Systems" },
+  { icon: "/images/Clients-logo/cardeye.svg", name: "CardEye — Client of Next Innovation Systems" },
+  { icon: "/images/Clients-logo/eolas.png", name: "Eolas — Client of Next Innovation Systems" },
 ];
 
 const ArrowRight = () => (
@@ -54,6 +54,10 @@ const CompanyIcon = ({ icon, name }: { icon: string; name: string }) => {
       <img
         src={icon}
         alt={name}
+        width={96}
+        height={32}
+        decoding="async"
+        loading="lazy"
         className="max-h-full max-w-full object-contain brightness-0 invert opacity-50 pointer-events-none"
       />
     </div>
@@ -94,7 +98,7 @@ export function HeroSection() {
           </span>
           <div className="relative w-full max-w-[320px] sm:max-w-md md:max-w-xl mx-auto group mt-2">
             <div className="absolute inset-0 bg-[#00ff88]/20 blur-xl rounded-2xl group-hover:bg-[#00ff88]/40 transition-all duration-700"></div>
-            <div className="relative z-10 bg-white rounded-2xl shadow-2xl border border-white overflow-hidden backdrop-blur-sm">
+            <div className="relative z-10 bg-white rounded-2xl shadow-2xl border border-white overflow-hidden backdrop-blur-sm min-h-[5.5rem] sm:min-h-[7rem] lg:min-h-[8.5rem] flex items-center justify-center">
               <RotatingText
                 texts={[
                   "Business Growth",

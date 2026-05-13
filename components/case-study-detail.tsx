@@ -66,6 +66,9 @@ export function CaseStudyDetail({ study, onClose }: CaseStudyDetailProps) {
             <img
               src={images[0]}
               alt={study.title}
+              width={1200}
+              height={675}
+              decoding="async"
               className="h-64 md:h-[600px] w-full object-cover object-top"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#080c0c] via-transparent to-transparent opacity-80 pointer-events-none" />
@@ -165,6 +168,9 @@ export function CaseStudyDetail({ study, onClose }: CaseStudyDetailProps) {
                       <img
                         src={src}
                         alt={`${study.title} screenshot ${idx + 1}`}
+                        width={640}
+                        height={360}
+                        decoding="async"
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading={idx < 3 ? "eager" : "lazy"}
                       />
@@ -237,6 +243,8 @@ export function CaseStudyDetail({ study, onClose }: CaseStudyDetailProps) {
             <img
               src={images[lightboxIndex]}
               alt={`${study.title} screenshot ${lightboxIndex + 1}`}
+              width={1920}
+              height={1080}
               className="max-h-[80vh] max-w-full object-contain rounded-xl border border-white/10 shadow-[0_0_60px_rgba(0,0,0,0.8)]"
             />
             {/* Caption */}

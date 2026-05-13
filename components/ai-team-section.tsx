@@ -291,6 +291,9 @@ export function AITeamSection() {
                             <img
                               src="/images/michael-ai-agent.jpg"
                               alt="NIS - Virtual Consultant"
+                              width={32}
+                              height={32}
+                              decoding="async"
                               className="w-8 h-8 rounded-full object-cover mr-2 mt-1 flex-shrink-0"
                             />
                             <div className="flex-1">
@@ -319,6 +322,10 @@ export function AITeamSection() {
                                 <img
                                   src="/images/michael-ai-agent.jpg"
                                   alt="NIS Consultant"
+                                  width={24}
+                                  height={24}
+                                  decoding="async"
+                                  loading="lazy"
                                   className="w-6 h-6 rounded-full object-cover mr-2 mt-1 flex-shrink-0"
                                 />
                               )}
@@ -347,6 +354,10 @@ export function AITeamSection() {
                               <img
                                 src="/images/michael-ai-agent.jpg"
                                 alt="NIS Consultant"
+                                width={24}
+                                height={24}
+                                decoding="async"
+                                loading="lazy"
                                 className="w-6 h-6 rounded-full object-cover mr-2 mt-1 flex-shrink-0"
                               />
                               <div className="bg-white p-3 rounded-2xl rounded-bl-md shadow-sm border border-slate-200">

@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { initialsFromDisplayName, testimonialAvatarToneIndex } from "@/lib/testimonials-data"
 
@@ -32,17 +31,11 @@ export const TestimonialsColumn = (props: {
 }) => {
   return (
     <div className={cn("relative overflow-hidden", props.fillHeightClass ?? "h-[700px]", props.className)}>
-      <motion.div
-        animate={{
-          translateY: "-50%",
+      <div
+        className="flex flex-col gap-6 pb-6 will-change-transform"
+        style={{
+          animation: `testimonial-column-marquee ${props.duration ?? 10}s linear infinite`,
         }}
-        transition={{
-          duration: props.duration || 10,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "linear",
-          repeatType: "loop",
-        }}
-        className="flex flex-col gap-6 pb-6"
       >
         {[
           ...new Array(2).fill(0).map((_, loopIndex) => (
@@ -106,7 +99,7 @@ export const TestimonialsColumn = (props: {
             </React.Fragment>
           )),
         ]}
-      </motion.div>
+      </div>
     </div>
   )
 }
