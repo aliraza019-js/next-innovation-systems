@@ -267,7 +267,11 @@ export function ProjectShowcaseSection() {
                     }}
                     src={study.image}
                     alt={study.title}
-                    loading="eager"
+                    width={960}
+                    height={540}
+                    decoding="async"
+                    loading={index < 3 ? "eager" : "lazy"}
+                    fetchPriority={index === 0 ? "high" : undefined}
                     className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     style={{
                       opacity: imgLoadingBySlug[study.slug] ? 0 : 1,
@@ -363,7 +367,11 @@ export function ProjectShowcaseSection() {
                     <div className="relative h-16 w-16 sm:h-20 sm:w-20 flex items-center justify-center rounded-full bg-white/5 border border-white/10 p-4 transition-all duration-300 group-hover:border-emerald-500/50 group-hover:bg-white/10">
                       <img
                         src={tech.icon}
-                        alt={tech.name}
+                        alt={`${tech.name} — ${tech.category} technology used by Next Innovation Systems`}
+                        width={64}
+                        height={64}
+                        loading="lazy"
+                        decoding="async"
                         className="h-full w-full object-contain tech-icon-img"
                       />
                     </div>

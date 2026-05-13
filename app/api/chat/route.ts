@@ -2,10 +2,7 @@ import { NextResponse } from "next/server"
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Knowledge base is stored in a SINGLE file: public/knowledge-base.json
-// To update chatbot knowledge, only edit that file — nothing else needed.
-// ─────────────────────────────────────────────────────────────────────────────
+
 async function buildContext(): Promise<string> {
   // Dynamic import so Next.js always reads the latest version
   const kb = (await import("@/public/knowledge-base.json")).default as any
