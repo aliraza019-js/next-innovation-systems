@@ -249,11 +249,13 @@ export function ProjectShowcaseSection() {
                   )}
                   <Image
                     src={study.image}
-                    alt={`${study.title} — project by Next Innovation Systems`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority={index < 3}
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    alt={study.title}
+                    width={960}
+                    height={540}
+                    decoding="async"
+                    loading={index < 3 ? "eager" : "lazy"}
+                    fetchPriority={index === 0 ? "high" : undefined}
+                    className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     style={{
                       opacity: imgLoadingBySlug[study.slug] ? 0 : 1,
                       transition: "opacity 400ms ease",
@@ -351,6 +353,8 @@ export function ProjectShowcaseSection() {
                         alt={`${tech.name} — ${tech.category} technology used by Next Innovation Systems`}
                         width={64}
                         height={64}
+                        loading="lazy"
+                        decoding="async"
                         className="h-full w-full object-contain tech-icon-img"
                       />
                     </div>
