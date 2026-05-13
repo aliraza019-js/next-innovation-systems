@@ -1,11 +1,47 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
 import { caseStudies } from "@/components/case-studies-data"
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld"
+import { DEFAULT_OG_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site-config"
+
+export const metadata: Metadata = {
+  title: "Case Studies",
+  description:
+    "Explore software, cloud, AI/ML, and product delivery case studies from Next Innovation Systems—Lahore, Pakistan. Real projects with measurable outcomes.",
+  openGraph: {
+    title: `Case Studies | ${SITE_NAME}`,
+    description:
+      "Selected project delivery across industries—software, cloud, AI/ML, and digital products.",
+    url: `${SITE_URL}/case-studies`,
+    images: [
+      {
+        url: DEFAULT_OG_IMAGE_PATH,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_NAME} — Case studies`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Case Studies | ${SITE_NAME}`,
+    description:
+      "Selected project delivery across industries—software, cloud, AI/ML, and digital products.",
+    images: [DEFAULT_OG_IMAGE_PATH],
+  },
+}
 
 export default function CaseStudiesPage() {
   return (
     <main className="min-h-screen bg-black px-4 py-24">
       <div className="mx-auto max-w-6xl">
+        <BreadcrumbJsonLd
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Case studies", path: "/case-studies" },
+          ]}
+        />
         <Link
           href="/"
           className="mb-8 inline-flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"

@@ -159,8 +159,8 @@ export function ChatWidget() {
       setMessages((prev) => [...prev, assistantMsg])
     } catch (err: any) {
       const fallbackText = err.message?.includes("API key")
-        ? "I'm currently being set up! In the meantime, you can reach our team directly at contact@nextinnovation.systems — we'd love to hear from you! 😊"
-        : "Oops! I had a small hiccup processing that. Could you try rephrasing your question? If it keeps happening, feel free to email us at contact@nextinnovation.systems and our team will help right away! 🙏"
+        ? "I'm currently being set up! In the meantime, you can reach our team directly at contact@nexinsystems.com — we'd love to hear from you! 😊"
+        : "Oops! I had a small hiccup processing that. Could you try rephrasing your question? If it keeps happening, feel free to email us at contact@nexinsystems.com and our team will help right away! 🙏"
 
       setMessages((prev) => [
         ...prev,
@@ -278,22 +278,22 @@ export function ChatWidget() {
           onClick={() => setIsOpen(!isOpen)}
           className={`chat-fab ${isOpen ? "chat-fab--open" : ""}`}
           aria-label={isOpen ? "Close chat" : "Open chat"}
-          style={{
-            background: !isOpen
-              ? `linear-gradient(135deg, ${BRAND_COLORS.emerald} 0%, ${BRAND_COLORS.emeraldDark} 100%)`
-              : undefined,
-            boxShadow: !isOpen
-              ? `0 4px 24px ${BRAND_COLORS.emerald}66, 0 0 0 0 ${BRAND_COLORS.emerald}4d`
-              : undefined,
-          }}
+
         >
           <div className="chat-fab__icon-wrapper">
             {isOpen ? (
-              <X className="chat-fab__icon" />
+              <X className="chat-fab__icon. bg-white" />
             ) : (
               <>
-                {/* <img src="/nis-logo-icon.png" className="chat-fab__icon" /> */}
-                <MessageCircle className="chat-fab__icon" />
+                <img
+                  src="/nis-logo-icon.png"
+                  alt=""
+                  width={48}
+                  height={48}
+                  decoding="async"
+                  className="chat-fab__icon"
+                />
+
                 <span className="chat-fab__pulse" />
               </>
             )}

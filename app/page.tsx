@@ -1,16 +1,30 @@
+import dynamic from "next/dynamic"
 import { GlassmorphismNav } from "@/components/glassmorphism-nav"
 import { HeroSection } from "@/components/hero-section"
-import { ProblemSolutionSection } from "@/components/problem-solution-section"
 import Aurora from "@/components/Aurora"
-import { ITServicesSection } from "@/components/it-services-section"
-import { ProjectShowcaseSection } from "@/components/project-showcase-section"
-import { TestimonialsSection } from "@/components/testimonials-section"
-import { CTASection } from "@/components/cta-section"
-import { Footer } from "@/components/footer"
+import { HomeServicesJsonLd } from "@/components/home-services-jsonld"
+
+const ITServicesSection = dynamic(() =>
+  import("@/components/it-services-section").then((m) => ({ default: m.ITServicesSection })),
+)
+const ProjectShowcaseSection = dynamic(() =>
+  import("@/components/project-showcase-section").then((m) => ({ default: m.ProjectShowcaseSection })),
+)
+const TestimonialsSection = dynamic(() =>
+  import("@/components/testimonials-section").then((m) => ({ default: m.TestimonialsSection })),
+)
+const FAQSection = dynamic(() =>
+  import("@/components/faq-section").then((m) => ({ default: m.FAQSection })),
+)
+const CTASection = dynamic(() =>
+  import("@/components/cta-section").then((m) => ({ default: m.CTASection })),
+)
+const Footer = dynamic(() => import("@/components/footer").then((m) => ({ default: m.Footer })))
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-black overflow-hidden">
+      <HomeServicesJsonLd />
       <main className="min-h-screen relative overflow-hidden">
         <div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
           <Aurora colorStops={["#00382d", "#006a54", "#0b3f35"]} amplitude={1.2} blend={0.6} speed={0.8} />
@@ -21,6 +35,7 @@ export default function HomePage() {
           <ITServicesSection />
           <ProjectShowcaseSection />
           <TestimonialsSection />
+          <FAQSection />
           <CTASection />
           <Footer />
         </div>

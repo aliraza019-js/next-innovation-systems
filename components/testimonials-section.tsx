@@ -35,79 +35,79 @@ export function TestimonialsSection() {
       text: "The 3D Generative NFT Builder gave our users a seamless way to generate, customize, and mint NFT assets with real-time previews.",
       name: "3D Generative NFT Builder",
       role: "Web3 / NFT Platform",
-      image: "https://i.pravatar.cc/150?u=3d-generative-nft-builder"
+      image: "/man.svg"
     },
     {
       text: "EolasBio now has a modern digital presence that clearly communicates its biotechnology services and research capabilities.",
       name: "EolasBio",
       role: "Corporate Website / Biotechnology",
-      image: "https://i.pravatar.cc/150?u=eolasbio"
+      image: "/man.svg"
     },
     {
       text: "The Aladdin Catering platform streamlined online bookings, menu browsing, and catering request management for customers.",
       name: "Aladdin Catering",
       role: "Restaurant / Catering Platform",
-      image: "https://i.pravatar.cc/150?u=aladdin-catering"
+      image: "/man.svg"
     },
     {
       text: "AutoGather improved lead collection and automation workflows with a fast and scalable dashboard experience.",
       name: "AutoGather",
       role: "Automation Platform",
-      image: "https://i.pravatar.cc/150?u=autogather"
+      image: "/man.svg"
     },
     {
       text: "Boxes by Swagify delivered a complete swag management solution with inventory tracking and global order fulfillment.",
       name: "Boxes by Swagify",
       role: "E-commerce / Swag Platform",
-      image: "https://i.pravatar.cc/150?u=boxes-by-swagify"
+      image: "/man.svg"
     },
     {
       text: "The Campaign Builder platform enabled teams to create and launch marketing campaigns with better analytics and automation.",
       name: "Campaign Builder",
       role: "Marketing Automation",
-      image: "https://i.pravatar.cc/150?u=campaign-builder"
+      image: "/man.svg"
     },
     {
       text: "Our Crypto Wallet solution introduced secure asset storage, transaction history, and a simplified crypto onboarding experience.",
       name: "Crypto Wallet",
       role: "FinTech / Blockchain",
-      image: "https://i.pravatar.cc/150?u=crypto-wallet"
+      image: "/man.svg"
     },
     {
       text: "The Custom Enterprise CRM centralized sales pipelines, customer records, and operational reporting into a single platform.",
       name: "Custom Enterprise CRM",
       role: "CRM / Enterprise Software",
-      image: "https://i.pravatar.cc/150?u=custom-enterprise-crm"
+      image: "/man.svg"
     },
     {
-      text: "Ducorr’s website redesign improved brand identity, responsiveness, and customer engagement across all devices.",
+      text: "Ducorr's website redesign improved brand identity, responsiveness, and customer engagement across all devices.",
       name: "Ducorr",
       role: "Corporate Website",
-      image: "https://i.pravatar.cc/150?u=ducorr"
+      image: "/man.svg"
     },
     {
       text: "EFXPro received a scalable financial dashboard with improved user experience, reporting, and account management tools.",
       name: "EFXPro",
       role: "FinTech Dashboard",
-      image: "https://i.pravatar.cc/150?u=efxpro"
+      image: "/man.svg"
     },
     {
-      text: "ForBorga’s platform modernization enhanced usability, performance, and operational workflows for internal teams.",
+      text: "ForBorga's platform modernization enhanced usability, performance, and operational workflows for internal teams.",
       name: "ForBorga",
       role: "Business Platform",
-      image: "https://i.pravatar.cc/150?u=forborga"
+      image: "/man.svg"
     },
     {
       text: "The Managed Hosting Dashboard simplified server monitoring, deployment management, and hosting analytics in one interface.",
       name: "Managed Hosting Dashboard",
       role: "Cloud / Hosting Platform",
-      image: "https://i.pravatar.cc/150?u=managed-hosting-dashboard"
+      image: "/man.svg"
     },
     {
       text: "SparkDoc AI introduced intelligent document generation and AI-assisted workflows that significantly improved productivity.",
       name: "SparkDoc AI",
       role: "AI SaaS Platform",
-      image: "https://i.pravatar.cc/150?u=sparkdoc-ai"
+      image: "/man.svg"
     }
   ]
   return (
