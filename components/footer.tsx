@@ -7,7 +7,6 @@ import {
   FacebookIcon,
   InstagramIcon,
   LinkedinIcon,
-  YoutubeIcon,
   Mail,
   MapPin,
   Phone,
@@ -185,9 +184,19 @@ export function Footer() {
 
 
           <div className="flex items-center gap-6">
-            {[FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon].map((Icon, i) => (
-              <a key={i} href="#" className="text-white/40 hover:text-emerald-500 transition-colors">
-                <Icon size={20} />
+            {[
+              { icon: FacebookIcon, href: "https://www.facebook.com/people/Next-Innovation-systems/61588349593317/" },
+              { icon: InstagramIcon, href: "https://www.instagram.com/nextinsystems/" },
+              { icon: LinkedinIcon, href: "https://www.linkedin.com/company/next-innovation-system/" }
+            ].map((social, i) => (
+              <a 
+                key={i} 
+                href={social.href} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white/40 hover:text-emerald-500 transition-colors"
+              >
+                <social.icon size={20} />
               </a>
             ))}
           </div>
