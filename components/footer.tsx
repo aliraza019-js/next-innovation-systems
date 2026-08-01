@@ -69,7 +69,7 @@ export function Footer() {
                 aria-label="Next Innovation Systems home"
                 className="inline-block mb-6"
               >
-                <NisLogoDark className="h-10 w-auto md:h-12 block" />
+                <NisLogoDark className="h-12 w-auto md:h-16 block" />
               </Link>
 
               <form onSubmit={handleSubmit} className="relative max-w-md group">

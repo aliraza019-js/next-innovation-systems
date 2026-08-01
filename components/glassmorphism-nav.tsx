@@ -76,7 +76,7 @@ export function GlassmorphismNav() {
         className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[95vw] max-w-7xl ${hasLoaded && isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-20 pointer-events-none"}`}
       >
         {/* Main Navigation Container */}
-        <div className="bg-emerald-500/10 backdrop-blur-md border border-emerald-200/20 rounded-full px-4 py-2 md:px-8 md:py-3 shadow-xl ">
+        <div className="bg-black/50 backdrop-blur-xl border border-white/10 rounded-full px-4 py-2 md:px-8 md:py-3 shadow-xl ">
           <div className="flex items-center justify-between gap-4">
             {/* Logo Section */}
 
@@ -85,7 +85,7 @@ export function GlassmorphismNav() {
               aria-label="Next Innovation Systems home"
               className="flex items-center gap-3 group transition-transform duration-200"
             >
-              <NisLogoDark className="h-10 w-auto md:h-12 shrink-0 block" />
+              <NisLogoDark priority className="h-9 w-auto md:h-11 shrink-0 block" />
             </Link>
 
 
