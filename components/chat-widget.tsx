@@ -285,7 +285,7 @@ export function ChatWidget() {
               <X className="chat-fab__icon" style={{ color: "black" }} />
             ) : (
               <>
-                <img src="/nis-logo-icon.png" className="chat-fab__icon" />
+                <img src="/icon.png" alt="" className="chat-fab__icon" />
                 <span className="chat-fab__pulse" />
               </>
             )}
@@ -299,7 +299,7 @@ export function ChatWidget() {
         <div className="chat-header">
           <div className="chat-header__left">
             <div className="chat-header__avatar">
-                <img src="/nis-logo-icon.png" className="chat-fab__icon" />
+                <img src="/icon.png" alt="" className="chat-fab__icon" />
 
             </div>
             <div>

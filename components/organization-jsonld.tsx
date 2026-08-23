@@ -2,9 +2,11 @@ import {
   ORGANIZATION_ID,
   SITE_URL,
   SITE_NAME,
+  LEGAL_NAME,
   CONTACT_EMAIL,
   CONTACT_PHONE_E164,
-  ADDRESS,
+  US_ADDRESS,
+  PK_ADDRESS,
   absoluteUrl,
 } from "@/lib/site-config"
 
@@ -21,6 +23,7 @@ export function OrganizationJsonLd() {
         "@type": ["Organization", "LocalBusiness"],
         "@id": ORGANIZATION_ID,
         name: SITE_NAME,
+        legalName: LEGAL_NAME,
         url: SITE_URL,
         logo: {
           "@type": "ImageObject",
@@ -31,14 +34,40 @@ export function OrganizationJsonLd() {
         telephone: CONTACT_PHONE_E164,
         address: {
           "@type": "PostalAddress",
-          addressLocality: ADDRESS.locality,
-          addressRegion: ADDRESS.region,
-          addressCountry: ADDRESS.country,
+          streetAddress: PK_ADDRESS.streetAddress,
+          addressLocality: PK_ADDRESS.addressLocality,
+          addressRegion: PK_ADDRESS.addressRegion,
+          addressCountry: PK_ADDRESS.addressCountry,
         },
-        areaServed: {
-          "@type": "Country",
-          name: ADDRESS.countryName,
-        },
+        location: [
+          {
+            "@type": "Place",
+            name: `${LEGAL_NAME} — Registered Office`,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: US_ADDRESS.streetAddress,
+              addressLocality: US_ADDRESS.addressLocality,
+              addressRegion: US_ADDRESS.addressRegion,
+              postalCode: US_ADDRESS.postalCode,
+              addressCountry: US_ADDRESS.addressCountry,
+            },
+          },
+          {
+            "@type": "Place",
+            name: `${SITE_NAME} — Lahore Office`,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: PK_ADDRESS.streetAddress,
+              addressLocality: PK_ADDRESS.addressLocality,
+              addressRegion: PK_ADDRESS.addressRegion,
+              addressCountry: PK_ADDRESS.addressCountry,
+            },
+          },
+        ],
+        areaServed: [
+          { "@type": "Country", name: US_ADDRESS.countryName },
+          { "@type": "Country", name: PK_ADDRESS.countryName },
+        ],
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",

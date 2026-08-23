@@ -8,6 +8,7 @@ import { NisLogoDark } from "@/components/nis-logo-dark";
 const navigation = [
   { name: "Services", href: "#features" },
   { name: "Projects", href: "#case-studies" },
+  { name: "Careers", href: "/careers" },
   { name: "About Us", href: "#testimonials" },
   { name: "Contact", href: "#contact" },
 ];
@@ -90,15 +91,25 @@ export function GlassmorphismNav() {
 
 
             <div className="hidden lg:flex items-center space-x-10">
-              {navigation.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-white/90 hover:text-white transition-colors duration-200 font-medium text-sm md:text-base cursor-pointer"
-                >
-                  {item.name}
-                </button>
-              ))}
+              {navigation.map((item) =>
+                item.href.startsWith("/") ? (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="text-white/90 hover:text-white transition-colors duration-200 font-medium text-sm md:text-base cursor-pointer"
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.href)}
+                    className="text-white/90 hover:text-white transition-colors duration-200 font-medium text-sm md:text-base cursor-pointer"
+                  >
+                    {item.name}
+                  </button>
+                )
+              )}
             </div>
 
 
@@ -137,15 +148,26 @@ export function GlassmorphismNav() {
         >
           <div className="bg-emerald-950/90 backdrop-blur-xl border border-emerald-200/20 rounded-3xl p-6 shadow-2xl mx-auto w-[90vw]">
             <div className="flex flex-col space-y-4">
-              {navigation.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-white/80 hover:text-white text-left py-2 text-lg font-medium border-b border-white/10"
-                >
-                  {item.name}
-                </button>
-              ))}
+              {navigation.map((item) =>
+                item.href.startsWith("/") ? (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-white/80 hover:text-white text-left py-2 text-lg font-medium border-b border-white/10"
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.href)}
+                    className="text-white/80 hover:text-white text-left py-2 text-lg font-medium border-b border-white/10"
+                  >
+                    {item.name}
+                  </button>
+                )
+              )}
               <button
                 className="bg-emerald-600 text-white w-full py-4 rounded-2xl font-semibold flex items-center justify-center gap-2"
                 onClick={() => scrollToSection("#contact")}

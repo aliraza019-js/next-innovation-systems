@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { NisLogoDark } from "@/components/nis-logo-dark"
+import { LEGAL_NAME, US_ADDRESS, PK_ADDRESS } from "@/lib/site-config"
 import {
   FacebookIcon,
   InstagramIcon,
@@ -125,6 +126,7 @@ export function Footer() {
                 {[
                   { label: "Services", href: "/#features" },
                   { label: "Projects", href: "/#case-studies" },
+                  { label: "Careers", href: "/careers" },
                   { label: "About Us", href: "/#testimonials" },
                   { label: "Contact", href: "/#contact" },
 
@@ -153,10 +155,27 @@ export function Footer() {
               <h3 className="text-lg font-semibold mb-6">Address</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-4 text-white/60">
-                  <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500">
+                  <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500 shrink-0">
                     <MapPin size={20} />
                   </div>
-                  <p className="text-sm pt-1 leading-relaxed">Lahore, Punjab Pakistan</p>
+                  <p className="text-sm pt-1 leading-relaxed">
+                    <span className="block text-white/40 text-xs uppercase tracking-wider mb-0.5">
+                      Registered Office — USA
+                    </span>
+                    {US_ADDRESS.streetAddress}, {US_ADDRESS.addressLocality}, {US_ADDRESS.addressRegion}{" "}
+                    {US_ADDRESS.postalCode}
+                  </p>
+                </div>
+                <div className="flex items-start gap-4 text-white/60">
+                  <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500 shrink-0">
+                    <MapPin size={20} />
+                  </div>
+                  <p className="text-sm pt-1 leading-relaxed">
+                    <span className="block text-white/40 text-xs uppercase tracking-wider mb-0.5">
+                      Lahore Office
+                    </span>
+                    {PK_ADDRESS.streetAddress}, {PK_ADDRESS.addressLocality}, {PK_ADDRESS.addressRegion}
+                  </p>
                 </div>
                 <div className="flex items-center gap-4 text-white/60">
                   <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500">
@@ -178,7 +197,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-white/40 text-xs tracking-widest uppercase">
-            © {currentYear} Next Innovation Systems. All rights reserved.
+            © {currentYear} {LEGAL_NAME}. All rights reserved.
           </p>
 
 
