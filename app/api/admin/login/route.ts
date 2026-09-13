@@ -1,36 +1,39 @@
 import { NextResponse } from "next/server"
-import { ADMIN_SESSION_COOKIE, createAdminSessionToken } from "@/lib/admin-session"
+import { createServerClient, type CookieOptions } from "@supabase/ssr"
+import { cookies } from "next/headers"
 
 export async function POST(req: Request) {
   try {
     const { email, password } = await req.json()
 
-    const adminEmail = process.env.ADMIN_EMAIL
-    const adminPassword = process.env.ADMIN_PASSWORD
-
-    if (!adminEmail || !adminPassword) {
-      console.error("ADMIN_EMAIL / ADMIN_PASSWORD are not configured.")
-      return NextResponse.json({ error: "Admin login is not configured" }, { status: 500 })
+    if (typeof email !== "string" || typeof password !== "string" || !email || !password) {
+      return NextResponse.json({ error: "Email and password are required" }, { status: 400 })
     }
 
-    const emailOk = typeof email === "string" && email.trim().toLowerCase() === adminEmail.toLowerCase()
-    const passwordOk = typeof password === "string" && password === adminPassword
+    const cookieStore = cookies()
+    const response = NextResponse.json({ success: true })
 
-    if (!emailOk || !passwordOk) {
+    const supabase = createServerClient(process.env.SUPABASE_URL!, process.env.SUPABASE_ANON_KEY!, {
+      cookies: {
+        get(name: string) {
+          return cookieStore.get(name)?.value
+        },
+        set(name: string, value: string, options: CookieOptions) {
+          response.cookies.set({ name, value, ...options })
+        },
+        remove(name: string, options: CookieOptions) {
+          response.cookies.set({ name, value: "", ...options })
+        },
+      },
+    })
+
+    const { error } = await supabase.auth.signInWithPassword({ email, password })
+
+    if (error) {
       return NextResponse.json({ error: "Invalid email or password" }, { status: 401 })
     }
 
-    const token = await createAdminSessionToken(adminEmail)
-
-    const res = NextResponse.json({ success: true })
-    res.cookies.set(ADMIN_SESSION_COOKIE, token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
-      path: "/",
-      maxAge: 60 * 60 * 24 * 7, // 7 days
-    })
-    return res
+    return response
   } catch (error: any) {
     console.error("Admin login error:", error)
     return NextResponse.json({ error: "Something went wrong" }, { status: 500 })

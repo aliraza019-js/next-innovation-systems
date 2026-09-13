@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { notFound } from "next/navigation"
+import { notFound, redirect } from "next/navigation"
+import { requireAdmin } from "@/lib/auth/require-role"
 import {
   ArrowLeft,
   Mail,
@@ -57,6 +58,9 @@ async function getApplication(id: string): Promise<{ application: JobApplication
 }
 
 export default async function CandidateDetailPage({ params }: { params: { id: string } }) {
+  const admin = await requireAdmin()
+  if (!admin) redirect("/admin/mail")
+
   const result = await getApplication(params.id)
 
   if (!result) {

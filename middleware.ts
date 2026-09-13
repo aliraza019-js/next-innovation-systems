@@ -1,19 +1,42 @@
 import { NextResponse, type NextRequest } from "next/server"
-import { ADMIN_SESSION_COOKIE, verifyAdminSessionToken } from "@/lib/admin-session"
+import { createServerClient, type CookieOptions } from "@supabase/ssr"
 
 const PUBLIC_PATHS = ["/admin/login", "/api/admin/login"]
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
+  let response = NextResponse.next({ request: { headers: request.headers } })
+
+  const supabase = createServerClient(process.env.SUPABASE_URL!, process.env.SUPABASE_ANON_KEY!, {
+    cookies: {
+      get(name: string) {
+        return request.cookies.get(name)?.value
+      },
+      set(name: string, value: string, options: CookieOptions) {
+        request.cookies.set({ name, value, ...options })
+        response = NextResponse.next({ request: { headers: request.headers } })
+        response.cookies.set({ name, value, ...options })
+      },
+      remove(name: string, options: CookieOptions) {
+        request.cookies.set({ name, value: "", ...options })
+        response = NextResponse.next({ request: { headers: request.headers } })
+        response.cookies.set({ name, value: "", ...options })
+      },
+    },
+  })
+
+  // getUser() validates the session against Supabase's auth server (not
+  // just decoding the JWT locally) — required reading before any check.
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
   if (PUBLIC_PATHS.some((path) => pathname === path)) {
-    return NextResponse.next()
+    return response
   }
 
-  const token = request.cookies.get(ADMIN_SESSION_COOKIE)?.value
-  const isValid = await verifyAdminSessionToken(token)
-
-  if (!isValid) {
+  if (!user) {
     if (pathname.startsWith("/api/admin")) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
@@ -22,7 +45,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(loginUrl)
   }
 
-  return NextResponse.next()
+  return response
 }
 
 export const config = {

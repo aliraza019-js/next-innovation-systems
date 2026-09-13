@@ -3,7 +3,6 @@ import { Resend } from "resend"
 import { getSupabaseAdmin, RESUMES_BUCKET } from "@/lib/supabase/admin"
 import { getJobOpeningBySlug } from "@/lib/careers-data"
 
-const resend = new Resend(process.env.RESEND_API_KEY)
 const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5MB
 
 function toBool(value: FormDataEntryValue | null): boolean {
@@ -128,6 +127,8 @@ export async function POST(req: Request) {
 
     // ── Notify the team (best-effort — application is already saved) ──
     try {
+      if (!process.env.RESEND_API_KEY) throw new Error("RESEND_API_KEY is not configured")
+      const resend = new Resend(process.env.RESEND_API_KEY)
       await resend.emails.send({
         from: "NIS Careers <onboarding@resend.dev>",
         to: [process.env.CONTACT_EMAIL || "contact@nexinsystems.com"],

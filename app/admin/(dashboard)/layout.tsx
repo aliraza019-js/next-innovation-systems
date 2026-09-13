@@ -1,7 +1,20 @@
 import type React from "react"
+import { redirect } from "next/navigation"
 import { AdminSidebar } from "@/components/admin/admin-sidebar"
+import { getCurrentEmployee } from "@/lib/auth/current-employee"
 
-export default function AdminDashboardLayout({ children }: { children: React.ReactNode }) {
+export const dynamic = "force-dynamic"
+
+export default async function AdminDashboardLayout({ children }: { children: React.ReactNode }) {
+  const employee = await getCurrentEmployee()
+
+  // Middleware already checks for a valid Supabase session, but not that an
+  // `employees` row exists for it (e.g. account deactivated) — belt and
+  // braces so a stale session can't render an empty/broken dashboard shell.
+  if (!employee) {
+    redirect("/admin/login")
+  }
+
   return (
     <div className="relative flex min-h-screen overflow-hidden bg-black">
       {/* Static glow (not the animated Aurora shader) — keeps the same
@@ -15,7 +28,7 @@ export default function AdminDashboardLayout({ children }: { children: React.Rea
       />
       <div className="relative z-10 hidden w-64 shrink-0 md:block">
         <div className="fixed h-screen w-64">
-          <AdminSidebar />
+          <AdminSidebar employee={employee} />
         </div>
       </div>
       <main className="relative z-10 min-w-0 flex-1 px-4 py-8 sm:px-8 sm:py-10">{children}</main>

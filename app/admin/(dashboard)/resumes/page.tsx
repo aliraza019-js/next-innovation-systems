@@ -1,4 +1,6 @@
+import { redirect } from "next/navigation"
 import { getSupabaseAdmin } from "@/lib/supabase/admin"
+import { requireAdmin } from "@/lib/auth/require-role"
 import { ResumesTable } from "@/components/admin/resumes-table"
 import type { JobApplication } from "@/lib/types/job-application"
 
@@ -20,6 +22,9 @@ async function getApplications(): Promise<JobApplication[]> {
 }
 
 export default async function AdminResumesPage() {
+  const admin = await requireAdmin()
+  if (!admin) redirect("/admin/mail")
+
   const applications = await getApplications()
 
   return (

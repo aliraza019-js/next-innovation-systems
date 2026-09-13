@@ -1,7 +1,12 @@
 import { NextResponse } from "next/server"
 import { getSupabaseAdmin, RESUMES_BUCKET } from "@/lib/supabase/admin"
+import { requireAdmin } from "@/lib/auth/require-role"
 
 export async function GET(_req: Request, { params }: { params: { id: string } }) {
+  if (!(await requireAdmin())) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 403 })
+  }
+
   try {
     const supabase = getSupabaseAdmin()
 

@@ -1,14 +1,26 @@
 import { NextResponse } from "next/server"
-import { ADMIN_SESSION_COOKIE } from "@/lib/admin-session"
+import { createServerClient, type CookieOptions } from "@supabase/ssr"
+import { cookies } from "next/headers"
 
 export async function POST() {
-  const res = NextResponse.json({ success: true })
-  res.cookies.set(ADMIN_SESSION_COOKIE, "", {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    path: "/",
-    maxAge: 0,
+  const cookieStore = cookies()
+  const response = NextResponse.json({ success: true })
+
+  const supabase = createServerClient(process.env.SUPABASE_URL!, process.env.SUPABASE_ANON_KEY!, {
+    cookies: {
+      get(name: string) {
+        return cookieStore.get(name)?.value
+      },
+      set(name: string, value: string, options: CookieOptions) {
+        response.cookies.set({ name, value, ...options })
+      },
+      remove(name: string, options: CookieOptions) {
+        response.cookies.set({ name, value: "", ...options })
+      },
+    },
   })
-  return res
+
+  await supabase.auth.signOut()
+
+  return response
 }

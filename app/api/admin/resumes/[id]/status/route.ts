@@ -1,8 +1,13 @@
 import { NextResponse } from "next/server"
 import { getSupabaseAdmin } from "@/lib/supabase/admin"
 import { APPLICATION_STATUSES } from "@/lib/types/job-application"
+import { requireAdmin } from "@/lib/auth/require-role"
 
 export async function PATCH(req: Request, { params }: { params: { id: string } }) {
+  if (!(await requireAdmin())) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 403 })
+  }
+
   try {
     const { status } = await req.json()
 
