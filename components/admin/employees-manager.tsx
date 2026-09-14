@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-import { Loader2, UserPlus, Copy, Check, X, Mail, Link2, AlertTriangle } from "lucide-react"
+import { Loader2, UserPlus, Copy, Check, X, Mail, Link2, AlertTriangle, Trash2 } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
@@ -153,6 +153,61 @@ function ActiveToggle({ employeeId, initialActive }: { employeeId: string; initi
       }`}
     >
       {active ? "Active" : "Deactivated"}
+    </button>
+  )
+}
+
+function DeleteButton({ employeeId, onDeleted }: { employeeId: string; onDeleted: () => void }) {
+  const [confirming, setConfirming] = useState(false)
+  const [deleting, setDeleting] = useState(false)
+  const [error, setError] = useState("")
+
+  const handleDelete = async () => {
+    setDeleting(true)
+    setError("")
+    try {
+      const res = await fetch(`/api/admin/employees/${employeeId}`, { method: "DELETE" })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok) throw new Error(data.error || "Failed to delete")
+      onDeleted()
+    } catch (err: any) {
+      setError(err.message || "Failed to delete")
+      setDeleting(false)
+      setConfirming(false)
+    }
+  }
+
+  if (confirming) {
+    return (
+      <div className="flex items-center gap-1.5">
+        <button
+          onClick={handleDelete}
+          disabled={deleting}
+          className="inline-flex items-center gap-1 rounded-full border border-red-500/30 bg-red-500/10 px-2.5 py-1 text-xs font-medium text-red-400 hover:bg-red-500/20 disabled:opacity-50"
+        >
+          {deleting ? <Loader2 className="h-3 w-3 animate-spin" /> : null}
+          Confirm
+        </button>
+        <button
+          onClick={() => setConfirming(false)}
+          disabled={deleting}
+          className="rounded-full px-2.5 py-1 text-xs font-medium text-white/50 hover:text-white disabled:opacity-50"
+        >
+          Cancel
+        </button>
+        {error && <span className="text-xs text-red-400">{error}</span>}
+      </div>
+    )
+  }
+
+  return (
+    <button
+      onClick={() => setConfirming(true)}
+      className="rounded-full p-1.5 text-white/40 hover:bg-red-500/10 hover:text-red-400"
+      aria-label="Delete employee"
+      title="Delete employee"
+    >
+      <Trash2 className="h-4 w-4" />
     </button>
   )
 }
@@ -476,6 +531,7 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
               <TableHead className="py-3.5 text-white/60">Reports to</TableHead>
               <TableHead className="py-3.5 text-white/60">Role</TableHead>
               <TableHead className="py-3.5 text-white/60">Status</TableHead>
+              <TableHead className="w-10 py-3.5" />
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -493,12 +549,18 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
                 <TableCell className="py-3.5">
                   <ActiveToggle employeeId={emp.id} initialActive={emp.active} />
                 </TableCell>
+                <TableCell className="py-3.5">
+                  <DeleteButton
+                    employeeId={emp.id}
+                    onDeleted={() => setEmployees((prev) => prev.filter((e) => e.id !== emp.id))}
+                  />
+                </TableCell>
               </TableRow>
             ))}
 
             {employees.length === 0 && (
               <TableRow className="border-white/10 hover:bg-transparent">
-                <TableCell colSpan={6} className="py-12 text-center text-white/40">
+                <TableCell colSpan={7} className="py-12 text-center text-white/40">
                   No employees yet.
                 </TableCell>
               </TableRow>
