@@ -1,3 +1,4 @@
+import { cache } from "react"
 import { createSupabaseServerClient } from "@/lib/supabase/server"
 import { getSupabaseAdmin } from "@/lib/supabase/admin"
 
@@ -17,8 +18,14 @@ export type CurrentEmployee = {
  * server-side via getUser(), not just decoded from the cookie), then looks
  * up their role/profile row using the service_role client. Returns null if
  * there's no session, or the account isn't (or is no longer) an employee.
+ *
+ * Wrapped in React's cache() — the dashboard layout AND every page under it
+ * call this independently, and without memoization each navigation was
+ * paying for it twice (2 network round-trips to Supabase Auth + 2 DB
+ * queries instead of 1). cache() dedupes repeated calls within the same
+ * request/render pass.
  */
-export async function getCurrentEmployee(): Promise<CurrentEmployee | null> {
+export const getCurrentEmployee = cache(async (): Promise<CurrentEmployee | null> => {
   const supabase = createSupabaseServerClient()
   const {
     data: { user },
@@ -36,4 +43,4 @@ export async function getCurrentEmployee(): Promise<CurrentEmployee | null> {
   if (error || !data || !(data as any).active) return null
 
   return data as CurrentEmployee
-}
+})
