@@ -1,7 +1,15 @@
 import { NextResponse, type NextRequest } from "next/server"
 import { createServerClient, type CookieOptions } from "@supabase/ssr"
 
-const PUBLIC_PATHS = ["/admin/login", "/api/admin/login"]
+const PUBLIC_PATHS = [
+  "/admin/login",
+  "/api/admin/login",
+  // The invite link hands the browser a session via a URL fragment
+  // (#access_token=...) that the server never sees — no cookie exists yet
+  // on this first request, so it must be let through before the client-side
+  // Supabase SDK runs and establishes the real cookie session.
+  "/admin/accept-invite",
+]
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
@@ -26,15 +34,21 @@ export async function middleware(request: NextRequest) {
     },
   })
 
-  // getUser() validates the session against Supabase's auth server (not
-  // just decoding the JWT locally) — required reading before any check.
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
   if (PUBLIC_PATHS.some((path) => pathname === path)) {
     return response
   }
+
+  // getSession() just decodes the cookie locally — no network round-trip to
+  // Supabase's auth server, unlike getUser(). That's fine here: this is only
+  // a coarse "is anyone logged in" gate for routing. The actual secure
+  // check (getUser(), validated server-side) still happens on every request
+  // in getCurrentEmployee(), which every admin page/layout calls before
+  // touching any data — a forged/expired cookie fails there regardless of
+  // what middleware decided.
+  const {
+    data: { session },
+  } = await supabase.auth.getSession()
+  const user = session?.user ?? null
 
   if (!user) {
     if (pathname.startsWith("/api/admin")) {

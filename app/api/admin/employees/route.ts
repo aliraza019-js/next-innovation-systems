@@ -36,32 +36,57 @@ export async function POST(req: Request) {
   if (!admin) return NextResponse.json({ error: "Unauthorized" }, { status: 403 })
 
   try {
-    const { fullName, email, role, department, jobTitle, phone, managerId, startDate } = await req.json()
+    const { fullName, email, role, department, jobTitle, phone, managerId, startDate, inviteByEmail } = await req.json()
 
     if (typeof fullName !== "string" || !fullName.trim() || typeof email !== "string" || !email.trim()) {
       return NextResponse.json({ error: "Full name and email are required" }, { status: 400 })
     }
 
     const normalizedRole = role === "admin" || role === "manager" ? role : "employee"
-    const tempPassword = generateTempPassword()
+    const normalizedEmail = email.trim().toLowerCase()
+    const shouldInvite = inviteByEmail !== false // default true
 
     const supabase = getSupabaseAdmin()
 
-    const { data: created, error: createError } = await supabase.auth.admin.createUser({
-      email: email.trim().toLowerCase(),
-      password: tempPassword,
-      email_confirm: true,
-    })
+    let userId: string
+    let tempPassword: string | null = null
 
-    if (createError || !created?.user) {
-      console.error("Failed to create auth user:", createError)
-      return NextResponse.json({ error: createError?.message || "Failed to create account" }, { status: 500 })
+    if (shouldInvite) {
+      // Where the invite link sends them after Supabase's own verify step —
+      // built from this request's own origin so it works on localhost,
+      // preview URLs, and production without an env var to keep in sync.
+      const redirectTo = `${new URL(req.url).origin}/admin/accept-invite`
+
+      const { data: invited, error: inviteError } = await supabase.auth.admin.inviteUserByEmail(normalizedEmail, {
+        redirectTo,
+      })
+
+      if (inviteError || !invited?.user) {
+        console.error("Failed to invite user:", inviteError)
+        return NextResponse.json({ error: inviteError?.message || "Failed to send invite" }, { status: 500 })
+      }
+
+      userId = invited.user.id
+    } else {
+      tempPassword = generateTempPassword()
+      const { data: created, error: createError } = await supabase.auth.admin.createUser({
+        email: normalizedEmail,
+        password: tempPassword,
+        email_confirm: true,
+      })
+
+      if (createError || !created?.user) {
+        console.error("Failed to create auth user:", createError)
+        return NextResponse.json({ error: createError?.message || "Failed to create account" }, { status: 500 })
+      }
+
+      userId = created.user.id
     }
 
     const { error: insertError } = await supabase.from("employees").insert({
-      id: created.user.id,
+      id: userId,
       full_name: fullName.trim(),
-      email: email.trim().toLowerCase(),
+      email: normalizedEmail,
       role: normalizedRole,
       department: typeof department === "string" && department.trim() ? department.trim() : null,
       job_title: typeof jobTitle === "string" && jobTitle.trim() ? jobTitle.trim() : null,
@@ -73,11 +98,11 @@ export async function POST(req: Request) {
     if (insertError) {
       console.error("Failed to create employee row:", insertError)
       // Roll back the auth user so we don't leave an orphaned login with no profile.
-      await supabase.auth.admin.deleteUser(created.user.id)
+      await supabase.auth.admin.deleteUser(userId)
       return NextResponse.json({ error: "Failed to create employee" }, { status: 500 })
     }
 
-    return NextResponse.json({ success: true, tempPassword })
+    return NextResponse.json({ success: true, invited: shouldInvite, tempPassword })
   } catch (error: any) {
     console.error("Create employee error:", error)
     return NextResponse.json({ error: "Something went wrong" }, { status: 500 })

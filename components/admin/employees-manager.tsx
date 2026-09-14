@@ -2,10 +2,11 @@
 
 import type React from "react"
 import { useState } from "react"
-import { Loader2, UserPlus, Copy, Check, X } from "lucide-react"
+import { Loader2, UserPlus, Copy, Check, X, Mail } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 import {
   Select,
   SelectContent,
@@ -157,9 +158,10 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
   const [jobTitle, setJobTitle] = useState("")
   const [phone, setPhone] = useState("")
   const [managerId, setManagerId] = useState<string>("none")
+  const [inviteByEmail, setInviteByEmail] = useState(true)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState("")
-  const [tempPassword, setTempPassword] = useState<{ email: string; password: string } | null>(null)
+  const [result, setResult] = useState<{ email: string; password: string | null } | null>(null)
   const [copied, setCopied] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -179,12 +181,13 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
           jobTitle,
           phone,
           managerId: managerId === "none" ? null : managerId,
+          inviteByEmail,
         }),
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || "Failed to create employee")
 
-      setTempPassword({ email: email.trim().toLowerCase(), password: data.tempPassword })
+      setResult({ email: email.trim().toLowerCase(), password: data.tempPassword ?? null })
       setEmployees((prev) => [
         {
           id: crypto.randomUUID(),
@@ -209,6 +212,7 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
       setPhone("")
       setManagerId("none")
       setRole("employee")
+      setInviteByEmail(true)
       setShowForm(false)
     } catch (err: any) {
       setError(err.message || "Something went wrong")
@@ -218,36 +222,52 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
   }
 
   const copyPassword = () => {
-    if (!tempPassword) return
-    navigator.clipboard.writeText(tempPassword.password)
+    if (!result?.password) return
+    navigator.clipboard.writeText(result.password)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
 
   return (
     <div>
-      {tempPassword && (
+      {result && (
         <div className="mb-6 flex items-start justify-between gap-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-5">
           <div>
-            <p className="mb-1 text-sm font-medium text-emerald-400">Account created for {tempPassword.email}</p>
-            <p className="text-sm text-white/70">
-              Temporary password:{" "}
-              <code className="rounded bg-black/40 px-2 py-0.5 font-mono text-white">{tempPassword.password}</code>
-            </p>
-            <p className="mt-1 text-xs text-white/40">
-              Share this with them directly — it's only shown once. They can log in at /admin/login.
-            </p>
+            {result.password ? (
+              <>
+                <p className="mb-1 text-sm font-medium text-emerald-400">Account created for {result.email}</p>
+                <p className="text-sm text-white/70">
+                  Temporary password:{" "}
+                  <code className="rounded bg-black/40 px-2 py-0.5 font-mono text-white">{result.password}</code>
+                </p>
+                <p className="mt-1 text-xs text-white/40">
+                  Share this with them directly — it's only shown once. They can log in at /admin/login.
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="mb-1 flex items-center gap-2 text-sm font-medium text-emerald-400">
+                  <Mail className="h-4 w-4" />
+                  Invite sent to {result.email}
+                </p>
+                <p className="text-sm text-white/70">
+                  They'll get an email with a link to set their own password and log in.
+                </p>
+              </>
+            )}
           </div>
           <div className="flex shrink-0 items-center gap-2">
+            {result.password && (
+              <button
+                onClick={copyPassword}
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/80 hover:bg-white/10"
+              >
+                {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                {copied ? "Copied" : "Copy"}
+              </button>
+            )}
             <button
-              onClick={copyPassword}
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/80 hover:bg-white/10"
-            >
-              {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
-              {copied ? "Copied" : "Copy"}
-            </button>
-            <button
-              onClick={() => setTempPassword(null)}
+              onClick={() => setResult(null)}
               className="rounded-full p-1.5 text-white/40 hover:bg-white/10 hover:text-white"
               aria-label="Dismiss"
             >
@@ -355,6 +375,18 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
             </Select>
           </div>
 
+          <div className="sm:col-span-2">
+            <label className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white/80">
+              <Checkbox checked={inviteByEmail} onCheckedChange={(checked) => setInviteByEmail(!!checked)} />
+              <span>
+                Send an email invite (they set their own password)
+                <span className="block text-xs text-white/40">
+                  Unchecked: I'll generate a temporary password for you to share manually instead.
+                </span>
+              </span>
+            </label>
+          </div>
+
           {error && <p className="text-sm text-red-400 sm:col-span-2">{error}</p>}
 
           <div className="sm:col-span-2">
@@ -364,7 +396,7 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
               className="rounded-full bg-emerald-500 text-black hover:bg-emerald-400"
             >
               {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
-              Create account
+              {inviteByEmail ? "Send invite" : "Create account"}
             </Button>
           </div>
         </form>
