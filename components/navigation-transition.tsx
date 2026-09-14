@@ -11,13 +11,19 @@ export function NavigationTransition() {
 
   useEffect(() => {
     const handleLinkClick = (e: MouseEvent) => {
+      // This fade-to-black effect is a marketing-site aesthetic choice —
+      // it doesn't belong on the admin portal, where a flat 300ms delay
+      // before every navigation even starts just makes an already
+      // network-bound tool feel slower for no benefit.
+      if (pathname.startsWith("/admin")) return
+
       const target = e.target as HTMLElement
       const link = target.closest("a")
 
       if (link && link.href && link.href.startsWith(window.location.origin)) {
         const url = new URL(link.href)
 
-        if (url.pathname !== pathname && !url.hash) {
+        if (url.pathname !== pathname && !url.hash && !url.pathname.startsWith("/admin")) {
           e.preventDefault()
           setIsTransitioning(true)
 

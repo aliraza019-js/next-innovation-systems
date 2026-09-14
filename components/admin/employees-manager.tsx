@@ -2,11 +2,10 @@
 
 import type React from "react"
 import { useState } from "react"
-import { Loader2, UserPlus, Copy, Check, X, Mail } from "lucide-react"
+import { Loader2, UserPlus, Copy, Check, X, Mail, Link2, AlertTriangle } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
 import {
   Select,
   SelectContent,
@@ -24,6 +23,16 @@ import {
 } from "@/components/ui/table"
 import type { Employee } from "@/lib/types/employee"
 import type { EmployeeRole } from "@/lib/auth/current-employee"
+
+type DeliveryMethod = "email" | "link" | "password"
+
+type Result = {
+  email: string
+  method: DeliveryMethod
+  password: string | null
+  magicLink: string | null
+  emailFailed?: boolean
+}
 
 function RoleSelect({ employeeId, initialRole }: { employeeId: string; initialRole: EmployeeRole }) {
   const [role, setRole] = useState<EmployeeRole>(initialRole)
@@ -158,16 +167,18 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
   const [jobTitle, setJobTitle] = useState("")
   const [phone, setPhone] = useState("")
   const [managerId, setManagerId] = useState<string>("none")
-  const [inviteByEmail, setInviteByEmail] = useState(true)
+  const [deliveryMethod, setDeliveryMethod] = useState<DeliveryMethod>("email")
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState("")
-  const [result, setResult] = useState<{ email: string; password: string | null } | null>(null)
+  const [result, setResult] = useState<Result | null>(null)
   const [copied, setCopied] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitting(true)
     setError("")
+
+    const normalizedEmail = email.trim().toLowerCase()
 
     try {
       const res = await fetch("/api/admin/employees", {
@@ -181,18 +192,30 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
           jobTitle,
           phone,
           managerId: managerId === "none" ? null : managerId,
-          inviteByEmail,
+          deliveryMethod,
         }),
       })
       const data = await res.json()
-      if (!res.ok) throw new Error(data.error || "Failed to create employee")
 
-      setResult({ email: email.trim().toLowerCase(), password: data.tempPassword ?? null })
+      // The account can be created even when the email invite itself fails
+      // to send (Resend hiccup, etc.) — the API still hands back the magic
+      // link in that case so the admin isn't stuck without any way in.
+      if (!res.ok && !data.magicLink) {
+        throw new Error(data.error || "Failed to create employee")
+      }
+
+      setResult({
+        email: normalizedEmail,
+        method: deliveryMethod,
+        password: data.tempPassword ?? null,
+        magicLink: data.magicLink ?? null,
+        emailFailed: !res.ok && !!data.magicLink,
+      })
       setEmployees((prev) => [
         {
           id: crypto.randomUUID(),
           full_name: fullName.trim(),
-          email: email.trim().toLowerCase(),
+          email: normalizedEmail,
           role,
           department: department.trim() || null,
           manager_id: managerId === "none" ? null : managerId,
@@ -212,7 +235,7 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
       setPhone("")
       setManagerId("none")
       setRole("employee")
-      setInviteByEmail(true)
+      setDeliveryMethod("email")
       setShowForm(false)
     } catch (err: any) {
       setError(err.message || "Something went wrong")
@@ -221,9 +244,8 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
     }
   }
 
-  const copyPassword = () => {
-    if (!result?.password) return
-    navigator.clipboard.writeText(result.password)
+  const copyToClipboard = (value: string) => {
+    navigator.clipboard.writeText(value)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
@@ -232,8 +254,19 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
     <div>
       {result && (
         <div className="mb-6 flex items-start justify-between gap-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-5">
-          <div>
-            {result.password ? (
+          <div className="min-w-0">
+            {result.emailFailed ? (
+              <>
+                <p className="mb-1 flex items-center gap-2 text-sm font-medium text-amber-400">
+                  <AlertTriangle className="h-4 w-4" />
+                  Account created, but the invite email failed to send
+                </p>
+                <p className="mb-2 text-sm text-white/70">Share this link with {result.email} directly instead:</p>
+                <code className="block break-all rounded bg-black/40 px-2 py-1.5 font-mono text-xs text-white">
+                  {result.magicLink}
+                </code>
+              </>
+            ) : result.password ? (
               <>
                 <p className="mb-1 text-sm font-medium text-emerald-400">Account created for {result.email}</p>
                 <p className="text-sm text-white/70">
@@ -243,6 +276,20 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
                 <p className="mt-1 text-xs text-white/40">
                   Share this with them directly — it's only shown once. They can log in at /admin/login.
                 </p>
+              </>
+            ) : result.magicLink ? (
+              <>
+                <p className="mb-1 flex items-center gap-2 text-sm font-medium text-emerald-400">
+                  <Link2 className="h-4 w-4" />
+                  Magic link ready for {result.email}
+                </p>
+                <p className="mb-2 text-sm text-white/70">
+                  Share this link with them however you like (WhatsApp, chat, etc.) — it lets them set their own
+                  password. Single-use, expires after a while.
+                </p>
+                <code className="block break-all rounded bg-black/40 px-2 py-1.5 font-mono text-xs text-white">
+                  {result.magicLink}
+                </code>
               </>
             ) : (
               <>
@@ -257,9 +304,9 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
             )}
           </div>
           <div className="flex shrink-0 items-center gap-2">
-            {result.password && (
+            {(result.password || result.magicLink) && (
               <button
-                onClick={copyPassword}
+                onClick={() => copyToClipboard((result.password || result.magicLink) as string)}
                 className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/80 hover:bg-white/10"
               >
                 {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
@@ -268,7 +315,7 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
             )}
             <button
               onClick={() => setResult(null)}
-              className="rounded-full p-1.5 text-white/40 hover:bg-white/10 hover:text-white"
+              className="shrink-0 rounded-full p-1.5 text-white/40 hover:bg-white/10 hover:text-white"
               aria-label="Dismiss"
             >
               <X className="h-3.5 w-3.5" />
@@ -376,15 +423,30 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
           </div>
 
           <div className="sm:col-span-2">
-            <label className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white/80">
-              <Checkbox checked={inviteByEmail} onCheckedChange={(checked) => setInviteByEmail(!!checked)} />
-              <span>
-                Send an email invite (they set their own password)
-                <span className="block text-xs text-white/40">
-                  Unchecked: I'll generate a temporary password for you to share manually instead.
-                </span>
-              </span>
-            </label>
+            <Label className="mb-2 block text-white/80">How should they get access?</Label>
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+              {(
+                [
+                  { value: "email", label: "Email invite", hint: "We email them a link" },
+                  { value: "link", label: "Magic link", hint: "Get a link to share yourself" },
+                  { value: "password", label: "Temp password", hint: "You set a password now" },
+                ] as { value: DeliveryMethod; label: string; hint: string }[]
+              ).map((opt) => (
+                <button
+                  key={opt.value}
+                  type="button"
+                  onClick={() => setDeliveryMethod(opt.value)}
+                  className={`rounded-xl border px-4 py-3 text-left text-sm transition-colors ${
+                    deliveryMethod === opt.value
+                      ? "border-emerald-500/40 bg-emerald-500/10 text-white"
+                      : "border-white/10 bg-white/[0.03] text-white/70 hover:border-white/20"
+                  }`}
+                >
+                  <span className="block font-medium">{opt.label}</span>
+                  <span className="block text-xs text-white/40">{opt.hint}</span>
+                </button>
+              ))}
+            </div>
           </div>
 
           {error && <p className="text-sm text-red-400 sm:col-span-2">{error}</p>}
@@ -396,7 +458,9 @@ export function EmployeesManager({ initialEmployees }: { initialEmployees: Emplo
               className="rounded-full bg-emerald-500 text-black hover:bg-emerald-400"
             >
               {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
-              {inviteByEmail ? "Send invite" : "Create account"}
+              {deliveryMethod === "email" && "Send invite"}
+              {deliveryMethod === "link" && "Generate link"}
+              {deliveryMethod === "password" && "Create account"}
             </Button>
           </div>
         </form>
