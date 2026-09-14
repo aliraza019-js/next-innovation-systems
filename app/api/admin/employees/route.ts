@@ -14,13 +14,17 @@ function generateTempPassword(): string {
   return out
 }
 
-function getSiteUrl(req: Request): string {
-  // Explicit env var — deriving this from the incoming request was
-  // unreliable (local dev falls back to a different port when 3001 is
-  // busy; Vercel's internal request handling doesn't always reflect the
-  // public domain either). Falls back to the request's own origin only if
-  // SITE_URL was never configured.
-  return process.env.SITE_URL || new URL(req.url).origin
+function getSiteUrl(): string {
+  // No fallback to the request's own origin on purpose — that's what
+  // produced broken invite links pointing at localhost:3000 in production
+  // (Vercel's serverless runtime doesn't reliably expose the public domain
+  // via the request object, and a silent wrong-but-valid-looking URL is
+  // far worse than a loud, immediate error here).
+  const url = process.env.SITE_URL
+  if (!url) {
+    throw new Error("SITE_URL is not configured on this deployment")
+  }
+  return url.replace(/\/$/, "")
 }
 
 async function sendInviteEmail(to: string, fullName: string, actionLink: string) {
@@ -95,7 +99,7 @@ export async function POST(req: Request) {
     let magicLink: string | null = null
 
     if (method === "email" || method === "link") {
-      const redirectTo = `${getSiteUrl(req)}/admin/accept-invite`
+      const redirectTo = `${getSiteUrl()}/admin/accept-invite`
 
       const { data: generated, error: generateError } = await supabase.auth.admin.generateLink({
         type: "invite",
@@ -165,6 +169,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true, method, tempPassword, magicLink: method === "link" ? magicLink : null })
   } catch (error: any) {
     console.error("Create employee error:", error)
-    return NextResponse.json({ error: "Something went wrong" }, { status: 500 })
+    return NextResponse.json({ error: error?.message || "Something went wrong" }, { status: 500 })
   }
 }
